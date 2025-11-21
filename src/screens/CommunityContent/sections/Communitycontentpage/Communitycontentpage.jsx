@@ -1,12 +1,11 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Link, useLocation, useParams } from "react-router-dom";
 import { useAuth } from "../../../../contexts/AuthContext";
 import { CommunitypageWrapper } from "../../../../components/CommunitypageWrapper";
-import { PageButton } from "../../../../components/PageButton";
 import "./style.css";
 
-const ALL_POSTS = [
-  // TODO: Backend Integration: Replace with API call to fetch all community posts
+// Default posts for fallback if localStorage is empty
+const DEFAULT_POSTS = [
   { id: 1, title: "돼지고기 100g 나눔합니다.", author: "test3User", date: "2025-11-03", category: "나눔", content: "돼지고기를 너무 많이 샀네요 남는 돼지고기 나눔해요" },
   { id: 2, title: "양파 2개 나눔해요", author: "user123", date: "2025-11-02", category: "나눔", content: "양파 2개 필요하신 분 가져가세요" },
   { id: 3, title: "닭고기 500g 나눔", author: "foodlover", date: "2025-11-01", category: "나눔", content: "신선한 닭고기 나눔합니다" },
@@ -24,35 +23,45 @@ export const Communitycontentpage = () => {
   const { id } = useParams();
   const { user, isAuthenticated } = useAuth();
   const [newComment, setNewComment] = useState("");
-  
-  // Load comments from localStorage for this specific post
-  const [comments, setComments] = useState(() => {
-    const storedComments = localStorage.getItem(`comments_${id}`);
-    return storedComments ? JSON.parse(storedComments) : [];
-  });
+  const [allCommunityPosts, setAllCommunityPosts] = useState([]);
+  const [comments, setComments] = useState([]);
 
-  const post = location.state?.post || {
-    // TODO: Backend Integration: Fetch post details by ID if not available in state
-    id: id,
-    title: "돼지고기 100g 나눔합니다.",
-    author: "test3User",
-    date: "2025-11-03",
-    category: "나눔",
-    content: "돼지고기를 너무 많이 샀네요 남는 돼지고기 나눔해요"
-  };
+  // Load comments from localStorage for this specific post, and re-load when 'id' changes
+  useEffect(() => {
+    const storedComments = localStorage.getItem(`comments_${id}`);
+    setComments(storedComments ? JSON.parse(storedComments) : []);
+  }, [id]);
+
+  useEffect(() => {
+    // Load all community posts from localStorage to find related posts
+    const storedPosts = JSON.parse(localStorage.getItem("communityPosts") || "[]");
+    const combined = [...storedPosts, ...DEFAULT_POSTS];
+    setAllCommunityPosts(combined);
+  }, []);
+
+  const post = location.state?.post || 
+    allCommunityPosts.find(p => p.id === parseInt(id)) || 
+    {
+      id: id,
+      title: "게시글을 찾을 수 없습니다.",
+      author: "알 수 없음",
+      date: "",
+      category: "",
+      content: "해당 게시글을 불러오는 데 실패했습니다."
+    };
 
   // Get related posts (2 before and 2 after current post)
-  const currentIndex = ALL_POSTS.findIndex(p => p.id === parseInt(id));
+  const currentIndex = allCommunityPosts.findIndex(p => p.id === parseInt(id));
   const relatedPosts = [];
   
   // Get 2 posts before
   for (let i = Math.max(0, currentIndex - 2); i < currentIndex; i++) {
-    if (ALL_POSTS[i]) relatedPosts.push(ALL_POSTS[i]);
+    if (allCommunityPosts[i]) relatedPosts.push(allCommunityPosts[i]);
   }
   
   // Get 2 posts after
-  for (let i = currentIndex + 1; i <= Math.min(ALL_POSTS.length - 1, currentIndex + 2); i++) {
-    if (ALL_POSTS[i]) relatedPosts.push(ALL_POSTS[i]);
+  for (let i = currentIndex + 1; i <= Math.min(allCommunityPosts.length - 1, currentIndex + 2); i++) {
+    if (allCommunityPosts[i]) relatedPosts.push(allCommunityPosts[i]);
   }
 
   const handleCommentSubmit = (e) => {
@@ -81,13 +90,8 @@ export const Communitycontentpage = () => {
     setNewComment("");
   };
 
-
   return (
     <div className="communitycontentpage">
-      <Link className="communitycontentpage-wrapper" to="/communitypage">
-        <div className="text-wrapper-5">재료 나눔 게시판</div>
-      </Link>
-
       <div className="div-3">
         <div className="content-category">
           <img
@@ -106,7 +110,7 @@ export const Communitycontentpage = () => {
         <div className="navbar">
           <div className="text-wrapper-6">작성자</div>
 
-          <div className="text-wrapper-6">{post.author}</div>
+          <div className="text-wrapper-6">{post.author}님</div>
 
           <div className="text-wrapper-6">작성일</div>
 
@@ -127,7 +131,7 @@ export const Communitycontentpage = () => {
           <div className="comments-list">
             {comments.map((comment) => (
               <div key={comment.id} className="comment-item">
-                <div className="comment-author">{comment.author}</div>
+                <div className="comment-author">{comment.author}님</div>
                 <div className="comment-content">{comment.content}</div>
                 <div className="comment-date">{comment.date}</div>
               </div>

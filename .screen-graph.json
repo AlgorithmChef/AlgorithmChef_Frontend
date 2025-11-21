@@ -178,15 +178,15 @@
       }
     },
     {
-      "id": "src\\screens\\Desktop\\sections\\IngredientInventory\\IngredientInventory.jsx:74:8-to-src\\screens\\AddIngredientPage\\AddIngredientPage.jsx",
+      "id": "src\\screens\\Desktop\\sections\\IngredientInventory\\IngredientInventory.jsx:58:8-to-src\\screens\\AddIngredientPage\\AddIngredientPage.jsx",
       "source": "src\\screens\\Desktop\\Desktop.jsx",
       "target": "src\\screens\\AddIngredientPage\\AddIngredientPage.jsx",
       "data": {
         "viaRoute": "/addingredient",
         "trigger": {
-          "element": "<Link to=\"/addingredient\" className=\"add-new-ingredient\">\n          <div className=\"add-new-container\">\n            <div className=\"add-new-header\">\n              <div className=\"add-new-header-text\">추가하기</div>\n            </div>\n\n            <div className=\"add-new-section\">\n              <img\n                className=\"add-new-icon\"\n                alt=\"Add new icon\"\n                src=\"https://c.animaapp.com/sjWITF5i/img/addnewicon.svg\"\n              />\n            </div>\n          </div>\n        </Link>",
-          "line": 74,
-          "endLine": 88,
+          "element": "<Link \n          to=\"/addingredient\" \n          className=\"add-new-ingredient\"\n        >\n          <div className=\"add-new-container\">\n            <div className=\"add-new-header\">\n              <div className=\"add-new-header-text\">추가하기</div>\n            </div>\n\n            <div className=\"add-new-section\">\n              <img\n                className=\"add-new-icon\"\n                alt=\"Add new icon\"\n                src=\"https://c.animaapp.com/sjWITF5i/img/addnewicon.svg\"\n              />\n            </div>\n          </div>\n        </Link>",
+          "line": 58,
+          "endLine": 75,
           "column": 8,
           "endColumn": 15,
           "sourceFile": "src\\screens\\Desktop\\sections\\IngredientInventory\\IngredientInventory.jsx"
@@ -706,31 +706,15 @@
       }
     },
     {
-      "id": "src\\screens\\CommunityContent\\sections\\Communitycontentpage\\Communitycontentpage.jsx:87:6-to-src\\screens\\CommunityPage\\CommunityPage.jsx",
-      "source": "src\\screens\\CommunityContent\\CommunityContent.jsx",
-      "target": "src\\screens\\CommunityPage\\CommunityPage.jsx",
-      "data": {
-        "viaRoute": "/communitypage",
-        "trigger": {
-          "element": "<Link className=\"communitycontentpage-wrapper\" to=\"/communitypage\">\n        <div className=\"text-wrapper-5\">재료 나눔 게시판</div>\n      </Link>",
-          "line": 87,
-          "endLine": 89,
-          "column": 6,
-          "endColumn": 13,
-          "sourceFile": "src\\screens\\CommunityContent\\sections\\Communitycontentpage\\Communitycontentpage.jsx"
-        }
-      }
-    },
-    {
-      "id": "src\\screens\\AddIngredientPage\\AddIngredientPage.jsx:54:4-to-src\\screens\\Desktop\\Desktop.jsx",
+      "id": "src\\screens\\AddIngredientPage\\AddIngredientPage.jsx:69:4-to-src\\screens\\Desktop\\Desktop.jsx",
       "source": "src\\screens\\AddIngredientPage\\AddIngredientPage.jsx",
       "target": "src\\screens\\Desktop\\Desktop.jsx",
       "data": {
         "viaRoute": "/desktop",
         "trigger": {
           "element": "navigate(\"/desktop\")",
-          "line": 54,
-          "endLine": 54,
+          "line": 69,
+          "endLine": 69,
           "column": 4,
           "endColumn": 24,
           "sourceFile": "src\\screens\\AddIngredientPage\\AddIngredientPage.jsx"
@@ -738,15 +722,15 @@
       }
     },
     {
-      "id": "src\\screens\\AddIngredientPage\\AddIngredientPage.jsx:118:12-to-src\\screens\\Desktop\\Desktop.jsx",
+      "id": "src\\screens\\AddIngredientPage\\AddIngredientPage.jsx:133:12-to-src\\screens\\Desktop\\Desktop.jsx",
       "source": "src\\screens\\AddIngredientPage\\AddIngredientPage.jsx",
       "target": "src\\screens\\Desktop\\Desktop.jsx",
       "data": {
         "viaRoute": "/desktop",
         "trigger": {
           "element": "<Link to=\"/desktop\" className=\"add-ingredient-cancel-btn\">\n              취소\n            </Link>",
-          "line": 118,
-          "endLine": 120,
+          "line": 133,
+          "endLine": 135,
           "column": 12,
           "endColumn": 19,
           "sourceFile": "src\\screens\\AddIngredientPage\\AddIngredientPage.jsx"

@@ -29,9 +29,9 @@ export const SignupPopup = ({ onClose, onSwitchToLogin, onSwitchToPreferences })
     // Simulating backend validation and storage with localStorage
     const mockUsers = JSON.parse(localStorage.getItem("registeredUsers") || "[]");
     
-    // Check if username already exists
-    if (mockUsers.find((u) => u.username === username)) {
-      alert("이미 존재하는 아이디입니다.");
+    // Check if email already exists
+    if (mockUsers.find((u) => u.email === email)) { // Check for duplicate email
+      alert("이미 존재하는 이메일입니다.");
       return;
     }
 

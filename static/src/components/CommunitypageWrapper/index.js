@@ -1,1 +1,0 @@
-export { CommunitypageWrapper } from "./CommunitypageWrapper";

@@ -3,7 +3,7 @@ import { useAuth } from "../../contexts/AuthContext";
 import "./style.css";
 
 export const LoginPopup = ({ onClose, onSwitchToSignup }) => {
-  const [username, setUsername] = useState("");
+  const [email, setEmail] = useState(""); // Changed to email
   const [password, setPassword] = useState("");
   const { login } = useAuth();
 
@@ -11,28 +11,28 @@ export const LoginPopup = ({ onClose, onSwitchToSignup }) => {
     e.preventDefault();
     
     // TODO: Backend Integration: Replace with actual backend API call for login
-    // Example: axios.post('/api/login', { username, password })
+    // Example: axios.post('/api/login', { email, password })
     //   .then(response => {
-    //     login(response.data.user);
+    //     login(response.data.user); // Assuming backend returns user data including username
     //     onClose();
     //   })
     //   .catch(error => {
-    //     alert("아이디 또는 비밀번호가 일치하지 않습니다.");
+    //     alert("이메일 또는 비밀번호가 일치하지 않습니다.");
     //   });
 
     // Simulating backend validation with localStorage
     const mockUsers = JSON.parse(localStorage.getItem("registeredUsers") || "[]");
     const foundUser = mockUsers.find(
-      (u) => u.username === username && u.password === password
+      (u) => u.email === email && u.password === password // Validate by email
     );
 
     if (foundUser) {
-      const userData = { username: foundUser.username };
+      const userData = { username: foundUser.username, email: foundUser.email }; // Store username for display
       login(userData);
       console.log("Login successful:", userData);
       onClose();
     } else {
-      alert("아이디 또는 비밀번호가 일치하지 않습니다.");
+      alert("이메일 또는 비밀번호가 일치하지 않습니다.");
     }
   };
 
@@ -47,13 +47,13 @@ export const LoginPopup = ({ onClose, onSwitchToSignup }) => {
 
         <form className="login-popup-form" onSubmit={handleLogin}>
           <div className="login-popup-input-group">
-            <label className="login-popup-label">아이디</label>
+            <label className="login-popup-label">이메일</label> {/* Changed label */}
             <input
-              type="text"
+              type="email" // Changed type to email
               className="login-popup-input"
-              value={username}
-              onChange={(e) => setUsername(e.target.value)}
-              placeholder="아이디를 입력하세요"
+              value={email} // Changed value to email
+              onChange={(e) => setEmail(e.target.value)} // Changed onChange to setEmail
+              placeholder="이메일을 입력하세요" // Changed placeholder
               required
             />
           </div>

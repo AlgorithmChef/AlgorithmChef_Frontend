@@ -1,1 +1,0 @@
-export { IngredientComponent } from "./IngredientComponent";

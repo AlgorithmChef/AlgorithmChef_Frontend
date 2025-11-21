@@ -1,6 +1,7 @@
 import React from "react";
 import { RouterProvider, createBrowserRouter } from "react-router-dom";
 import { AuthProvider } from "./contexts/AuthContext";
+import { ScrollToTop } from "./components/ScrollToTop"; // Import ScrollToTop
 import { CommunityContent } from "./screens/CommunityContent";
 import { CommunityPage } from "./screens/CommunityPage";
 import { Desktop } from "./screens/Desktop";
@@ -52,7 +53,9 @@ const router = createBrowserRouter([
 export const App = () => {
   return (
     <AuthProvider>
-      <RouterProvider router={router} />
+      <RouterProvider router={router}>
+        <ScrollToTop /> {/* Render ScrollToTop inside RouterProvider */}
+      </RouterProvider>
     </AuthProvider>
   );
 };
