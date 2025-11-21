@@ -1,0 +1,7 @@
+.header-instance {
+  align-self: stretch !important;
+  background-color: transparent !important;
+  width: 100% !important;
+  max-width: 1280px !important;
+  margin: 0 auto !important;
+}

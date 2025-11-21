@@ -1,0 +1,336 @@
+.communitycontentpage {
+  align-items: center;
+  align-self: stretch;
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  flex-grow: 1;
+  gap: 10px;
+  padding: 10px 64px;
+  position: relative;
+  width: 100%;
+  max-width: 1280px;
+  margin: 0 auto;
+}
+
+.communitycontentpage .communitycontentpage-wrapper {
+  align-items: flex-start;
+  align-self: stretch;
+  border-bottom-style: solid;
+  border-bottom-width: 1px;
+  border-color: #000000;
+  display: flex;
+  flex: 0 0 auto;
+  flex-direction: column;
+  gap: 10px;
+  padding: 10px;
+  position: relative;
+  width: 100%;
+}
+
+.communitycontentpage .text-wrapper-5 {
+  align-items: center;
+  color: #000000;
+  display: flex;
+  font-family: "Inter", Helvetica;
+  font-size: 48px;
+  font-weight: 700;
+  justify-content: center;
+  letter-spacing: -0.96px;
+  line-height: 57.6px;
+  margin-top: -1.00px;
+  position: relative;
+  white-space: nowrap;
+  width: fit-content;
+}
+
+.communitycontentpage .div-3 {
+  align-items: flex-start;
+  align-self: stretch;
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  flex-grow: 1;
+  gap: 10px;
+  padding: 10px;
+  position: relative;
+  width: 100%;
+}
+
+.communitycontentpage .content-category {
+  align-items: flex-start;
+  background-color: #0000001a;
+  border-radius: 16px;
+  display: inline-flex;
+  flex: 0 0 auto;
+  gap: 10px;
+  padding: 0px 20px;
+  position: relative;
+}
+
+.communitycontentpage .category-icon {
+  aspect-ratio: 1;
+  height: 54px;
+  position: relative;
+  width: 54px;
+}
+
+.communitycontentpage .content-categorytext {
+  align-items: center;
+  color: #00000099;
+  display: flex;
+  font-family: "Inter", Helvetica;
+  font-size: 48px;
+  font-weight: 700;
+  justify-content: center;
+  letter-spacing: -0.96px;
+  line-height: 57.6px;
+  margin-top: -1.00px;
+  position: relative;
+  white-space: nowrap;
+  width: fit-content;
+}
+
+.communitycontentpage .content-header {
+  align-items: flex-start;
+  align-self: stretch;
+  display: flex;
+  flex: 0 0 auto;
+  gap: 10px;
+  padding: 0px 20px;
+  position: relative;
+  width: 100%;
+}
+
+.communitycontentpage .content-headertext {
+  align-items: center;
+  color: #000000;
+  display: flex;
+  font-family: "Inter", Helvetica;
+  font-size: 36px;
+  font-weight: 700;
+  justify-content: center;
+  letter-spacing: -0.72px;
+  line-height: 43.2px;
+  margin-top: -1.00px;
+  position: relative;
+  white-space: nowrap;
+  width: fit-content;
+}
+
+.communitycontentpage .navbar {
+  align-items: flex-start;
+  align-self: stretch;
+  display: flex;
+  flex: 0 0 auto;
+  gap: 10px;
+  padding: 0px 25px;
+  position: relative;
+  width: 100%;
+}
+
+.communitycontentpage .text-wrapper-6 {
+  align-items: center;
+  color: #00000066;
+  display: flex;
+  font-family: "Inter", Helvetica;
+  font-size: 12px;
+  font-weight: 500;
+  justify-content: center;
+  letter-spacing: -0.24px;
+  line-height: 14.4px;
+  margin-top: -1.00px;
+  position: relative;
+  white-space: nowrap;
+  width: fit-content;
+}
+
+.communitycontentpage .content {
+  align-items: flex-start;
+  align-self: stretch;
+  background-color: #f9f9f9;
+  border-radius: 12px;
+  display: flex;
+  flex: 1;
+  flex-grow: 1;
+  gap: 10px;
+  min-height: 200px;
+  padding: 20px;
+  position: relative;
+  width: 100%;
+}
+
+.communitycontentpage .content-text {
+  align-self: stretch;
+  color: #000000;
+  flex: 1;
+  font-family: "Inter", Helvetica;
+  font-size: 16px;
+  font-weight: 500;
+  letter-spacing: -0.08px;
+  line-height: 24px;
+  margin: 0;
+  position: relative;
+  white-space: pre-wrap;
+  word-break: break-word;
+}
+
+.communitycontentpage .comments-section {
+  align-self: stretch;
+  background-color: #f5f5f5;
+  border-radius: 15px;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  padding: 20px;
+  width: 100%;
+}
+
+.communitycontentpage .comments-header {
+  border-bottom: 1px solid #e0e0e0;
+  padding-bottom: 10px;
+}
+
+.communitycontentpage .comments-title {
+  font-family: "Inter", Helvetica;
+  font-size: 20px;
+  font-weight: 700;
+  color: #000000;
+  margin: 0;
+}
+
+.communitycontentpage .comments-list {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.communitycontentpage .comment-item {
+  background-color: #ffffff;
+  border-radius: 10px;
+  padding: 15px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.communitycontentpage .comment-author {
+  font-family: "Inter", Helvetica;
+  font-size: 14px;
+  font-weight: 700;
+  color: #f6910b;
+}
+
+.communitycontentpage .comment-content {
+  font-family: "Inter", Helvetica;
+  font-size: 14px;
+  font-weight: 500;
+  color: #000000;
+  line-height: 1.5;
+}
+
+.communitycontentpage .comment-date {
+  font-family: "Inter", Helvetica;
+  font-size: 12px;
+  font-weight: 500;
+  color: #999999;
+}
+
+.communitycontentpage .comment-form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-top: 10px;
+}
+
+.communitycontentpage .comment-input {
+  padding: 12px;
+  border: 1px solid #e0e0e0;
+  border-radius: 10px;
+  font-family: "Inter", Helvetica;
+  font-size: 14px;
+  resize: vertical;
+  transition: border-color 0.2s;
+}
+
+.communitycontentpage .comment-input:focus {
+  outline: none;
+  border-color: #f6910b;
+}
+
+.communitycontentpage .comment-input:disabled {
+  background-color: #f5f5f5;
+  cursor: not-allowed;
+}
+
+.communitycontentpage .comment-submit-btn {
+  align-self: flex-end;
+  padding: 10px 20px;
+  background-color: #f6910b;
+  border: none;
+  border-radius: 10px;
+  color: #ffffff;
+  cursor: pointer;
+  font-family: "Inter", Helvetica;
+  font-size: 14px;
+  font-weight: 700;
+  transition: background-color 0.2s;
+}
+
+.communitycontentpage .comment-submit-btn:hover:not(:disabled) {
+  background-color: #e58209;
+}
+
+.communitycontentpage .comment-submit-btn:disabled {
+  background-color: #cccccc;
+  cursor: not-allowed;
+}
+
+.communitycontentpage .div-4 {
+  align-items: center;
+  align-self: stretch;
+  border-color: #000000;
+  border-top-style: solid;
+  border-top-width: 1px;
+  display: flex;
+  flex: 0 0 auto;
+  flex-direction: column;
+  gap: 10px;
+  padding: 20px 10px;
+  position: relative;
+  width: 100%;
+}
+
+.communitycontentpage .related-posts-header {
+  align-self: stretch;
+  padding: 10px 0;
+  border-bottom: 1px solid #e0e0e0;
+  margin-bottom: 10px;
+}
+
+.communitycontentpage .related-posts-title {
+  font-family: "Inter", Helvetica;
+  font-size: 20px;
+  font-weight: 700;
+  color: #000000;
+  margin: 0;
+  text-align: center;
+}
+
+.communitycontentpage .design-component-instance-node {
+  flex: 0 0 auto !important;
+  left: unset !important;
+  margin-left: -1.00px !important;
+  margin-right: -1.00px !important;
+  margin-top: -1.00px !important;
+  top: unset !important;
+}
+
+.communitycontentpage .communitypage-2 {
+  flex: 0 0 auto !important;
+  left: unset !important;
+  margin-left: -1.00px !important;
+  margin-right: -1.00px !important;
+  top: unset !important;
+}
+

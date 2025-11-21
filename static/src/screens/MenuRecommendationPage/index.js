@@ -1,0 +1,1 @@
+export { MenuRecommendationPage } from "./MenuRecommendationPage";
