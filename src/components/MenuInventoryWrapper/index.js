@@ -1,0 +1,1 @@
+export { MenuInventoryWrapper } from "./MenuInventoryWrapper";

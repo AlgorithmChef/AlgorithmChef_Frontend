@@ -1,0 +1,31 @@
+.recipepage {
+  align-items: center;
+  border: 1px solid;
+  border-color: #0000001a;
+  border-radius: 16px;
+  display: inline-flex;
+  flex-direction: column;
+  gap: 10px;
+  justify-content: center;
+  left: 10px;
+  padding: 5px 15px;
+  position: relative;
+  top: 10px;
+}
+
+.recipepage .text-wrapper-11 {
+  align-items: center;
+  color: #000000cc;
+  display: flex;
+  font-family: "Inter", Helvetica;
+  font-size: 24px;
+  font-weight: 500;
+  justify-content: center;
+  letter-spacing: -0.12px;
+  line-height: 33.6px;
+  margin-top: -1.00px;
+  position: relative;
+  text-align: center;
+  white-space: nowrap;
+  width: fit-content;
+}
