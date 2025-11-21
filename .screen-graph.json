@@ -72,7 +72,7 @@
       "data": {
         "viaRoute": "/desktop",
         "trigger": {
-          "element": "<Link to=\"/desktop\" className=\"menu-item\" onClick={() => setShowMenu(false)}>\n                홈\n              </Link>",
+          "element": "<Link to=\"/desktop\" className=\"menu-item\" onClick={() => setShowMenu(false)}>\r\n                홈\r\n              </Link>",
           "line": 53,
           "endLine": 55,
           "column": 14,
@@ -88,7 +88,7 @@
       "data": {
         "viaRoute": "/menurecommendation",
         "trigger": {
-          "element": "<Link to=\"/menurecommendation\" className=\"menu-item\" onClick={() => setShowMenu(false)}>\n                메뉴 추천\n              </Link>",
+          "element": "<Link to=\"/menurecommendation\" className=\"menu-item\" onClick={() => setShowMenu(false)}>\r\n                메뉴 추천\r\n              </Link>",
           "line": 56,
           "endLine": 58,
           "column": 14,
@@ -104,7 +104,7 @@
       "data": {
         "viaRoute": "/communitypage",
         "trigger": {
-          "element": "<Link to=\"/communitypage\" className=\"menu-item\" onClick={() => setShowMenu(false)}>\n                재료 나눔 게시판\n              </Link>",
+          "element": "<Link to=\"/communitypage\" className=\"menu-item\" onClick={() => setShowMenu(false)}>\r\n                재료 나눔 게시판\r\n              </Link>",
           "line": 59,
           "endLine": 61,
           "column": 14,
@@ -120,7 +120,7 @@
       "data": {
         "viaRoute": "/mypage",
         "trigger": {
-          "element": "<Link to=\"/mypage\" className=\"menu-item\" onClick={() => setShowMenu(false)}>\n                마이페이지\n              </Link>",
+          "element": "<Link to=\"/mypage\" className=\"menu-item\" onClick={() => setShowMenu(false)}>\r\n                마이페이지\r\n              </Link>",
           "line": 62,
           "endLine": 64,
           "column": 14,
@@ -136,7 +136,7 @@
       "data": {
         "viaRoute": "/desktop",
         "trigger": {
-          "element": "<Link to=\"/desktop\">\n            <img\n              className=\"unified-header-logo\"\n              alt=\"Logo\"\n              src=\"https://c.animaapp.com/sjWITF5i/img/iconimage-1.svg\"\n            />\n          </Link>",
+          "element": "<Link to=\"/desktop\">\r\n            <img\r\n              className=\"unified-header-logo\"\r\n              alt=\"Logo\"\r\n              src=\"https://c.animaapp.com/sjWITF5i/img/iconimage-1.svg\"\r\n            />\r\n          </Link>",
           "line": 67,
           "endLine": 73,
           "column": 10,
@@ -152,7 +152,7 @@
       "data": {
         "viaRoute": "/desktop",
         "trigger": {
-          "element": "<Link to=\"/desktop\" className=\"unified-header-center\">\n          <p className=\"unified-header-title\">\n            <span className=\"title-text-black\">알고리즘 </span>\n            <span className=\"title-text-orange\">셰프</span>\n          </p>\n        </Link>",
+          "element": "<Link to=\"/desktop\" className=\"unified-header-center\">\r\n          <p className=\"unified-header-title\">\r\n            <span className=\"title-text-black\">알고리즘 </span>\r\n            <span className=\"title-text-orange\">셰프</span>\r\n          </p>\r\n        </Link>",
           "line": 76,
           "endLine": 81,
           "column": 8,
@@ -168,7 +168,7 @@
       "data": {
         "viaRoute": "/mypage",
         "trigger": {
-          "element": "<Link to=\"/mypage\" className=\"unified-mypage-btn\">\n            <div className=\"unified-mypage-text\">마이페이지</div>\n          </Link>",
+          "element": "<Link to=\"/mypage\" className=\"unified-mypage-btn\">\r\n            <div className=\"unified-mypage-text\">마이페이지</div>\r\n          </Link>",
           "line": 84,
           "endLine": 86,
           "column": 10,
@@ -184,7 +184,7 @@
       "data": {
         "viaRoute": "/addingredient",
         "trigger": {
-          "element": "<Link \n          to=\"/addingredient\" \n          className=\"add-new-ingredient\"\n        >\n          <div className=\"add-new-container\">\n            <div className=\"add-new-header\">\n              <div className=\"add-new-header-text\">추가하기</div>\n            </div>\n\n            <div className=\"add-new-section\">\n              <img\n                className=\"add-new-icon\"\n                alt=\"Add new icon\"\n                src=\"https://c.animaapp.com/sjWITF5i/img/addnewicon.svg\"\n              />\n            </div>\n          </div>\n        </Link>",
+          "element": "<Link \r\n          to=\"/addingredient\" \r\n          className=\"add-new-ingredient\"\r\n        >\r\n          <div className=\"add-new-container\">\r\n            <div className=\"add-new-header\">\r\n              <div className=\"add-new-header-text\">추가하기</div>\r\n            </div>\r\n\r\n            <div className=\"add-new-section\">\r\n              <img\r\n                className=\"add-new-icon\"\r\n                alt=\"Add new icon\"\r\n                src=\"https://c.animaapp.com/sjWITF5i/img/addnewicon.svg\"\r\n              />\r\n            </div>\r\n          </div>\r\n        </Link>",
           "line": 58,
           "endLine": 75,
           "column": 8,
@@ -200,7 +200,7 @@
       "data": {
         "viaRoute": "/menurecommendation",
         "trigger": {
-          "element": "<Link to=\"/menurecommendation\" className=\"menu-inventory-header-link\">\n          <MenuInventoryWrapper className=\"design-component-instance-node-2\" />\n        </Link>",
+          "element": "<Link to=\"/menurecommendation\" className=\"menu-inventory-header-link\">\r\n          <MenuInventoryWrapper className=\"design-component-instance-node-2\" />\r\n        </Link>",
           "line": 57,
           "endLine": 59,
           "column": 8,
@@ -216,7 +216,7 @@
       "data": {
         "viaRoute": "/menurecommendation",
         "trigger": {
-          "element": "<Link to=\"/menurecommendation\" className=\"menu-more-btn\">\n          더보기 →\n        </Link>",
+          "element": "<Link to=\"/menurecommendation\" className=\"menu-more-btn\">\r\n          더보기 →\r\n        </Link>",
           "line": 60,
           "endLine": 62,
           "column": 8,
@@ -232,7 +232,7 @@
       "data": {
         "viaRoute": "/communitypage",
         "trigger": {
-          "element": "<Link className=\"community-header\" to=\"/communitypage\">\n        <div className=\"community-header-2\">재료 나눔 게시판</div>\n      </Link>",
+          "element": "<Link className=\"community-header\" to=\"/communitypage\">\r\n        <div className=\"community-header-2\">재료 나눔 게시판</div>\r\n      </Link>",
           "line": 18,
           "endLine": 20,
           "column": 6,
@@ -248,7 +248,7 @@
       "data": {
         "viaRoute": "/desktop",
         "trigger": {
-          "element": "<Link to=\"/desktop\" className=\"menu-item\" onClick={() => setShowMenu(false)}>\n                홈\n              </Link>",
+          "element": "<Link to=\"/desktop\" className=\"menu-item\" onClick={() => setShowMenu(false)}>\r\n                홈\r\n              </Link>",
           "line": 53,
           "endLine": 55,
           "column": 14,
@@ -264,7 +264,7 @@
       "data": {
         "viaRoute": "/menurecommendation",
         "trigger": {
-          "element": "<Link to=\"/menurecommendation\" className=\"menu-item\" onClick={() => setShowMenu(false)}>\n                메뉴 추천\n              </Link>",
+          "element": "<Link to=\"/menurecommendation\" className=\"menu-item\" onClick={() => setShowMenu(false)}>\r\n                메뉴 추천\r\n              </Link>",
           "line": 56,
           "endLine": 58,
           "column": 14,
@@ -280,7 +280,7 @@
       "data": {
         "viaRoute": "/communitypage",
         "trigger": {
-          "element": "<Link to=\"/communitypage\" className=\"menu-item\" onClick={() => setShowMenu(false)}>\n                재료 나눔 게시판\n              </Link>",
+          "element": "<Link to=\"/communitypage\" className=\"menu-item\" onClick={() => setShowMenu(false)}>\r\n                재료 나눔 게시판\r\n              </Link>",
           "line": 59,
           "endLine": 61,
           "column": 14,
@@ -296,7 +296,7 @@
       "data": {
         "viaRoute": "/mypage",
         "trigger": {
-          "element": "<Link to=\"/mypage\" className=\"menu-item\" onClick={() => setShowMenu(false)}>\n                마이페이지\n              </Link>",
+          "element": "<Link to=\"/mypage\" className=\"menu-item\" onClick={() => setShowMenu(false)}>\r\n                마이페이지\r\n              </Link>",
           "line": 62,
           "endLine": 64,
           "column": 14,
@@ -312,7 +312,7 @@
       "data": {
         "viaRoute": "/desktop",
         "trigger": {
-          "element": "<Link to=\"/desktop\">\n            <img\n              className=\"unified-header-logo\"\n              alt=\"Logo\"\n              src=\"https://c.animaapp.com/sjWITF5i/img/iconimage-1.svg\"\n            />\n          </Link>",
+          "element": "<Link to=\"/desktop\">\r\n            <img\r\n              className=\"unified-header-logo\"\r\n              alt=\"Logo\"\r\n              src=\"https://c.animaapp.com/sjWITF5i/img/iconimage-1.svg\"\r\n            />\r\n          </Link>",
           "line": 67,
           "endLine": 73,
           "column": 10,
@@ -328,7 +328,7 @@
       "data": {
         "viaRoute": "/desktop",
         "trigger": {
-          "element": "<Link to=\"/desktop\" className=\"unified-header-center\">\n          <p className=\"unified-header-title\">\n            <span className=\"title-text-black\">알고리즘 </span>\n            <span className=\"title-text-orange\">셰프</span>\n          </p>\n        </Link>",
+          "element": "<Link to=\"/desktop\" className=\"unified-header-center\">\r\n          <p className=\"unified-header-title\">\r\n            <span className=\"title-text-black\">알고리즘 </span>\r\n            <span className=\"title-text-orange\">셰프</span>\r\n          </p>\r\n        </Link>",
           "line": 76,
           "endLine": 81,
           "column": 8,
@@ -344,7 +344,7 @@
       "data": {
         "viaRoute": "/mypage",
         "trigger": {
-          "element": "<Link to=\"/mypage\" className=\"unified-mypage-btn\">\n            <div className=\"unified-mypage-text\">마이페이지</div>\n          </Link>",
+          "element": "<Link to=\"/mypage\" className=\"unified-mypage-btn\">\r\n            <div className=\"unified-mypage-text\">마이페이지</div>\r\n          </Link>",
           "line": 84,
           "endLine": 86,
           "column": 10,
@@ -376,7 +376,7 @@
       "data": {
         "viaRoute": "/desktop",
         "trigger": {
-          "element": "<Link to=\"/desktop\" className=\"menu-item\" onClick={() => setShowMenu(false)}>\n                홈\n              </Link>",
+          "element": "<Link to=\"/desktop\" className=\"menu-item\" onClick={() => setShowMenu(false)}>\r\n                홈\r\n              </Link>",
           "line": 53,
           "endLine": 55,
           "column": 14,
@@ -392,7 +392,7 @@
       "data": {
         "viaRoute": "/menurecommendation",
         "trigger": {
-          "element": "<Link to=\"/menurecommendation\" className=\"menu-item\" onClick={() => setShowMenu(false)}>\n                메뉴 추천\n              </Link>",
+          "element": "<Link to=\"/menurecommendation\" className=\"menu-item\" onClick={() => setShowMenu(false)}>\r\n                메뉴 추천\r\n              </Link>",
           "line": 56,
           "endLine": 58,
           "column": 14,
@@ -408,7 +408,7 @@
       "data": {
         "viaRoute": "/communitypage",
         "trigger": {
-          "element": "<Link to=\"/communitypage\" className=\"menu-item\" onClick={() => setShowMenu(false)}>\n                재료 나눔 게시판\n              </Link>",
+          "element": "<Link to=\"/communitypage\" className=\"menu-item\" onClick={() => setShowMenu(false)}>\r\n                재료 나눔 게시판\r\n              </Link>",
           "line": 59,
           "endLine": 61,
           "column": 14,
@@ -424,7 +424,7 @@
       "data": {
         "viaRoute": "/mypage",
         "trigger": {
-          "element": "<Link to=\"/mypage\" className=\"menu-item\" onClick={() => setShowMenu(false)}>\n                마이페이지\n              </Link>",
+          "element": "<Link to=\"/mypage\" className=\"menu-item\" onClick={() => setShowMenu(false)}>\r\n                마이페이지\r\n              </Link>",
           "line": 62,
           "endLine": 64,
           "column": 14,
@@ -440,7 +440,7 @@
       "data": {
         "viaRoute": "/desktop",
         "trigger": {
-          "element": "<Link to=\"/desktop\">\n            <img\n              className=\"unified-header-logo\"\n              alt=\"Logo\"\n              src=\"https://c.animaapp.com/sjWITF5i/img/iconimage-1.svg\"\n            />\n          </Link>",
+          "element": "<Link to=\"/desktop\">\r\n            <img\r\n              className=\"unified-header-logo\"\r\n              alt=\"Logo\"\r\n              src=\"https://c.animaapp.com/sjWITF5i/img/iconimage-1.svg\"\r\n            />\r\n          </Link>",
           "line": 67,
           "endLine": 73,
           "column": 10,
@@ -456,7 +456,7 @@
       "data": {
         "viaRoute": "/desktop",
         "trigger": {
-          "element": "<Link to=\"/desktop\" className=\"unified-header-center\">\n          <p className=\"unified-header-title\">\n            <span className=\"title-text-black\">알고리즘 </span>\n            <span className=\"title-text-orange\">셰프</span>\n          </p>\n        </Link>",
+          "element": "<Link to=\"/desktop\" className=\"unified-header-center\">\r\n          <p className=\"unified-header-title\">\r\n            <span className=\"title-text-black\">알고리즘 </span>\r\n            <span className=\"title-text-orange\">셰프</span>\r\n          </p>\r\n        </Link>",
           "line": 76,
           "endLine": 81,
           "column": 8,
@@ -472,7 +472,7 @@
       "data": {
         "viaRoute": "/mypage",
         "trigger": {
-          "element": "<Link to=\"/mypage\" className=\"unified-mypage-btn\">\n            <div className=\"unified-mypage-text\">마이페이지</div>\n          </Link>",
+          "element": "<Link to=\"/mypage\" className=\"unified-mypage-btn\">\r\n            <div className=\"unified-mypage-text\">마이페이지</div>\r\n          </Link>",
           "line": 84,
           "endLine": 86,
           "column": 10,
@@ -488,7 +488,7 @@
       "data": {
         "viaRoute": "/desktop",
         "trigger": {
-          "element": "<Link to=\"/desktop\" className=\"menu-item\" onClick={() => setShowMenu(false)}>\n                홈\n              </Link>",
+          "element": "<Link to=\"/desktop\" className=\"menu-item\" onClick={() => setShowMenu(false)}>\r\n                홈\r\n              </Link>",
           "line": 53,
           "endLine": 55,
           "column": 14,
@@ -504,7 +504,7 @@
       "data": {
         "viaRoute": "/menurecommendation",
         "trigger": {
-          "element": "<Link to=\"/menurecommendation\" className=\"menu-item\" onClick={() => setShowMenu(false)}>\n                메뉴 추천\n              </Link>",
+          "element": "<Link to=\"/menurecommendation\" className=\"menu-item\" onClick={() => setShowMenu(false)}>\r\n                메뉴 추천\r\n              </Link>",
           "line": 56,
           "endLine": 58,
           "column": 14,
@@ -520,7 +520,7 @@
       "data": {
         "viaRoute": "/communitypage",
         "trigger": {
-          "element": "<Link to=\"/communitypage\" className=\"menu-item\" onClick={() => setShowMenu(false)}>\n                재료 나눔 게시판\n              </Link>",
+          "element": "<Link to=\"/communitypage\" className=\"menu-item\" onClick={() => setShowMenu(false)}>\r\n                재료 나눔 게시판\r\n              </Link>",
           "line": 59,
           "endLine": 61,
           "column": 14,
@@ -536,7 +536,7 @@
       "data": {
         "viaRoute": "/mypage",
         "trigger": {
-          "element": "<Link to=\"/mypage\" className=\"menu-item\" onClick={() => setShowMenu(false)}>\n                마이페이지\n              </Link>",
+          "element": "<Link to=\"/mypage\" className=\"menu-item\" onClick={() => setShowMenu(false)}>\r\n                마이페이지\r\n              </Link>",
           "line": 62,
           "endLine": 64,
           "column": 14,
@@ -552,7 +552,7 @@
       "data": {
         "viaRoute": "/desktop",
         "trigger": {
-          "element": "<Link to=\"/desktop\">\n            <img\n              className=\"unified-header-logo\"\n              alt=\"Logo\"\n              src=\"https://c.animaapp.com/sjWITF5i/img/iconimage-1.svg\"\n            />\n          </Link>",
+          "element": "<Link to=\"/desktop\">\r\n            <img\r\n              className=\"unified-header-logo\"\r\n              alt=\"Logo\"\r\n              src=\"https://c.animaapp.com/sjWITF5i/img/iconimage-1.svg\"\r\n            />\r\n          </Link>",
           "line": 67,
           "endLine": 73,
           "column": 10,
@@ -568,7 +568,7 @@
       "data": {
         "viaRoute": "/desktop",
         "trigger": {
-          "element": "<Link to=\"/desktop\" className=\"unified-header-center\">\n          <p className=\"unified-header-title\">\n            <span className=\"title-text-black\">알고리즘 </span>\n            <span className=\"title-text-orange\">셰프</span>\n          </p>\n        </Link>",
+          "element": "<Link to=\"/desktop\" className=\"unified-header-center\">\r\n          <p className=\"unified-header-title\">\r\n            <span className=\"title-text-black\">알고리즘 </span>\r\n            <span className=\"title-text-orange\">셰프</span>\r\n          </p>\r\n        </Link>",
           "line": 76,
           "endLine": 81,
           "column": 8,
@@ -584,7 +584,7 @@
       "data": {
         "viaRoute": "/mypage",
         "trigger": {
-          "element": "<Link to=\"/mypage\" className=\"unified-mypage-btn\">\n            <div className=\"unified-mypage-text\">마이페이지</div>\n          </Link>",
+          "element": "<Link to=\"/mypage\" className=\"unified-mypage-btn\">\r\n            <div className=\"unified-mypage-text\">마이페이지</div>\r\n          </Link>",
           "line": 84,
           "endLine": 86,
           "column": 10,
@@ -600,7 +600,7 @@
       "data": {
         "viaRoute": "/desktop",
         "trigger": {
-          "element": "<Link to=\"/desktop\" className=\"menu-item\" onClick={() => setShowMenu(false)}>\n                홈\n              </Link>",
+          "element": "<Link to=\"/desktop\" className=\"menu-item\" onClick={() => setShowMenu(false)}>\r\n                홈\r\n              </Link>",
           "line": 53,
           "endLine": 55,
           "column": 14,
@@ -616,7 +616,7 @@
       "data": {
         "viaRoute": "/menurecommendation",
         "trigger": {
-          "element": "<Link to=\"/menurecommendation\" className=\"menu-item\" onClick={() => setShowMenu(false)}>\n                메뉴 추천\n              </Link>",
+          "element": "<Link to=\"/menurecommendation\" className=\"menu-item\" onClick={() => setShowMenu(false)}>\r\n                메뉴 추천\r\n              </Link>",
           "line": 56,
           "endLine": 58,
           "column": 14,
@@ -632,7 +632,7 @@
       "data": {
         "viaRoute": "/communitypage",
         "trigger": {
-          "element": "<Link to=\"/communitypage\" className=\"menu-item\" onClick={() => setShowMenu(false)}>\n                재료 나눔 게시판\n              </Link>",
+          "element": "<Link to=\"/communitypage\" className=\"menu-item\" onClick={() => setShowMenu(false)}>\r\n                재료 나눔 게시판\r\n              </Link>",
           "line": 59,
           "endLine": 61,
           "column": 14,
@@ -648,7 +648,7 @@
       "data": {
         "viaRoute": "/mypage",
         "trigger": {
-          "element": "<Link to=\"/mypage\" className=\"menu-item\" onClick={() => setShowMenu(false)}>\n                마이페이지\n              </Link>",
+          "element": "<Link to=\"/mypage\" className=\"menu-item\" onClick={() => setShowMenu(false)}>\r\n                마이페이지\r\n              </Link>",
           "line": 62,
           "endLine": 64,
           "column": 14,
@@ -664,7 +664,7 @@
       "data": {
         "viaRoute": "/desktop",
         "trigger": {
-          "element": "<Link to=\"/desktop\">\n            <img\n              className=\"unified-header-logo\"\n              alt=\"Logo\"\n              src=\"https://c.animaapp.com/sjWITF5i/img/iconimage-1.svg\"\n            />\n          </Link>",
+          "element": "<Link to=\"/desktop\">\r\n            <img\r\n              className=\"unified-header-logo\"\r\n              alt=\"Logo\"\r\n              src=\"https://c.animaapp.com/sjWITF5i/img/iconimage-1.svg\"\r\n            />\r\n          </Link>",
           "line": 67,
           "endLine": 73,
           "column": 10,
@@ -680,7 +680,7 @@
       "data": {
         "viaRoute": "/desktop",
         "trigger": {
-          "element": "<Link to=\"/desktop\" className=\"unified-header-center\">\n          <p className=\"unified-header-title\">\n            <span className=\"title-text-black\">알고리즘 </span>\n            <span className=\"title-text-orange\">셰프</span>\n          </p>\n        </Link>",
+          "element": "<Link to=\"/desktop\" className=\"unified-header-center\">\r\n          <p className=\"unified-header-title\">\r\n            <span className=\"title-text-black\">알고리즘 </span>\r\n            <span className=\"title-text-orange\">셰프</span>\r\n          </p>\r\n        </Link>",
           "line": 76,
           "endLine": 81,
           "column": 8,
@@ -696,7 +696,7 @@
       "data": {
         "viaRoute": "/mypage",
         "trigger": {
-          "element": "<Link to=\"/mypage\" className=\"unified-mypage-btn\">\n            <div className=\"unified-mypage-text\">마이페이지</div>\n          </Link>",
+          "element": "<Link to=\"/mypage\" className=\"unified-mypage-btn\">\r\n            <div className=\"unified-mypage-text\">마이페이지</div>\r\n          </Link>",
           "line": 84,
           "endLine": 86,
           "column": 10,
@@ -728,7 +728,7 @@
       "data": {
         "viaRoute": "/desktop",
         "trigger": {
-          "element": "<Link to=\"/desktop\" className=\"add-ingredient-cancel-btn\">\n              취소\n            </Link>",
+          "element": "<Link to=\"/desktop\" className=\"add-ingredient-cancel-btn\">\r\n              취소\r\n            </Link>",
           "line": 133,
           "endLine": 135,
           "column": 12,
@@ -744,7 +744,7 @@
       "data": {
         "viaRoute": "/desktop",
         "trigger": {
-          "element": "<Link to=\"/desktop\" className=\"menu-item\" onClick={() => setShowMenu(false)}>\n                홈\n              </Link>",
+          "element": "<Link to=\"/desktop\" className=\"menu-item\" onClick={() => setShowMenu(false)}>\r\n                홈\r\n              </Link>",
           "line": 53,
           "endLine": 55,
           "column": 14,
@@ -760,7 +760,7 @@
       "data": {
         "viaRoute": "/menurecommendation",
         "trigger": {
-          "element": "<Link to=\"/menurecommendation\" className=\"menu-item\" onClick={() => setShowMenu(false)}>\n                메뉴 추천\n              </Link>",
+          "element": "<Link to=\"/menurecommendation\" className=\"menu-item\" onClick={() => setShowMenu(false)}>\r\n                메뉴 추천\r\n              </Link>",
           "line": 56,
           "endLine": 58,
           "column": 14,
@@ -776,7 +776,7 @@
       "data": {
         "viaRoute": "/communitypage",
         "trigger": {
-          "element": "<Link to=\"/communitypage\" className=\"menu-item\" onClick={() => setShowMenu(false)}>\n                재료 나눔 게시판\n              </Link>",
+          "element": "<Link to=\"/communitypage\" className=\"menu-item\" onClick={() => setShowMenu(false)}>\r\n                재료 나눔 게시판\r\n              </Link>",
           "line": 59,
           "endLine": 61,
           "column": 14,
@@ -792,7 +792,7 @@
       "data": {
         "viaRoute": "/mypage",
         "trigger": {
-          "element": "<Link to=\"/mypage\" className=\"menu-item\" onClick={() => setShowMenu(false)}>\n                마이페이지\n              </Link>",
+          "element": "<Link to=\"/mypage\" className=\"menu-item\" onClick={() => setShowMenu(false)}>\r\n                마이페이지\r\n              </Link>",
           "line": 62,
           "endLine": 64,
           "column": 14,
@@ -808,7 +808,7 @@
       "data": {
         "viaRoute": "/desktop",
         "trigger": {
-          "element": "<Link to=\"/desktop\">\n            <img\n              className=\"unified-header-logo\"\n              alt=\"Logo\"\n              src=\"https://c.animaapp.com/sjWITF5i/img/iconimage-1.svg\"\n            />\n          </Link>",
+          "element": "<Link to=\"/desktop\">\r\n            <img\r\n              className=\"unified-header-logo\"\r\n              alt=\"Logo\"\r\n              src=\"https://c.animaapp.com/sjWITF5i/img/iconimage-1.svg\"\r\n            />\r\n          </Link>",
           "line": 67,
           "endLine": 73,
           "column": 10,
@@ -824,7 +824,7 @@
       "data": {
         "viaRoute": "/desktop",
         "trigger": {
-          "element": "<Link to=\"/desktop\" className=\"unified-header-center\">\n          <p className=\"unified-header-title\">\n            <span className=\"title-text-black\">알고리즘 </span>\n            <span className=\"title-text-orange\">셰프</span>\n          </p>\n        </Link>",
+          "element": "<Link to=\"/desktop\" className=\"unified-header-center\">\r\n          <p className=\"unified-header-title\">\r\n            <span className=\"title-text-black\">알고리즘 </span>\r\n            <span className=\"title-text-orange\">셰프</span>\r\n          </p>\r\n        </Link>",
           "line": 76,
           "endLine": 81,
           "column": 8,
@@ -840,7 +840,7 @@
       "data": {
         "viaRoute": "/mypage",
         "trigger": {
-          "element": "<Link to=\"/mypage\" className=\"unified-mypage-btn\">\n            <div className=\"unified-mypage-text\">마이페이지</div>\n          </Link>",
+          "element": "<Link to=\"/mypage\" className=\"unified-mypage-btn\">\r\n            <div className=\"unified-mypage-text\">마이페이지</div>\r\n          </Link>",
           "line": 84,
           "endLine": 86,
           "column": 10,
@@ -888,7 +888,7 @@
       "data": {
         "viaRoute": "/communitypage",
         "trigger": {
-          "element": "<Link to=\"/communitypage\" className=\"create-post-cancel-btn\">\n              취소\n            </Link>",
+          "element": "<Link to=\"/communitypage\" className=\"create-post-cancel-btn\">\r\n              취소\r\n            </Link>",
           "line": 88,
           "endLine": 90,
           "column": 12,
@@ -904,7 +904,7 @@
       "data": {
         "viaRoute": "/desktop",
         "trigger": {
-          "element": "<Link to=\"/desktop\" className=\"menu-item\" onClick={() => setShowMenu(false)}>\n                홈\n              </Link>",
+          "element": "<Link to=\"/desktop\" className=\"menu-item\" onClick={() => setShowMenu(false)}>\r\n                홈\r\n              </Link>",
           "line": 53,
           "endLine": 55,
           "column": 14,
@@ -920,7 +920,7 @@
       "data": {
         "viaRoute": "/menurecommendation",
         "trigger": {
-          "element": "<Link to=\"/menurecommendation\" className=\"menu-item\" onClick={() => setShowMenu(false)}>\n                메뉴 추천\n              </Link>",
+          "element": "<Link to=\"/menurecommendation\" className=\"menu-item\" onClick={() => setShowMenu(false)}>\r\n                메뉴 추천\r\n              </Link>",
           "line": 56,
           "endLine": 58,
           "column": 14,
@@ -936,7 +936,7 @@
       "data": {
         "viaRoute": "/communitypage",
         "trigger": {
-          "element": "<Link to=\"/communitypage\" className=\"menu-item\" onClick={() => setShowMenu(false)}>\n                재료 나눔 게시판\n              </Link>",
+          "element": "<Link to=\"/communitypage\" className=\"menu-item\" onClick={() => setShowMenu(false)}>\r\n                재료 나눔 게시판\r\n              </Link>",
           "line": 59,
           "endLine": 61,
           "column": 14,
@@ -952,7 +952,7 @@
       "data": {
         "viaRoute": "/mypage",
         "trigger": {
-          "element": "<Link to=\"/mypage\" className=\"menu-item\" onClick={() => setShowMenu(false)}>\n                마이페이지\n              </Link>",
+          "element": "<Link to=\"/mypage\" className=\"menu-item\" onClick={() => setShowMenu(false)}>\r\n                마이페이지\r\n              </Link>",
           "line": 62,
           "endLine": 64,
           "column": 14,
@@ -968,7 +968,7 @@
       "data": {
         "viaRoute": "/desktop",
         "trigger": {
-          "element": "<Link to=\"/desktop\">\n            <img\n              className=\"unified-header-logo\"\n              alt=\"Logo\"\n              src=\"https://c.animaapp.com/sjWITF5i/img/iconimage-1.svg\"\n            />\n          </Link>",
+          "element": "<Link to=\"/desktop\">\r\n            <img\r\n              className=\"unified-header-logo\"\r\n              alt=\"Logo\"\r\n              src=\"https://c.animaapp.com/sjWITF5i/img/iconimage-1.svg\"\r\n            />\r\n          </Link>",
           "line": 67,
           "endLine": 73,
           "column": 10,
@@ -984,7 +984,7 @@
       "data": {
         "viaRoute": "/desktop",
         "trigger": {
-          "element": "<Link to=\"/desktop\" className=\"unified-header-center\">\n          <p className=\"unified-header-title\">\n            <span className=\"title-text-black\">알고리즘 </span>\n            <span className=\"title-text-orange\">셰프</span>\n          </p>\n        </Link>",
+          "element": "<Link to=\"/desktop\" className=\"unified-header-center\">\r\n          <p className=\"unified-header-title\">\r\n            <span className=\"title-text-black\">알고리즘 </span>\r\n            <span className=\"title-text-orange\">셰프</span>\r\n          </p>\r\n        </Link>",
           "line": 76,
           "endLine": 81,
           "column": 8,
@@ -1000,7 +1000,7 @@
       "data": {
         "viaRoute": "/mypage",
         "trigger": {
-          "element": "<Link to=\"/mypage\" className=\"unified-mypage-btn\">\n            <div className=\"unified-mypage-text\">마이페이지</div>\n          </Link>",
+          "element": "<Link to=\"/mypage\" className=\"unified-mypage-btn\">\r\n            <div className=\"unified-mypage-text\">마이페이지</div>\r\n          </Link>",
           "line": 84,
           "endLine": 86,
           "column": 10,
@@ -1016,7 +1016,7 @@
       "data": {
         "viaRoute": "/desktop",
         "trigger": {
-          "element": "<Link to=\"/desktop\" className=\"menu-item\" onClick={() => setShowMenu(false)}>\n                홈\n              </Link>",
+          "element": "<Link to=\"/desktop\" className=\"menu-item\" onClick={() => setShowMenu(false)}>\r\n                홈\r\n              </Link>",
           "line": 53,
           "endLine": 55,
           "column": 14,
@@ -1032,7 +1032,7 @@
       "data": {
         "viaRoute": "/menurecommendation",
         "trigger": {
-          "element": "<Link to=\"/menurecommendation\" className=\"menu-item\" onClick={() => setShowMenu(false)}>\n                메뉴 추천\n              </Link>",
+          "element": "<Link to=\"/menurecommendation\" className=\"menu-item\" onClick={() => setShowMenu(false)}>\r\n                메뉴 추천\r\n              </Link>",
           "line": 56,
           "endLine": 58,
           "column": 14,
@@ -1048,7 +1048,7 @@
       "data": {
         "viaRoute": "/communitypage",
         "trigger": {
-          "element": "<Link to=\"/communitypage\" className=\"menu-item\" onClick={() => setShowMenu(false)}>\n                재료 나눔 게시판\n              </Link>",
+          "element": "<Link to=\"/communitypage\" className=\"menu-item\" onClick={() => setShowMenu(false)}>\r\n                재료 나눔 게시판\r\n              </Link>",
           "line": 59,
           "endLine": 61,
           "column": 14,
@@ -1064,7 +1064,7 @@
       "data": {
         "viaRoute": "/mypage",
         "trigger": {
-          "element": "<Link to=\"/mypage\" className=\"menu-item\" onClick={() => setShowMenu(false)}>\n                마이페이지\n              </Link>",
+          "element": "<Link to=\"/mypage\" className=\"menu-item\" onClick={() => setShowMenu(false)}>\r\n                마이페이지\r\n              </Link>",
           "line": 62,
           "endLine": 64,
           "column": 14,
@@ -1080,7 +1080,7 @@
       "data": {
         "viaRoute": "/desktop",
         "trigger": {
-          "element": "<Link to=\"/desktop\">\n            <img\n              className=\"unified-header-logo\"\n              alt=\"Logo\"\n              src=\"https://c.animaapp.com/sjWITF5i/img/iconimage-1.svg\"\n            />\n          </Link>",
+          "element": "<Link to=\"/desktop\">\r\n            <img\r\n              className=\"unified-header-logo\"\r\n              alt=\"Logo\"\r\n              src=\"https://c.animaapp.com/sjWITF5i/img/iconimage-1.svg\"\r\n            />\r\n          </Link>",
           "line": 67,
           "endLine": 73,
           "column": 10,
@@ -1096,7 +1096,7 @@
       "data": {
         "viaRoute": "/desktop",
         "trigger": {
-          "element": "<Link to=\"/desktop\" className=\"unified-header-center\">\n          <p className=\"unified-header-title\">\n            <span className=\"title-text-black\">알고리즘 </span>\n            <span className=\"title-text-orange\">셰프</span>\n          </p>\n        </Link>",
+          "element": "<Link to=\"/desktop\" className=\"unified-header-center\">\r\n          <p className=\"unified-header-title\">\r\n            <span className=\"title-text-black\">알고리즘 </span>\r\n            <span className=\"title-text-orange\">셰프</span>\r\n          </p>\r\n        </Link>",
           "line": 76,
           "endLine": 81,
           "column": 8,
@@ -1112,7 +1112,7 @@
       "data": {
         "viaRoute": "/mypage",
         "trigger": {
-          "element": "<Link to=\"/mypage\" className=\"unified-mypage-btn\">\n            <div className=\"unified-mypage-text\">마이페이지</div>\n          </Link>",
+          "element": "<Link to=\"/mypage\" className=\"unified-mypage-btn\">\r\n            <div className=\"unified-mypage-text\">마이페이지</div>\r\n          </Link>",
           "line": 84,
           "endLine": 86,
           "column": 10,
