@@ -1,0 +1,83 @@
+.community {
+  align-items: flex-start;
+  align-self: stretch;
+  display: flex;
+  flex: 0 0 auto;
+  flex-direction: column;
+  gap: 10px;
+  padding: 10px 64px;
+  position: relative;
+  width: 100%;
+}
+
+.community .community-header {
+  align-self: stretch;
+  border-bottom-style: solid;
+  border-bottom-width: 1px;
+  border-color: #000000b2;
+  display: flex;
+  flex: 0 0 auto;
+  padding: 10px 0;
+  position: relative;
+  width: 100%;
+}
+
+.community .community-header-2 {
+  align-items: center;
+  color: #000000;
+  display: flex;
+  font-family: "Inter", Helvetica;
+  font-size: 48px;
+  font-weight: 700;
+  justify-content: flex-start;
+  letter-spacing: -0.96px;
+  line-height: 57.6px;
+  white-space: nowrap;
+}
+
+@media (max-width: 768px) {
+  .community .community-header-2 {
+    font-size: 32px;
+    line-height: 38.4px;
+  }
+}
+
+.community .community-contents {
+  align-items: flex-start;
+  align-self: stretch;
+  display: flex;
+  flex: 0 0 auto;
+  flex-direction: column;
+  gap: 10px;
+  max-height: 300px;
+  overflow: hidden;
+  padding: 10px 20px;
+  position: relative;
+  width: 100%;
+}
+
+.community .communitypage-3 {
+  flex: 0 0 auto !important;
+  left: unset !important;
+  margin-left: -1.00px !important;
+  margin-right: -21.00px !important;
+  margin-top: -1.00px !important;
+  top: unset !important;
+}
+
+.community .communitypage-4 {
+  flex: 0 0 auto !important;
+  left: unset !important;
+  margin-left: -1.00px !important;
+  margin-right: -21.00px !important;
+  top: unset !important;
+}
+
+.community .communitypage-5 {
+  flex: 0 0 auto !important;
+  left: unset !important;
+  margin-bottom: -1.00px !important;
+  margin-left: -1.00px !important;
+  margin-right: -21.00px !important;
+  top: unset !important;
+}

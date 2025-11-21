@@ -1,0 +1,1 @@
+export { Tendency } from "./Tendency";

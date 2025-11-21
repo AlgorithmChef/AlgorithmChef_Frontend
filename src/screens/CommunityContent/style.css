@@ -1,0 +1,9 @@
+.community-content {
+  align-items: center;
+  background-color: #ffffff;
+  display: flex;
+  flex-direction: column;
+  min-height: 1080px;
+  position: relative;
+  width: 100%;
+}
