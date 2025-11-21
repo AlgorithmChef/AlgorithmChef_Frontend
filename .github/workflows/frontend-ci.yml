@@ -2,9 +2,9 @@ name: Frontend CI (Vite Build)
 
 on:
   push:
-    branches: [ "main" ] # 브랜치 이름이 master라면 수정 필요
+    branches: [ "**" ] # 브랜치 이름이 master라면 수정 필요
   pull_request:
-    branches: [ "main" ]
+    branches: [ "**" ]
 
 jobs:
   build-check:
