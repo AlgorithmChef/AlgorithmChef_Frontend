@@ -3,6 +3,33 @@ import { Link } from "react-router-dom";
 import { UnifiedHeader } from "../../components/UnifiedHeader";
 import "./style.css";
 
+// Placeholder for WebSpeech API integration
+const startVoiceRecognition = () => {
+  alert("음성 인식 기능은 WebSpeech API와 연동 예정입니다.");
+  // const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
+  // if (!SpeechRecognition) {
+  //   alert("이 브라우저는 음성 인식을 지원하지 않습니다.");
+  //   return;
+  // }
+  // const recognition = new SpeechRecognition();
+  // recognition.lang = 'ko-KR';
+  // recognition.interimResults = false;
+  // recognition.maxAlternatives = 1;
+
+  // recognition.start();
+
+  // recognition.onresult = (event) => {
+  //   const speechResult = event.results[0][0].transcript;
+  //   console.log('Speech Result:', speechResult);
+  //   // setSearchQuery(speechResult); // Update search query with speech result
+  // };
+
+  // recognition.onerror = (event) => {
+  //   console.error('Speech recognition error:', event.error);
+  //   alert('음성 인식 중 오류가 발생했습니다: ' + event.error);
+  // };
+};
+
 const MOCK_RECIPES = [
   // TODO: Backend Integration: Replace with API call to fetch all available recipes
   {
@@ -223,6 +250,9 @@ export const MenuRecommendationPage = () => {
           />
           <button className="menu-search-btn" onClick={handleGeminiSearch}>
             검색
+          </button>
+          <button className="menu-voice-btn" onClick={startVoiceRecognition}>
+            🎤
           </button>
         </div>
 

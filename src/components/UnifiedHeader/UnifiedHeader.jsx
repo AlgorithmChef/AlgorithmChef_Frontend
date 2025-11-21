@@ -86,7 +86,7 @@ export const UnifiedHeader = () => {
           </Link>
           {isAuthenticated ? (
             <div className="unified-user-info">
-              <span className="unified-username">{user?.username}</span>
+              <span className="unified-username">{user?.username}님</span> {/* Added "님" */}
               <button className="unified-logout-btn" onClick={logout}>
                 로그아웃
               </button>

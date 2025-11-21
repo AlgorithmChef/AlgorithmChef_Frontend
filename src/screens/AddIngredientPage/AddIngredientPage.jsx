@@ -1,5 +1,5 @@
-import React, { useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import React, { useState, useEffect } from "react";
+import { Link, useNavigate } from "react-router-dom"; // Removed useLocation
 import { UnifiedHeader } from "../../components/UnifiedHeader";
 import "./style.css";
 
@@ -27,6 +27,10 @@ const MOCK_INGREDIENT_DATABASE = [
 
 export const AddIngredientPage = () => {
   const navigate = useNavigate();
+  // Removed useLocation and onAddMultipleIngredients here
+  // const location = useLocation();
+  // const onAddMultipleIngredients = location.state?.onAddMultipleIngredients; 
+
   const [selectedCategory, setSelectedCategory] = useState("전체");
   const [searchQuery, setSearchQuery] = useState("");
   const [selectedIngredients, setSelectedIngredients] = useState([]);
@@ -43,15 +47,26 @@ export const AddIngredientPage = () => {
       if (exists) {
         return prev.filter((item) => item.id !== ingredient.id);
       } else {
-        return [...prev, { ...ingredient, expiryDays: 7 }];
+        return [...prev, { ...ingredient, expiryDays: 7 }]; // Default expiry days
       }
     });
   };
 
   const handleAddIngredients = () => {
-    // TODO: Send selected ingredients to backend
-    console.log("Adding ingredients:", selectedIngredients);
-    navigate("/desktop");
+    if (selectedIngredients.length === 0) {
+      alert("추가할 식재료를 선택해주세요.");
+      return;
+    }
+    
+    // Directly update localStorage for userIngredients
+    const currentIngredients = JSON.parse(localStorage.getItem("userIngredients") || "[]");
+    const updatedIngredients = [...currentIngredients, ...selectedIngredients];
+    localStorage.setItem("userIngredients", JSON.stringify(updatedIngredients));
+
+    // TODO: Backend Integration: Send selectedIngredients to backend
+    console.log("Adding ingredients to mock DB:", selectedIngredients);
+    
+    navigate("/desktop"); // Navigate back to desktop
   };
 
   return (
