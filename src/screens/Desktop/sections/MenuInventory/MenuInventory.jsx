@@ -58,10 +58,10 @@ export const MenuInventory = () => {
           <MenuInventoryWrapper className="design-component-instance-node-2" />
         </Link>
         <Link to="/menurecommendation" className="menu-more-btn">
-          더보기 →
+          추천받기 →
         </Link>
       </div>
-      <div className="tendency-inventory">
+      {/* <div className="tendency-inventory">
         {AVAILABLE_TENDENCIES.map((tendency) => (
           <Tendency
             key={tendency}
@@ -70,9 +70,9 @@ export const MenuInventory = () => {
             onClick={() => toggleTendency(tendency)}
           />
         ))}
-      </div>
+      </div> */}
 
-      <div className="div-6">
+      {/* <div className="div-6">
         {filteredRecipes.map((recipe) => (
           <Link 
             key={recipe.id} 
@@ -109,6 +109,21 @@ export const MenuInventory = () => {
             </div>
           </Link>
         ))}
+      </div> */}
+      <div className="menu-empty-state-container" style={{
+          textAlign: 'center',
+          padding: '60px 0',
+          color: '#888',
+          backgroundColor: '#f9f9f9',
+          borderRadius: '12px',
+          margin: '20px 0',
+          width: '100%',
+          boxSizing: 'border-box'
+      }}>
+        <div style={{ fontSize: '48px', marginBottom: '10px' }}>🍽️</div>
+        <p style={{ fontSize: '14px', width : "100%", margin: 0 }}>
+          오른쪽의 <strong>'추천받기'</strong> 버튼을 눌러 맛있는 레시피를 만나보세요!
+        </p>
       </div>
     </div>
   );

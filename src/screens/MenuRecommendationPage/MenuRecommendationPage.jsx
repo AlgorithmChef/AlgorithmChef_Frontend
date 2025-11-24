@@ -2,36 +2,10 @@ import React, { useState, useRef } from "react";
 import { Link } from "react-router-dom";
 import { UnifiedHeader } from "../../components/UnifiedHeader";
 import "./style.css";
+import Voice from "./Voice/Voice";
 
-// Placeholder for WebSpeech API integration
-const startVoiceRecognition = () => {
-  alert("음성 인식 기능은 WebSpeech API와 연동 예정입니다.");
-  // const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
-  // if (!SpeechRecognition) {
-  //   alert("이 브라우저는 음성 인식을 지원하지 않습니다.");
-  //   return;
-  // }
-  // const recognition = new SpeechRecognition();
-  // recognition.lang = 'ko-KR';
-  // recognition.interimResults = false;
-  // recognition.maxAlternatives = 1;
-
-  // recognition.start();
-
-  // recognition.onresult = (event) => {
-  //   const speechResult = event.results[0][0].transcript;
-  //   console.log('Speech Result:', speechResult);
-  //   // setSearchQuery(speechResult); // Update search query with speech result
-  // };
-
-  // recognition.onerror = (event) => {
-  //   console.error('Speech recognition error:', event.error);
-  //   alert('음성 인식 중 오류가 발생했습니다: ' + event.error);
-  // };
-};
-
+// Mock Data
 const MOCK_RECIPES = [
-  // TODO: Backend Integration: Replace with API call to fetch all available recipes
   {
     id: 1,
     name: "저당 닭갈비",
@@ -176,43 +150,66 @@ export const MenuRecommendationPage = () => {
   const [recipes, setRecipes] = useState([]);
   const [currentPage, setCurrentPage] = useState(0);
   const [recommendationType, setRecommendationType] = useState(null);
+  const [isVoiceMode, setIsVoiceMode] = useState(false);
+  const [showRecipe, setShowRecipe] = useState(false);
   const scrollContainerRef = useRef(null);
 
-  const handleIngredientBasedRecommendation = async () => {
-    // TODO: Backend Integration: Replace with API call to get ingredient-based recommendations
-    // Example: const response = await axios.get('/api/recommend/ingredients');
-    // setRecipes(response.data);
+
+  const startVoiceRecognition = () => {
+    setIsVoiceMode(true);
+  };
+
+  const closeVoicePopup = () => {
+    setIsVoiceMode(false);
+  };
+
+  // 음성 검색 결과 처리 (검색 실행)
+  const handleVoiceSearch = (transcript) => {
+    setSearchQuery(transcript);
+    handleGeminiSearch(transcript); 
+    closeVoicePopup();
+  };
+
+  // 버튼 클릭 시: 모드만 설정하고 결과창은 닫음 (검색 버튼 유도)
+  const handleIngredientBasedRecommendation = () => {
     setRecommendationType("ingredient");
-    setRecipes(MOCK_RECIPES); // Using mock data for now
-    setCurrentPage(0);
+    setRecipes([]);       
+    setShowRecipe(false); 
   };
 
-  const handleTendencyBasedRecommendation = async () => {
-    // TODO: Backend Integration: Replace with API call to get tendency-based recommendations
-    // Example: const response = await axios.get('/api/recommend/tendencies');
-    // setRecipes(response.data);
+  // 버튼 클릭 시: 모드만 설정하고 결과창은 닫음 (검색 버튼 유도)
+  const handleTendencyBasedRecommendation = () => {
     setRecommendationType("tendency");
-    setRecipes(MOCK_RECIPES); // Using mock data for now
-    setCurrentPage(0);
+    setRecipes([]);       
+    setShowRecipe(false); 
   };
 
-  const handleGeminiSearch = async () => {
-    if (!searchQuery.trim()) return;
-    
-    // TODO: Backend Integration: Integrate with Gemini API via your backend
-    // Example: const response = await axios.post('/api/gemini-search', { query: searchQuery });
-    // setRecipes(response.data);
-    console.log("Searching with Gemini:", searchQuery);
-    alert("Gemini API 연동 예정입니다.");
-    
-    // Mock search results
-    const filtered = MOCK_RECIPES.filter(recipe => 
-      recipe.name.includes(searchQuery) || 
-      recipe.ingredients.some(ing => ing.includes(searchQuery))
-    );
-    setRecipes(filtered.length > 0 ? filtered : MOCK_RECIPES);
-    setRecommendationType("search");
+  // [수정됨] 검색 로직: 조건이 없어도 검색이 실행됨
+  const handleGeminiSearch = async (queryOverride) => {
+    const query = typeof queryOverride === 'string' ? queryOverride : searchQuery;
+
+    // 빈 값 체크(alert) 삭제함: 조건 없이도 검색 가능
+
+    // TODO: 백엔드 연동 시 recommendationType과 query를 함께 전송
+    console.log(`Searching with Gemini (Type: ${recommendationType}):`, query);
+    // alert(`Gemini API 연동 예정입니다.`); 
+
+    let filtered = [];
+
+    if (query && query.trim() !== "") {
+      // 1. 검색어가 있는 경우: 필터링 실행
+      filtered = MOCK_RECIPES.filter(recipe =>
+        recipe.name.includes(query) ||
+        recipe.ingredients.some(ing => ing.includes(query))
+      );
+    } else {
+      // 2. 검색어가 없는 경우: 전체 리스트 보여줌 (혹은 해당 모드의 추천 리스트)
+      filtered = MOCK_RECIPES;
+    }
+
+    setRecipes(filtered);
     setCurrentPage(0);
+    setShowRecipe(true); // 결과창 표시
   };
 
   const totalPages = Math.ceil(recipes.length / RECIPES_PER_PAGE);
@@ -238,32 +235,16 @@ export const MenuRecommendationPage = () => {
           <h1 className="menu-recommendation-title">메뉴 추천</h1>
           <p className="menu-recommendation-subtitle">AI가 추천하는 맞춤 레시피를 찾아보세요</p>
         </div>
-
-        <div className="menu-search-section">
-          <input
-            type="text"
-            className="menu-search-input"
-            placeholder="레시피나 재료를 검색하세요..."
-            value={searchQuery}
-            onChange={(e) => setSearchQuery(e.target.value)}
-            onKeyPress={(e) => e.key === 'Enter' && handleGeminiSearch()}
-          />
-          <button className="menu-search-btn" onClick={handleGeminiSearch}>
-            검색
-          </button>
-          <button className="menu-voice-btn" onClick={startVoiceRecognition}>
-            🎤
-          </button>
-        </div>
-
+        
+        {/* 모드 선택 버튼 */}
         <div className="menu-recommendation-buttons">
-          <button 
+          <button
             className={`menu-recommendation-btn ${recommendationType === "ingredient" ? "active" : ""}`}
             onClick={handleIngredientBasedRecommendation}
           >
             식재료 기반 추천
           </button>
-          <button 
+          <button
             className={`menu-recommendation-btn ${recommendationType === "tendency" ? "active" : ""}`}
             onClick={handleTendencyBasedRecommendation}
           >
@@ -271,10 +252,32 @@ export const MenuRecommendationPage = () => {
           </button>
         </div>
 
-        {recipes.length > 0 && (
+        {/* 검색 영역 */}
+        <div className="menu-search-section">
+          <label htmlFor="condition" className="menu-condition-label">조건</label>
+          <input
+            type="text"
+            name="condition"
+            className="menu-search-input"
+            placeholder="원하는 조건을 자유롭게 말씀해주세요 (비워두면 전체 추천)."
+            value={searchQuery}
+            onChange={(e) => setSearchQuery(e.target.value)}
+            onKeyPress={(e) => e.key === 'Enter' && handleGeminiSearch()}
+          />
+          
+          <button className="menu-search-btn" onClick={() => handleGeminiSearch()}>
+            검색
+          </button>
+          <button className="menu-voice-btn" onClick={startVoiceRecognition}>
+            🎤
+          </button>
+        </div>
+
+        {/* 결과 리스트 */}
+        {showRecipe && recipes.length > 0 && (
           <div className="menu-recipes-section">
             <div className="menu-recipes-navigation">
-              <button 
+              <button
                 className="menu-scroll-btn"
                 onClick={() => handleScroll("left")}
                 disabled={currentPage === 0}
@@ -284,7 +287,7 @@ export const MenuRecommendationPage = () => {
               <span className="menu-page-indicator">
                 {currentPage + 1} / {totalPages}
               </span>
-              <button 
+              <button
                 className="menu-scroll-btn"
                 onClick={() => handleScroll("right")}
                 disabled={currentPage === totalPages - 1}
@@ -323,11 +326,19 @@ export const MenuRecommendationPage = () => {
           </div>
         )}
 
-        {recipes.length === 0 && recommendationType && (
+        {/* 결과 없음 표시 */}
+        {showRecipe && recipes.length === 0 && (
           <div className="menu-empty-state">
-            <p>추천할 레시피가 없습니다.</p>
+            <p>검색된 레시피가 없습니다.</p>
             <p>다른 조건으로 검색해보세요.</p>
           </div>
+        )}
+
+        {isVoiceMode && (
+          <Voice
+            onClose={closeVoicePopup}
+            onSearch={handleVoiceSearch}
+          />
         )}
       </div>
     </div>

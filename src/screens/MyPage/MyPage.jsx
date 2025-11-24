@@ -9,6 +9,8 @@ import { MypageTendency } from "../../components/MypageTendency";
 import FindId from "../../components/LoginPopup/FindId/FindId";
 import FindPassword from "../../components/LoginPopup/FindPassword/FindPassword";
 import "./style.css";
+import MyPageInfo from "./MyPageInfo";
+import FoodTendency from "./FoodTendency";
 
 const HEALTH_GOALS = [
   { id: 1, name: "체중 감량" },
@@ -29,17 +31,16 @@ const ALLERGIES = [
 ];
 
 export const MyPage = () => {
-  const { user, isAuthenticated, logout } = useAuth();
+  const { user, isAuthenticated } = useAuth();
   const navigate = useNavigate();
   const location = useLocation();
   const [preferences, setPreferences] = useState(null);
   
-  // 팝업 상태 관리
+  // 팝업 상태들
   const [showLoginPopup, setShowLoginPopup] = useState(false);
   const [showSignupPopup, setShowSignupPopup] = useState(false);
   const [showPreferencesPopup, setShowPreferencesPopup] = useState(false);
   const [showFindIdPopup, setShowFindIdPopup] = useState(false);
-  // FindPassword 팝업 상태 추가
   const [showFindPasswordPopup, setShowFindPasswordPopup] = useState(false);
   
   const [userData, setUserData] = useState(null);
@@ -60,10 +61,8 @@ export const MyPage = () => {
     }
   }, [location, navigate]);
 
-  const handleLoginClick = () => {
-    setShowLoginPopup(true);
-  };
-
+  const handleLoginClick = () => setShowLoginPopup(true);
+  
   const handleSwitchToSignup = () => {
     setShowLoginPopup(false);
     setShowSignupPopup(true);
@@ -73,7 +72,7 @@ export const MyPage = () => {
     setShowSignupPopup(false);
     setShowPreferencesPopup(false);
     setShowFindIdPopup(false);
-    setShowFindPasswordPopup(false); // 비밀번호 찾기 닫기 추가
+    setShowFindPasswordPopup(false);
     setShowLoginPopup(true);
   };
 
@@ -82,7 +81,6 @@ export const MyPage = () => {
     setShowFindIdPopup(true);
   };
 
-  // 비밀번호 찾기 팝업 열기 핸들러 추가
   const handleSwitchToFindPassword = () => {
     setShowLoginPopup(false);
     setShowFindPasswordPopup(true);
@@ -99,7 +97,7 @@ export const MyPage = () => {
     setShowSignupPopup(false);
     setShowPreferencesPopup(false);
     setShowFindIdPopup(false);
-    setShowFindPasswordPopup(false); // 비밀번호 찾기 닫기 추가
+    setShowFindPasswordPopup(false);
     setUserData(null);
   };
 
@@ -118,9 +116,10 @@ export const MyPage = () => {
   };
 
   return (
-    <div className="my-page" data-model-id="168:346">
+    <div className="my-page">
       <UnifiedHeader />
 
+      {/* 헤더 영역 (라인 포함) */}
       <div className="mypage-nav">
         <div className="mypage-textcontainer">
           <div className="mypage-text">마이 페이지</div>
@@ -131,124 +130,102 @@ export const MyPage = () => {
         {!isAuthenticated ? (
           <div className="mypage-login-required">
             <h2 className="mypage-login-title">로그인이 필요합니다</h2>
-            <p className="mypage-login-text">마이페이지를 이용하시려면 로그인해주세요.</p>
             <button className="mypage-login-btn" onClick={handleLoginClick}>
               로그인하러 가기
             </button>
           </div>
         ) : preferences ? (
-          <>
-            {/* 로그인 후 컨텐츠 ... */}
-            <div className="mypage">
-              <div className="mypage-wrapper">
-                <div className="mypage-2">건강 목표</div>
+          
+          /* ★ 핵심: 2열 그리드 레이아웃 구조 ★ */
+          <div className="mypage-grid-container">
+            
+            {/* [왼쪽 기둥] 개인정보, 건강목표, 알레르기 */}
+            <div className="mypage-left-col">
+              
+              <div className="mypage-card-wrapper">
+                <MyPageInfo age="26" birthDate="2000-01-01" id="skt2008"/>
               </div>
-              <div className="mypage-3">
-                {getHealthGoalNames().map((goal, index) => (
-                  <MypageTendency key={index} text={goal} />
-                ))}
+
+              <div className="mypage-card-wrapper simple-card">
+                 <div className="mypage-card-header">
+                    <h3>건강 목표</h3>
+                 </div>
+                 <div className="mypage-tendency-list">
+                    {getHealthGoalNames().map((goal, index) => (
+                      <MypageTendency key={index} text={goal} />
+                    ))}
+                 </div>
+              </div>
+
+              <div className="mypage-card-wrapper simple-card">
+                 <div className="mypage-card-header">
+                    <h3>알레르기</h3>
+                 </div>
+                 <div className="mypage-tendency-list">
+                    {getAllergyNames().length > 0 ? (
+                      getAllergyNames().map((allergy, index) => (
+                        <MypageTendency key={index} text={allergy} />
+                      ))
+                    ) : (
+                      <div className="mypage-empty">없음</div>
+                    )}
+                 </div>
               </div>
             </div>
 
-            <div className="mypage">
-              <div className="mypage-wrapper">
-                <div className="mypage-2">알레르기</div>
+            {/* [오른쪽 기둥] 음식성향, 알림설정 */}
+            <div className="mypage-right-col">
+              
+              <div className="mypage-card-wrapper">
+                <FoodTendency 
+                  dislikedIngredients={preferences.dislikedIngredients}
+                  preferredIngredients={preferences.preferredIngredients}
+                  preferredCuisine={preferences.preferredCuisine}
+                  spiceLevel={preferences.spiceLevel}
+                />
               </div>
-              <div className="mypage-3">
-                {getAllergyNames().length > 0 ? (
-                  getAllergyNames().map((allergy, index) => (
-                    <MypageTendency key={index} text={allergy} />
-                  ))
-                ) : (
-                  <div className="mypage-empty">없음</div>
-                )}
-              </div>
-            </div>
 
-            <div className="mypage-info-section">
-              <div className="mypage-info-item">
-                <span className="mypage-info-label">싫어하는 재료:</span>
-                <span className="mypage-info-value">{preferences.dislikedIngredients || "없음"}</span>
+              <div className="mypage-card-wrapper simple-card">
+                <div className="mypage-card-header">
+                    <h3>알림 설정</h3>
+                </div>
+                <div className="mypage-notification-list">
+                  <div className="mypage-notification-item">
+                    <span>소비 알림</span>
+                    <span className={preferences.allowPushConsumption ? "active" : "inactive"}>
+                      {preferences.allowPushConsumption ? "ON" : "OFF"}
+                    </span>
+                  </div>
+                  <div className="mypage-notification-item">
+                    <span>댓글 알림</span>
+                    <span className={preferences.allowPushComment ? "active" : "inactive"}>
+                      {preferences.allowPushComment ? "ON" : "OFF"}
+                    </span>
+                  </div>
+                  <div className="mypage-notification-item">
+                    <span>넛지 알림</span>
+                    <span className={preferences.allowPushNudge ? "active" : "inactive"}>
+                      {preferences.allowPushNudge ? "ON" : "OFF"}
+                    </span>
+                  </div>
+                </div>
               </div>
-              <div className="mypage-info-item">
-                <span className="mypage-info-label">선호하는 재료:</span>
-                <span className="mypage-info-value">{preferences.preferredIngredients || "없음"}</span>
-              </div>
-              <div className="mypage-info-item">
-                <span className="mypage-info-label">선호 요리:</span>
-                <span className="mypage-info-value">{preferences.preferredCuisine}</span>
-              </div>
-              <div className="mypage-info-item">
-                <span className="mypage-info-label">매운맛 선호도:</span>
-                <span className="mypage-info-value">{preferences.spiceLevel}</span>
-              </div>
-            </div>
 
-            <div className="mypage-notification-section">
-              <div className="mypage-wrapper">
-                <div className="mypage-2">알림 설정</div>
-              </div>
-              <div className="mypage-notification-list">
-                <div className="mypage-notification-item">
-                  <span>소비 알림</span>
-                  <span className={preferences.allowPushConsumption ? "active" : "inactive"}>
-                    {preferences.allowPushConsumption ? "ON" : "OFF"}
-                  </span>
-                </div>
-                <div className="mypage-notification-item">
-                  <span>댓글 알림</span>
-                  <span className={preferences.allowPushComment ? "active" : "inactive"}>
-                    {preferences.allowPushComment ? "ON" : "OFF"}
-                  </span>
-                </div>
-                <div className="mypage-notification-item">
-                  <span>넛지 알림</span>
-                  <span className={preferences.allowPushNudge ? "active" : "inactive"}>
-                    {preferences.allowPushNudge ? "ON" : "OFF"}
-                  </span>
-                </div>
-              </div>
             </div>
-          </>
+          </div>
         ) : (
           <div className="mypage-empty-state">
-            <p>저장된 성향 정보가 없습니다.</p>
-            <p>회원가입을 통해 성향을 설정해주세요.</p>
+            <p>성향 정보가 없습니다.</p>
           </div>
         )}
       </div>
 
-      {showLoginPopup && (
-        <LoginPopup
-          onClose={handleCloseAll}
-          onSwitchToSignup={handleSwitchToSignup}
-          onSwitchToFindId={handleSwitchToFindId}
-          onSwitchToFindPassword={handleSwitchToFindPassword}
-        />
-      )}
-
-      {showSignupPopup && (
-        <SignupPopup
-          onClose={handleCloseAll}
-          onSwitchToLogin={handleSwitchToLogin}
-          onSwitchToPreferences={handleSwitchToPreferences}
-        />
-      )}
-
-      {showPreferencesPopup && (
-        <PreferencesPopup
-          onClose={handleCloseAll}
-          userData={userData}
-        />
-      )}
-      
-      {showFindIdPopup && (
-        <FindId onClose={handleCloseAll} onSwitchToLogin={handleSwitchToLogin} />
-      )}
-
-      {showFindPasswordPopup && (
-        <FindPassword onClose={handleCloseAll} onSwitchToLogin={handleSwitchToLogin} />
-      )}
+      {/* 팝업 렌더링 영역 */}
+      {showLoginPopup && <LoginPopup onClose={handleCloseAll} onSwitchToSignup={handleSwitchToSignup} onSwitchToFindId={handleSwitchToFindId} onSwitchToFindPassword={handleSwitchToFindPassword} />}
+      {showSignupPopup && <SignupPopup onClose={handleCloseAll} onSwitchToLogin={handleSwitchToLogin} onSwitchToPreferences={handleSwitchToPreferences} />}
+      {showPreferencesPopup && <PreferencesPopup onClose={handleCloseAll} userData={userData} />}
+      {showFindIdPopup && <FindId onClose={handleCloseAll} onSwitchToLogin={handleSwitchToLogin} />}
+      {showFindPasswordPopup && <FindPassword onClose={handleCloseAll} onSwitchToLogin={handleSwitchToLogin} />}
     </div>
   );
 };

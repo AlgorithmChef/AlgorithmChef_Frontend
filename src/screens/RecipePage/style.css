@@ -410,3 +410,19 @@
     font-size: 32px;
   }
 }
+
+
+.recipe-review-popup-btn {
+  padding: 14px;
+  background-color: #f6910b;
+  color: #ffffff;
+  border: none;
+  border-radius: 12px;
+  font-family: "Inter", Helvetica;
+  font-size: 16px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: background-color 0.2s;
+  margin-top: 10px;
+  width: 100%;
+}

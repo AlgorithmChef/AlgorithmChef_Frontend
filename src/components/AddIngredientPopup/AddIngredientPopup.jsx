@@ -1,49 +1,63 @@
 import React, { useState } from "react";
 import "./style.css";
 
-const CATEGORIES = ["육류", "채소류", "가공류", "유제품", "기타"];
+// 카테고리 상수는 제거하거나, 백엔드 전송용으로 내부에서만 기본값 처리하면 됩니다.
 
 export const AddIngredientPopup = ({ onClose, onAdd }) => {
-  const [name, setName] = useState("");
-  const [category, setCategory] = useState("채소류");
-  const [expiryDays, setExpiryDays] = useState("");
-  
-  // 영수증 분석(1단계) 완료 여부를 체크하는 상태
   const [isReceiptProcessed, setIsReceiptProcessed] = useState(false);
+  const [items, setItems] = useState([]);
 
-  const handleSubmit = (e) => {
+  // 1단계: 영수증 분석 시뮬레이션
+  const handleAnalyzeReceipt = (e) => {
     e.preventDefault();
+    console.log("영수증 분석 시작...");
 
-    // 1단계: 영수증 등록 버튼을 눌렀을 때 (아직 분석 결과가 안 나왔을 때)
-    if (!isReceiptProcessed) {
-      // TODO: 백엔드로 영수증 이미지를 보내고 분석 결과를 받아오는 로직이 들어갈 자리
-      console.log("영수증 분석 시작...");
-      
-      // [가상 시나리오] 백엔드에서 분석된 결과가 자동으로 채워진다고 가정
-      // setName("분석된 양파"); 
-      // setExpiryDays("7");
-      
-      setIsReceiptProcessed(true); // 입력 필드를 보여주도록 상태 변경
-      return;
-    }
-    
-    // 2단계: 최종 등록 버튼을 눌렀을 때
-    if (!name || !expiryDays) {
-      alert("모든 필드를 입력해주세요.");
-      return;
-    }
+    const mockAnalyzedData = [
+      { id: 1, name: "양파", expiryDays: 7 },
+      { id: 2, name: "삼겹살", expiryDays: 3 },
+      { id: 3, name: "우유", expiryDays: 10 },
+      { id: 4, name: "종량제봉투", expiryDays: 0 },
+    ];
 
-    const newIngredient = {
+    setItems(mockAnalyzedData);
+    setIsReceiptProcessed(true);
+  };
+
+  const handleItemChange = (id, field, value) => {
+    setItems(items.map(item => 
+      item.id === id ? { ...item, [field]: value } : item
+    ));
+  };
+
+  const handleDeleteItem = (id) => {
+    setItems(items.filter(item => item.id !== id));
+  };
+
+  const handleAddItem = () => {
+    const newItem = {
       id: Date.now(),
-      name,
-      category,
-      expiryDays: parseInt(expiryDays),
-      image: "https://c.animaapp.com/sjWITF5i/img/ingredientimage-7@2x.png"
+      name: "",
+      expiryDays: ""
     };
+    setItems([...items, newItem]);
+  };
 
-    // TODO: Send to backend
-    console.log("Adding ingredient via receipt:", newIngredient);
-    onAdd(newIngredient);
+  const handleFinalSubmit = () => {
+    const isValid = items.every(item => item.name && item.expiryDays !== "");
+    if (!isValid) {
+      alert("모든 재료의 정보를 입력해주세요.");
+      return;
+    }
+
+    items.forEach(item => {
+        onAdd({
+            ...item,
+            category: "기타", // 백엔드에서 필요하다면 기본값으로 '기타'나 '미분류' 전송
+            expiryDays: parseInt(item.expiryDays),
+            image: "https://c.animaapp.com/sjWITF5i/img/ingredientimage-7@2x.png"
+        });
+    });
+
     onClose();
   };
 
@@ -53,68 +67,75 @@ export const AddIngredientPopup = ({ onClose, onAdd }) => {
         <button className="add-ingredient-popup-close" onClick={onClose}>×</button>
         
         <div className="add-ingredient-popup-header">
-          <h2 className="add-ingredient-popup-title">영수증 등록</h2>
+          <h2 className="add-ingredient-popup-title">
+            {isReceiptProcessed ? "분석 결과 확인" : "영수증 등록"}
+          </h2>
         </div>
 
-        <form className="add-ingredient-popup-form" onSubmit={handleSubmit}>
-          <div className="add-ingredient-popup-input-group">
-            <label className="add-ingredient-popup-label">영수증</label>
-            <input
-              type="file"
-              className="add-ingredient-popup-input"
-              required={!isReceiptProcessed} // 분석 전에는 필수 입력
-              disabled={isReceiptProcessed}  // 분석 후에는 수정 불가 (선택 사항)
-            />
+        {!isReceiptProcessed ? (
+          <form className="add-ingredient-popup-form" onSubmit={handleAnalyzeReceipt}>
+            <div className="add-ingredient-popup-input-group">
+              <label className="add-ingredient-popup-label">영수증 업로드</label>
+              <input 
+                type="file" 
+                className="add-ingredient-popup-input file-input" 
+                accept="image/*"
+                required 
+              />
+              <p className="helper-text">선명한 영수증 사진을 올려주세요.</p>
+            </div>
+            <button type="submit" className="add-ingredient-popup-submit-btn">
+              분석 시작
+            </button>
+          </form>
+        ) : (
+          <div className="processed-list-container">
+            {/* 카테고리 헤더 삭제 */}
+            <div className="processed-list-header">
+                <span style={{ flex: 3 }}>재료명</span>
+                <span style={{ flex: 1, textAlign: 'center' }}>기한(일)</span>
+                <span style={{ width: '28px' }}></span> {/* 삭제버튼 자리 */}
+            </div>
+            
+            <div className="processed-list-body">
+              {items.map((item) => (
+                <div key={item.id} className="processed-item-row">
+                  {/* 카테고리 Select 삭제, 이름 입력창 확장 */}
+                  <input
+                    type="text"
+                    className="item-input name-input"
+                    value={item.name}
+                    onChange={(e) => handleItemChange(item.id, "name", e.target.value)}
+                    placeholder="재료명"
+                  />
+                  
+                  <input
+                    type="number"
+                    className="item-input date-input"
+                    value={item.expiryDays}
+                    onChange={(e) => handleItemChange(item.id, "expiryDays", e.target.value)}
+                    placeholder="일"
+                  />
+                  <button 
+                    className="item-delete-btn" 
+                    onClick={() => handleDeleteItem(item.id)}
+                    title="삭제"
+                  >
+                    −
+                  </button>
+                </div>
+              ))}
+              
+              <button className="add-row-btn" onClick={handleAddItem}>
+                + 직접 추가하기
+              </button>
+            </div>
+
+            <button onClick={handleFinalSubmit} className="add-ingredient-popup-submit-btn">
+              {items.length}개 재료 등록하기
+            </button>
           </div>
-          
-          {/* isReceiptProcessed가 true일 때만 아래 내용 표시 백앤드에서 분석한 결과 표시해주는 곳 사용자 확인용 마음에 안들면 여기서 수정가능 */}
-          {isReceiptProcessed && (
-            <>
-              <div className="add-ingredient-popup-input-group">
-                <label className="add-ingredient-popup-label">재료명</label>
-                <input
-                  type="text"
-                  className="add-ingredient-popup-input"
-                  value={name}
-                  onChange={(e) => setName(e.target.value)}
-                  placeholder="예: 양파"
-                  required
-                />
-              </div>
-
-              <div className="add-ingredient-popup-input-group">
-                <label className="add-ingredient-popup-label">카테고리</label>
-                <select
-                  className="add-ingredient-popup-select"
-                  value={category}
-                  onChange={(e) => setCategory(e.target.value)}
-                  required
-                >
-                  {CATEGORIES.map((cat) => (
-                    <option key={cat} value={cat}>{cat}</option>
-                  ))}
-                </select>
-              </div>
-
-              <div className="add-ingredient-popup-input-group">
-                <label className="add-ingredient-popup-label">유통기한 (일)</label>
-                <input
-                  type="number"
-                  className="add-ingredient-popup-input"
-                  value={expiryDays}
-                  onChange={(e) => setExpiryDays(e.target.value)}
-                  placeholder="예: 7"
-                  min="1"
-                  required
-                />
-              </div>
-            </>
-          )}
-
-          <button type="submit" className="add-ingredient-popup-submit-btn">
-            {isReceiptProcessed ? "최종 등록" : "추가하기"}
-          </button>
-        </form>
+        )}
       </div>
     </div>
   );

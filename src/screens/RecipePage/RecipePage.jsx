@@ -1,12 +1,16 @@
-import React from "react";
+import React, { useState } from "react";
 import { useLocation, useParams } from "react-router-dom";
 import { UnifiedHeader } from "../../components/UnifiedHeader";
 import { Recipepage } from "../../components/Recipepage";
+import RecipeReview from "./RecipeReview/RecipeReview";
 import "./style.css";
 
 export const RecipePage = () => {
   const location = useLocation();
   const { id } = useParams();
+  
+  const [isReviewOpen, setIsReviewOpen] = useState(false);
+
   const recipe = location.state?.recipe || {
     id: id,
     name: "레시피 이름",
@@ -14,6 +18,14 @@ export const RecipePage = () => {
     steps: ["재료 준비", "조리 시작", "완성"],
     description: "레시피 설명이 여기에 표시됩니다.",
     tendencies: ["매콤칼칼"]
+  };
+
+  const openReviewPopup = () => {
+    setIsReviewOpen(true);
+  };
+
+  const closeReviewPopup = () => {
+    setIsReviewOpen(false);
   };
 
   return (
@@ -70,8 +82,19 @@ export const RecipePage = () => {
               ))}
             </div>
           </div>
+          
+          <button 
+            className="recipe-review-popup-btn" 
+            onClick={openReviewPopup}
+          >
+            리뷰남기기
+          </button>
         </div>
       </div>
+
+      {isReviewOpen && (
+        <RecipeReview onClose={closeReviewPopup} />
+      )}
     </div>
   );
 };

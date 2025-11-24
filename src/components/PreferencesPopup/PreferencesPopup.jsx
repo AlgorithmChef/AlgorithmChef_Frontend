@@ -158,7 +158,6 @@ export const PreferencesPopup = ({ onClose, userData }) => {
           <div className="preferences-popup-section">
             <label className="preferences-popup-section-label">선호 요리 (다중 선택)</label>
             
-            {/* 중요: chips 클래스로 감싸야 가로로 배치됩니다 */}
             <div className="preferences-popup-chips">
               {CUISINE_TYPES.map((cuisine) => (
                 <button

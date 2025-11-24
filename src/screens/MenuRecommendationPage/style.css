@@ -306,3 +306,19 @@
     width: 100%;
   }
 }
+
+.menu-condition-label {
+  font-family: "Inter", Helvetica;
+  font-size: 16px;
+  font-weight: 700;
+  color: white;
+  background-color: #f6910b;
+  border-radius: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 12px 20px; 
+  height: auto;       
+  white-space: nowrap;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
