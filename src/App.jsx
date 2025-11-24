@@ -47,7 +47,7 @@ const router = createBrowserRouter([
   {
     path: "/menurecommendation",
     element: <MenuRecommendationPage />,
-  },
+  }
 ]);
 
 export const App = () => {

@@ -6,6 +6,8 @@ import { LoginPopup } from "../../components/LoginPopup";
 import { SignupPopup } from "../../components/SignupPopup";
 import { PreferencesPopup } from "../../components/PreferencesPopup";
 import { MypageTendency } from "../../components/MypageTendency";
+import FindId from "../../components/LoginPopup/FindId/FindId";
+import FindPassword from "../../components/LoginPopup/FindPassword/FindPassword";
 import "./style.css";
 
 const HEALTH_GOALS = [
@@ -31,15 +33,19 @@ export const MyPage = () => {
   const navigate = useNavigate();
   const location = useLocation();
   const [preferences, setPreferences] = useState(null);
+  
+  // 팝업 상태 관리
   const [showLoginPopup, setShowLoginPopup] = useState(false);
   const [showSignupPopup, setShowSignupPopup] = useState(false);
   const [showPreferencesPopup, setShowPreferencesPopup] = useState(false);
+  const [showFindIdPopup, setShowFindIdPopup] = useState(false);
+  // FindPassword 팝업 상태 추가
+  const [showFindPasswordPopup, setShowFindPasswordPopup] = useState(false);
+  
   const [userData, setUserData] = useState(null);
 
   useEffect(() => {
     if (isAuthenticated && user) {
-      // TODO: Backend Integration: Fetch user preferences from backend using user.username
-      // Example: axios.get(`/api/users/${user.username}/preferences`).then(response => setPreferences(response.data));
       const stored = localStorage.getItem("userPreferences");
       if (stored) {
         setPreferences(JSON.parse(stored));
@@ -48,10 +54,8 @@ export const MyPage = () => {
   }, [isAuthenticated, user]);
 
   useEffect(() => {
-    // Check if we should show login popup from navigation state
     if (location.state?.showLogin) {
       setShowLoginPopup(true);
-      // Clear the state
       navigate(location.pathname, { replace: true, state: {} });
     }
   }, [location, navigate]);
@@ -68,7 +72,20 @@ export const MyPage = () => {
   const handleSwitchToLogin = () => {
     setShowSignupPopup(false);
     setShowPreferencesPopup(false);
+    setShowFindIdPopup(false);
+    setShowFindPasswordPopup(false); // 비밀번호 찾기 닫기 추가
     setShowLoginPopup(true);
+  };
+
+  const handleSwitchToFindId = () => {
+    setShowLoginPopup(false);
+    setShowFindIdPopup(true);
+  };
+
+  // 비밀번호 찾기 팝업 열기 핸들러 추가
+  const handleSwitchToFindPassword = () => {
+    setShowLoginPopup(false);
+    setShowFindPasswordPopup(true);
   };
 
   const handleSwitchToPreferences = (data) => {
@@ -81,6 +98,8 @@ export const MyPage = () => {
     setShowLoginPopup(false);
     setShowSignupPopup(false);
     setShowPreferencesPopup(false);
+    setShowFindIdPopup(false);
+    setShowFindPasswordPopup(false); // 비밀번호 찾기 닫기 추가
     setUserData(null);
   };
 
@@ -119,6 +138,7 @@ export const MyPage = () => {
           </div>
         ) : preferences ? (
           <>
+            {/* 로그인 후 컨텐츠 ... */}
             <div className="mypage">
               <div className="mypage-wrapper">
                 <div className="mypage-2">건강 목표</div>
@@ -202,6 +222,8 @@ export const MyPage = () => {
         <LoginPopup
           onClose={handleCloseAll}
           onSwitchToSignup={handleSwitchToSignup}
+          onSwitchToFindId={handleSwitchToFindId}
+          onSwitchToFindPassword={handleSwitchToFindPassword}
         />
       )}
 
@@ -218,6 +240,14 @@ export const MyPage = () => {
           onClose={handleCloseAll}
           userData={userData}
         />
+      )}
+      
+      {showFindIdPopup && (
+        <FindId onClose={handleCloseAll} onSwitchToLogin={handleSwitchToLogin} />
+      )}
+
+      {showFindPasswordPopup && (
+        <FindPassword onClose={handleCloseAll} onSwitchToLogin={handleSwitchToLogin} />
       )}
     </div>
   );

@@ -2,8 +2,8 @@ import React, { useState } from "react";
 import { useAuth } from "../../contexts/AuthContext";
 import "./style.css";
 
-export const LoginPopup = ({ onClose, onSwitchToSignup }) => {
-  const [email, setEmail] = useState(""); // Changed to email
+export const LoginPopup = ({ onClose, onSwitchToSignup,onSwitchToFindId,onSwitchToFindPassword }) => {
+  const [id, setId] = useState(""); // Changed to email
   const [password, setPassword] = useState("");
   const { login } = useAuth();
 
@@ -23,16 +23,16 @@ export const LoginPopup = ({ onClose, onSwitchToSignup }) => {
     // Simulating backend validation with localStorage
     const mockUsers = JSON.parse(localStorage.getItem("registeredUsers") || "[]");
     const foundUser = mockUsers.find(
-      (u) => u.email === email && u.password === password // Validate by email
+      (u) => u.username === id && u.password === password // Validate by userId
     );
 
     if (foundUser) {
-      const userData = { username: foundUser.username, email: foundUser.email }; // Store username for display
+      const userData = { username: foundUser.username, email: foundUser.email };
       login(userData);
       console.log("Login successful:", userData);
       onClose();
     } else {
-      alert("이메일 또는 비밀번호가 일치하지 않습니다.");
+      alert("아이디 또는 비밀번호가 일치하지 않습니다.");
     }
   };
 
@@ -47,13 +47,13 @@ export const LoginPopup = ({ onClose, onSwitchToSignup }) => {
 
         <form className="login-popup-form" onSubmit={handleLogin}>
           <div className="login-popup-input-group">
-            <label className="login-popup-label">이메일</label> {/* Changed label */}
+            <label className="login-popup-label">아이디</label> {/* Changed label */}
             <input
-              type="email" // Changed type to email
+              type="text" // Changed type to email
               className="login-popup-input"
-              value={email} // Changed value to email
-              onChange={(e) => setEmail(e.target.value)} // Changed onChange to setEmail
-              placeholder="이메일을 입력하세요" // Changed placeholder
+              value={id} // Changed value to email
+              onChange={(e) => setId(e.target.value)} // Changed onChange to setId
+              placeholder="아이디를  입력하세요" // Changed placeholder
               required
             />
           </div>
@@ -82,6 +82,23 @@ export const LoginPopup = ({ onClose, onSwitchToSignup }) => {
               onClick={onSwitchToSignup}
             >
               회원가입
+            </button>
+          </div>
+          <div className="login-popup-footer">
+            <span className="login-popup-footer-text">계정 찾기</span>
+            <button
+              type="button"
+              className="login-popup-signup-btn"
+              onClick={onSwitchToFindId}
+            >
+              아이디 찾기
+            </button>
+            <button
+              type="button"
+              className="login-popup-signup-btn"
+              onClick={onSwitchToFindPassword}
+            >
+              비밀번호 찾기
             </button>
           </div>
         </form>
