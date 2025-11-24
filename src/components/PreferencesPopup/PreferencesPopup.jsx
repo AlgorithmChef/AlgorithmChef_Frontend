@@ -4,9 +4,15 @@ import "./style.css";
 const HEALTH_GOALS = [
   { id: 1, name: "체중 감량" },
   { id: 2, name: "근육 증가" },
-  { id: 3, name: "건강 유지" },
-  { id: 4, name: "면역력 강화" },
-  { id: 5, name: "소화 개선" },
+  { id: 3, name: "체중 유지" },
+  { id: 4, name: "저염 식단" },
+  { id: 5, name: "혈압 관리" },
+  { id: 6, name: "당뇨 관리" },
+  { id: 7, name: "콜레스테롤 관리" },
+  { id: 8, name: "채식(비건)" },
+  { id: 9, name: "채식(락토-오보)" },
+  { id: 10, name: "임산부 식단" },
+  { id: 11, name: "키토제닉 (고지방 저탄수화물)" },
 ];
 
 const ALLERGIES = [
@@ -19,7 +25,7 @@ const ALLERGIES = [
   { id: 7, name: "대두" },
 ];
 
-const SPICE_LEVELS = ["안매움", "약간매움", "매움", "아주매움"];
+const SPICE_LEVELS = ["안매움", "보통", "매움"];
 const CUISINE_TYPES = ["한식", "중식", "일식", "양식", "기타"];
 
 export const PreferencesPopup = ({ onClose, userData }) => {
@@ -42,6 +48,12 @@ export const PreferencesPopup = ({ onClose, userData }) => {
   const toggleAllergy = (id) => {
     setAllergyIds((prev) =>
       prev.includes(id) ? prev.filter((item) => item !== id) : [...prev, id]
+    );
+  };
+
+  const toggleCuisine = (cuisine) => {
+    setPreferredCuisine((prev) =>
+      prev.includes(cuisine) ? prev.filter((item) => item !== cuisine) : [...prev, cuisine]
     );
   };
 
@@ -143,21 +155,22 @@ export const PreferencesPopup = ({ onClose, userData }) => {
             />
           </div>
 
-          <div className="preferences-popup-input-group">
-            <label className="preferences-popup-label">선호 요리</label>
-            <select
-              className="preferences-popup-select"
-              value={preferredCuisine}
-              onChange={(e) => setPreferredCuisine(e.target.value)}
-              required
-            >
-              <option value="">선택하세요</option>
+          <div className="preferences-popup-section">
+            <label className="preferences-popup-section-label">선호 요리 (다중 선택)</label>
+            
+            {/* 중요: chips 클래스로 감싸야 가로로 배치됩니다 */}
+            <div className="preferences-popup-chips">
               {CUISINE_TYPES.map((cuisine) => (
-                <option key={cuisine} value={cuisine}>
+                <button
+                  key={cuisine}
+                  type="button"
+                  className={`preferences-chip ${preferredCuisine.includes(cuisine) ? "active" : ""}`}
+                  onClick={() => toggleCuisine(cuisine)}
+                >
                   {cuisine}
-                </option>
+                </button>
               ))}
-            </select>
+            </div>
           </div>
 
           <div className="preferences-popup-input-group">

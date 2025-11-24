@@ -1,12 +1,12 @@
-import React, { useState, useEffect } from "react";
-import { Link, useNavigate } from "react-router-dom"; // Removed useLocation
+import React, { useState, useRef } from "react";
+import { Link, useNavigate } from "react-router-dom";
 import { UnifiedHeader } from "../../components/UnifiedHeader";
+import { BiSolidRightArrow, BiSolidLeftArrow } from "react-icons/bi";
 import "./style.css";
 
 const CATEGORIES = ["전체", "육류", "채소류", "가공류", "유제품", "기타"];
 
 const MOCK_INGREDIENT_DATABASE = [
-  // TODO: Backend Integration: Replace with API call to fetch all available ingredients from DB
   { id: 1, name: "양파", category: "채소류", image: "https://c.animaapp.com/sjWITF5i/img/ingredientimage-1.png" },
   { id: 2, name: "닭고기", category: "육류", image: "https://c.animaapp.com/sjWITF5i/img/ingredientimage-7@2x.png" },
   { id: 3, name: "돼지고기", category: "육류", image: "https://c.animaapp.com/sjWITF5i/img/ingredientimage-7@2x.png" },
@@ -27,9 +27,7 @@ const MOCK_INGREDIENT_DATABASE = [
 
 export const AddIngredientPage = () => {
   const navigate = useNavigate();
-  // Removed useLocation and onAddMultipleIngredients here
-  // const location = useLocation();
-  // const onAddMultipleIngredients = location.state?.onAddMultipleIngredients; 
+  const scrollRef = useRef(null); // 스크롤 DOM 제어
 
   const [selectedCategory, setSelectedCategory] = useState("전체");
   const [searchQuery, setSearchQuery] = useState("");
@@ -47,7 +45,7 @@ export const AddIngredientPage = () => {
       if (exists) {
         return prev.filter((item) => item.id !== ingredient.id);
       } else {
-        return [...prev, { ...ingredient, expiryDays: 7 }]; // Default expiry days
+        return [...prev, { ...ingredient, expiryDays: 7 }];
       }
     });
   };
@@ -58,15 +56,23 @@ export const AddIngredientPage = () => {
       return;
     }
     
-    // Directly update localStorage for userIngredients
     const currentIngredients = JSON.parse(localStorage.getItem("userIngredients") || "[]");
     const updatedIngredients = [...currentIngredients, ...selectedIngredients];
     localStorage.setItem("userIngredients", JSON.stringify(updatedIngredients));
-
-    // TODO: Backend Integration: Send selectedIngredients to backend
-    console.log("Adding ingredients to mock DB:", selectedIngredients);
     
-    navigate("/desktop"); // Navigate back to desktop
+    navigate("/desktop");
+  };
+
+  const scroll = (direction) => {
+    if (scrollRef.current) {
+      const { current } = scrollRef;
+      const scrollAmount = 300;
+      if (direction === "left") {
+        current.scrollBy({ left: -scrollAmount, behavior: "smooth" });
+      } else {
+        current.scrollBy({ left: scrollAmount, behavior: "smooth" });
+      }
+    }
   };
 
   return (
@@ -101,28 +107,38 @@ export const AddIngredientPage = () => {
           ))}
         </div>
 
-        <div className="add-ingredient-grid">
-          {filteredIngredients.map((ingredient) => {
-            const isSelected = selectedIngredients.find((item) => item.id === ingredient.id);
-            return (
-              <button
-                key={ingredient.id}
-                className={`add-ingredient-card ${isSelected ? "selected" : ""}`}
-                onClick={() => toggleIngredient(ingredient)}
-              >
-                <img
-                  src={ingredient.image}
-                  alt={ingredient.name}
-                  className="add-ingredient-card-image"
-                />
-                <div className="add-ingredient-card-name">{ingredient.name}</div>
-                <div className="add-ingredient-card-category">{ingredient.category}</div>
-                {isSelected && (
-                  <div className="add-ingredient-card-check">✓</div>
-                )}
-              </button>
-            );
-          })}
+        <div className="add-ingredient-grid-wrapper">
+          <button className="scroll-arrow-btn left" onClick={() => scroll("left")}>
+            <BiSolidLeftArrow />
+          </button>
+
+          <div className="add-ingredient-grid" ref={scrollRef}>
+            {filteredIngredients.map((ingredient) => {
+              const isSelected = selectedIngredients.find((item) => item.id === ingredient.id);
+              return (
+                <button
+                  key={ingredient.id}
+                  className={`add-ingredient-card ${isSelected ? "selected" : ""}`}
+                  onClick={() => toggleIngredient(ingredient)}
+                >
+                  <img
+                    src={ingredient.image}
+                    alt={ingredient.name}
+                    className="add-ingredient-card-image"
+                  />
+                  <div className="add-ingredient-card-name">{ingredient.name}</div>
+                  <div className="add-ingredient-card-category">{ingredient.category}</div>
+                  {isSelected && (
+                    <div className="add-ingredient-card-check">✓</div>
+                  )}
+                </button>
+              );
+            })}
+          </div>
+
+          <button className="scroll-arrow-btn right" onClick={() => scroll("right")}>
+            <BiSolidRightArrow />
+          </button>
         </div>
 
         <div className="add-ingredient-footer">

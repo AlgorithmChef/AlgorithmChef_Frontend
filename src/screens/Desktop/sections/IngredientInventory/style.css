@@ -111,21 +111,26 @@
   align-self: stretch;
   display: flex;
   gap: 32px;
-  height: 120px;
-  overflow: hidden;
-  overflow-x: scroll;
-  padding: 0px 15px;
+  padding: 0px 15px 20px 15px; 
+  
+  overflow-x: auto;
+  overflow-y: hidden;
+  flex-wrap: nowrap;
   position: relative;
   width: 100%;
 }
 
 .ingredient-inventory .ingrdient-invnetory::-webkit-scrollbar {
-  display: none;
-  width: 0;
+  height: 8px;
+}
+.ingredient-inventory .ingrdient-invnetory::-webkit-scrollbar-thumb {
+  background-color: #ccc;
+  border-radius: 4px;
 }
 
 .ingredient-inventory .ingredient-component-instance {
   left: unset !important;
+  flex-shrink: 0;
 }
 
 .ingredient-inventory .add-new-ingredient {
