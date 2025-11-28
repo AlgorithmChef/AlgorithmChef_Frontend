@@ -19,6 +19,7 @@ export const UnifiedHeader = () => {
 
   const [showMenu, setShowMenu] = useState(false);
   const [userData, setUserData] = useState(null);
+  const userId = localStorage.getItem("userId");
 
   const handleSwitchToSignup = () => {
     setShowLoginPopup(false);
@@ -122,7 +123,7 @@ export const UnifiedHeader = () => {
           </Link>
           {isAuthenticated ? (
             <div className="unified-user-info">
-              <span className="unified-username">{user?.username}님</span>
+              <span className="unified-username">{userId}님</span>
               <button className="unified-logout-btn" onClick={logout}>
                 로그아웃
               </button>

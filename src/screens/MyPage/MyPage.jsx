@@ -8,32 +8,18 @@ import { PreferencesPopup } from "../../components/PreferencesPopup";
 import { MypageTendency } from "../../components/MypageTendency";
 import FindId from "../../components/LoginPopup/FindId/FindId";
 import FindPassword from "../../components/LoginPopup/FindPassword/FindPassword";
-import "./style.css";
 import MyPageInfo from "./MyPageInfo";
 import FoodTendency from "./FoodTendency";
+import UpdatePreference from "../../components/PreferencesPopup/UpdatePreference";
+import "./style.css";
 
-const HEALTH_GOALS = [
-  { id: 1, name: "체중 감량" },
-  { id: 2, name: "근육 증가" },
-  { id: 3, name: "건강 유지" },
-  { id: 4, name: "면역력 강화" },
-  { id: 5, name: "소화 개선" },
-];
-
-const ALLERGIES = [
-  { id: 1, name: "우유" },
-  { id: 2, name: "계란" },
-  { id: 3, name: "땅콩" },
-  { id: 4, name: "견과류" },
-  { id: 5, name: "갑각류" },
-  { id: 6, name: "밀" },
-  { id: 7, name: "대두" },
-];
+import { getUserInfo } from "../../api/userInfo";
 
 export const MyPage = () => {
   const { user, isAuthenticated } = useAuth();
   const navigate = useNavigate();
   const location = useLocation();
+
   const [preferences, setPreferences] = useState(null);
 
   const [showLoginPopup, setShowLoginPopup] = useState(false);
@@ -42,16 +28,25 @@ export const MyPage = () => {
   const [showFindIdPopup, setShowFindIdPopup] = useState(false);
   const [showFindPasswordPopup, setShowFindPasswordPopup] = useState(false);
 
-  const [userData, setUserData] = useState(null);
+  const [showUpdatePreferencePopup, setShowUpdatePreferencePopup] =
+    useState(false);
 
   useEffect(() => {
-    if (isAuthenticated && user) {
-      const stored = localStorage.getItem("userPreferences");
-      if (stored) {
-        setPreferences(JSON.parse(stored));
-      }
+    if (isAuthenticated) {
+      const fetchData = async () => {
+        try {
+          const myInfoData = await getUserInfo();
+          setPreferences(myInfoData);
+          console.log("내 정보 로드 완료:", myInfoData);
+        } catch (error) {
+          console.error("데이터 불러오기 실패:", error);
+        }
+      };
+      fetchData();
+    } else {
+      setPreferences(null);
     }
-  }, [isAuthenticated, user]);
+  }, [isAuthenticated]);
 
   useEffect(() => {
     if (location.state?.showLogin) {
@@ -85,10 +80,13 @@ export const MyPage = () => {
     setShowFindPasswordPopup(true);
   };
 
-  const handleSwitchToPreferences = (data) => {
-    setUserData(data);
+  const handleSwitchToPreferences = () => {
     setShowSignupPopup(false);
     setShowPreferencesPopup(true);
+  };
+
+  const handleSwitchToUpdatePreference = () => {
+    setShowUpdatePreferencePopup(true);
   };
 
   const handleCloseAll = () => {
@@ -97,31 +95,22 @@ export const MyPage = () => {
     setShowPreferencesPopup(false);
     setShowFindIdPopup(false);
     setShowFindPasswordPopup(false);
-    setUserData(null);
-  };
-
-  const getHealthGoalNames = () => {
-    if (!preferences?.healthGoalIds) return [];
-    return preferences.healthGoalIds.map(
-      (id) => HEALTH_GOALS.find((goal) => goal.id === id)?.name || ""
-    );
-  };
-
-  const getAllergyNames = () => {
-    if (!preferences?.allergyIds) return [];
-    return preferences.allergyIds.map(
-      (id) => ALLERGIES.find((allergy) => allergy.id === id)?.name || ""
-    );
+    setShowUpdatePreferencePopup(false);
   };
 
   return (
     <div className="my-page">
       <UnifiedHeader />
 
-      {/* 헤더 영역 (라인 포함) */}
       <div className="mypage-nav">
         <div className="mypage-textcontainer">
           <div className="mypage-text">마이 페이지</div>
+          <button
+            className="mypage-edit-btn"
+            onClick={handleSwitchToUpdatePreference}
+          >
+            취향 설정
+          </button>
         </div>
       </div>
 
@@ -134,12 +123,18 @@ export const MyPage = () => {
             </button>
           </div>
         ) : preferences ? (
-          /* ★ 핵심: 2열 그리드 레이아웃 구조 ★ */
           <div className="mypage-grid-container">
-            {/* [왼쪽 기둥] 개인정보, 건강목표, 알레르기 */}
             <div className="mypage-left-col">
               <div className="mypage-card-wrapper">
-                <MyPageInfo age="26" birthDate="2000-01-01" id="skt2008" />
+                <MyPageInfo
+                  age={preferences.age}
+                  birthDate={
+                    preferences.birthDate
+                      ? preferences.birthDate.split("T")[0]
+                      : ""
+                  }
+                  id={preferences.userId}
+                />
               </div>
 
               <div className="mypage-card-wrapper simple-card">
@@ -147,9 +142,13 @@ export const MyPage = () => {
                   <h3>건강 목표</h3>
                 </div>
                 <div className="mypage-tendency-list">
-                  {getHealthGoalNames().map((goal, index) => (
-                    <MypageTendency key={index} text={goal} />
-                  ))}
+                  {preferences.goals && preferences.goals.length > 0 ? (
+                    preferences.goals.map((goalName, index) => (
+                      <MypageTendency key={index} text={goalName} />
+                    ))
+                  ) : (
+                    <div className="mypage-empty">설정된 목표가 없습니다</div>
+                  )}
                 </div>
               </div>
 
@@ -158,9 +157,10 @@ export const MyPage = () => {
                   <h3>알레르기</h3>
                 </div>
                 <div className="mypage-tendency-list">
-                  {getAllergyNames().length > 0 ? (
-                    getAllergyNames().map((allergy, index) => (
-                      <MypageTendency key={index} text={allergy} />
+                  {preferences.allergyList &&
+                  preferences.allergyList.length > 0 ? (
+                    preferences.allergyList.map((allergyName, index) => (
+                      <MypageTendency key={index} text={allergyName} />
                     ))
                   ) : (
                     <div className="mypage-empty">없음</div>
@@ -169,12 +169,11 @@ export const MyPage = () => {
               </div>
             </div>
 
-            {/* [오른쪽 기둥] 음식성향, 알림설정 */}
             <div className="mypage-right-col">
               <div className="mypage-card-wrapper">
                 <FoodTendency
                   dislikedIngredients={preferences.dislikedIngredients}
-                  preferredIngredients={preferences.preferredIngredients}
+                  preferredIngredients={preferences.likedIngredients}
                   preferredCuisine={preferences.preferredCuisine}
                   spiceLevel={preferences.spiceLevel}
                 />
@@ -221,12 +220,11 @@ export const MyPage = () => {
           </div>
         ) : (
           <div className="mypage-empty-state">
-            <p>성향 정보가 없습니다.</p>
+            <p>정보를 불러오는 중이거나 성향 정보가 없습니다.</p>
           </div>
         )}
       </div>
 
-      {/* 팝업 렌더링 영역 */}
       {showLoginPopup && (
         <LoginPopup
           onClose={handleCloseAll}
@@ -242,9 +240,12 @@ export const MyPage = () => {
           onSwitchToPreferences={handleSwitchToPreferences}
         />
       )}
-      {showPreferencesPopup && (
-        <PreferencesPopup onClose={handleCloseAll} userData={userData} />
+      {showPreferencesPopup && <PreferencesPopup onClose={handleCloseAll} />}
+
+      {showUpdatePreferencePopup && (
+        <UpdatePreference onClose={handleCloseAll} />
       )}
+
       {showFindIdPopup && (
         <FindId
           onClose={handleCloseAll}

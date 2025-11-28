@@ -1,45 +1,77 @@
 import React, { useState, useEffect } from "react";
 import "./style.css";
+import { getUserInfo, updateUserTendency } from "../../api/userInfo";
 import { getAllergyInfo, getHealthGoalInfo } from "../../api/preferenceApi";
-import { makeSurveyApi } from "../../api/userInfo";
-import { useNavigate } from "react-router-dom";
 
 const SPICE_LEVELS = ["안매움", "보통", "매움"];
 const CUISINE_TYPES = ["한식", "중식", "일식", "양식", "기타"];
 
-export const PreferencesPopup = ({ onClose }) => {
+function UpdatePreference({ onClose }) {
   const [healthGoalIds, setHealthGoalIds] = useState([]);
   const [allergyIds, setAllergyIds] = useState([]);
+
   const [dislikedIngredients, setDislikedIngredients] = useState("");
   const [likedIngredients, setLikedIngredients] = useState("");
+
   const [preferredCuisineList, setPreferredCuisineList] = useState([]);
   const [spiceLevel, setSpiceLevel] = useState("");
-  const [allowPushConsumption, setAllowPushConsumption] = useState(true);
-  const [allowPushComment, setAllowPushComment] = useState(true);
-  const [allowPushNudge, setAllowPushNudge] = useState(true);
+
+  const [allowPushConsumption, setAllowPushConsumption] = useState(false);
+  const [allowPushComment, setAllowPushComment] = useState(false);
+  const [allowPushNudge, setAllowPushNudge] = useState(false);
 
   const [serverHealthGoals, setServerHealthGoals] = useState([]);
   const [serverAllergies, setServerAllergies] = useState([]);
-  const navigate = useNavigate();
 
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const [healthData, allergyData] = await Promise.all([
+        const [healthData, allergyData, myData] = await Promise.all([
           getHealthGoalInfo(),
           getAllergyInfo(),
+          getUserInfo(),
         ]);
 
-        setServerHealthGoals(healthData || []);
-        setServerAllergies(allergyData || []);
+        const healthList = healthData || [];
+        const allergyList = allergyData || [];
+
+        setServerHealthGoals(healthList);
+        setServerAllergies(allergyList);
+
+        if (myData) {
+          const myGoalIds = (myData.goals || [])
+            .map((name) => healthList.find((h) => h.name === name)?.id)
+            .filter((id) => id !== undefined);
+          setHealthGoalIds(myGoalIds);
+
+          const myAllergyIds = (myData.allergyList || [])
+            .map((name) => allergyList.find((a) => a.name === name)?.id)
+            .filter((id) => id !== undefined);
+          setAllergyIds(myAllergyIds);
+
+          setDislikedIngredients(myData.dislikedIngredients || "");
+
+          setLikedIngredients(myData.likedIngredients || "");
+
+          setSpiceLevel(myData.spiceLevel || "");
+
+          if (myData.preferredCuisine) {
+            setPreferredCuisineList(myData.preferredCuisine.split(","));
+          }
+
+          setAllowPushConsumption(myData.allowPushConsumption);
+          setAllowPushComment(myData.allowPushComment);
+          setAllowPushNudge(myData.allowPushNudge);
+        }
       } catch (error) {
         console.error("데이터 로딩 실패:", error);
-        alert("목록을 불러오는 데 실패했습니다.");
+        alert("정보를 불러오는 데 실패했습니다.");
+        onClose();
       }
     };
 
     fetchData();
-  }, []);
+  }, [onClose]);
 
   const toggleHealthGoal = (id) => {
     setHealthGoalIds((prev) =>
@@ -64,7 +96,7 @@ export const PreferencesPopup = ({ onClose }) => {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    const surveyData = {
+    const updatedData = {
       healthGoalIds,
       allergyIds,
       dislikedIngredients,
@@ -76,19 +108,16 @@ export const PreferencesPopup = ({ onClose }) => {
       allowPushNudge,
     };
 
-    console.log("Sending survey data:", surveyData);
-
     try {
-      const result = await makeSurveyApi(surveyData);
-
+      const result = await updateUserTendency(updatedData);
       if (result) {
-        alert("성향 설정이 완료되었습니다! 가입을 환영합니다.");
+        alert("성향 정보가 수정되었습니다.");
         onClose();
-        navigate("/desktop");
+        window.location.reload();
       }
     } catch (error) {
-      console.error("설문 전송 실패:", error);
-      alert("저장에 실패했습니다. 다시 시도해주세요.");
+      console.error("수정 실패:", error);
+      alert("정보 수정에 실패했습니다.");
     }
   };
 
@@ -101,11 +130,10 @@ export const PreferencesPopup = ({ onClose }) => {
         <button className="preferences-popup-close" onClick={onClose}>
           ×
         </button>
-
         <div className="preferences-popup-header">
-          <h2 className="preferences-popup-title">성향 설정</h2>
+          <h2 className="preferences-popup-title">성향 수정</h2>
           <p className="preferences-popup-subtitle">
-            맞춤 추천을 위한 정보를 입력해주세요
+            변경할 내용을 선택해주세요
           </p>
         </div>
 
@@ -113,81 +141,61 @@ export const PreferencesPopup = ({ onClose }) => {
           <div className="preferences-popup-section">
             <label className="preferences-popup-section-label">건강 목표</label>
             <div className="preferences-popup-chips">
-              {serverHealthGoals.length > 0 ? (
-                serverHealthGoals.map((goal) => (
-                  <button
-                    key={goal.id}
-                    type="button"
-                    className={`preferences-chip ${
-                      healthGoalIds.includes(goal.id) ? "active" : ""
-                    }`}
-                    onClick={() => toggleHealthGoal(goal.id)}
-                  >
-                    {goal.name}
-                  </button>
-                ))
-              ) : (
-                <p style={{ color: "#999", fontSize: "14px" }}>
-                  목록을 불러오는 중...
-                </p>
-              )}
+              {serverHealthGoals.map((goal) => (
+                <button
+                  key={goal.id}
+                  type="button"
+                  className={`preferences-chip ${
+                    healthGoalIds.includes(goal.id) ? "active" : ""
+                  }`}
+                  onClick={() => toggleHealthGoal(goal.id)}
+                >
+                  {goal.name}
+                </button>
+              ))}
             </div>
           </div>
 
           <div className="preferences-popup-section">
             <label className="preferences-popup-section-label">알레르기</label>
             <div className="preferences-popup-chips">
-              {serverAllergies.length > 0 ? (
-                serverAllergies.map((allergy) => (
-                  <button
-                    key={allergy.id}
-                    type="button"
-                    className={`preferences-chip ${
-                      allergyIds.includes(allergy.id) ? "active" : ""
-                    }`}
-                    onClick={() => toggleAllergy(allergy.id)}
-                  >
-                    {allergy.name}
-                  </button>
-                ))
-              ) : (
-                <p style={{ color: "#999", fontSize: "14px" }}>
-                  목록을 불러오는 중...
-                </p>
-              )}
+              {serverAllergies.map((allergy) => (
+                <button
+                  key={allergy.id}
+                  type="button"
+                  className={`preferences-chip ${
+                    allergyIds.includes(allergy.id) ? "active" : ""
+                  }`}
+                  onClick={() => toggleAllergy(allergy.id)}
+                >
+                  {allergy.name}
+                </button>
+              ))}
             </div>
           </div>
 
           <div className="preferences-popup-input-group">
-            <label className="preferences-popup-label">
-              싫어하는 재료 (쉼표로 구분)
-            </label>
+            <label className="preferences-popup-label">싫어하는 재료</label>
             <input
               type="text"
               className="preferences-popup-input"
               value={dislikedIngredients}
               onChange={(e) => setDislikedIngredients(e.target.value)}
-              placeholder="예: 오이, 가지"
             />
           </div>
 
           <div className="preferences-popup-input-group">
-            <label className="preferences-popup-label">
-              선호하는 재료 (쉼표로 구분)
-            </label>
+            <label className="preferences-popup-label">선호하는 재료</label>
             <input
               type="text"
               className="preferences-popup-input"
               value={likedIngredients}
               onChange={(e) => setLikedIngredients(e.target.value)}
-              placeholder="예: 돼지고기, 감자"
             />
           </div>
 
           <div className="preferences-popup-section">
-            <label className="preferences-popup-section-label">
-              선호 요리 (다중 선택)
-            </label>
+            <label className="preferences-popup-section-label">선호 요리</label>
             <div className="preferences-popup-chips">
               {CUISINE_TYPES.map((cuisine) => (
                 <button
@@ -210,7 +218,6 @@ export const PreferencesPopup = ({ onClose }) => {
               className="preferences-popup-select"
               value={spiceLevel}
               onChange={(e) => setSpiceLevel(e.target.value)}
-              required
             >
               <option value="">선택하세요</option>
               {SPICE_LEVELS.map((level) => (
@@ -252,10 +259,12 @@ export const PreferencesPopup = ({ onClose }) => {
           </div>
 
           <button type="submit" className="preferences-popup-submit-btn">
-            완료
+            수정 완료
           </button>
         </form>
       </div>
     </div>
   );
-};
+}
+
+export default UpdatePreference;

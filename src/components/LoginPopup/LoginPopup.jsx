@@ -19,6 +19,7 @@ export const LoginPopup = ({
     const result = await login(id, password);
     if (result.status === "SUCCESS") {
       console.log("?ес??? ????");
+      localStorage.setItem("userId", id);
       onClose();
     } else if (result.status === "FORCE_PASSWORD_CHANGE") {
       console.log("????м█?? ?????????.");
