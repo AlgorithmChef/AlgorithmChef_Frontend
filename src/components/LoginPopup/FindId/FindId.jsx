@@ -1,83 +1,183 @@
-import "../style.css"; // ê¸°ì¡´ CSS íŒŒì¼ ê²½ë¡œ ìœ ì§€
+import "../style.css";
 import { useState } from "react";
-import { isNotEmpty } from "../../util/validation";
+import { isNotEmpty, isEmail } from "../../util/validation";
+import { findUserIdApi } from "../../../api/authApi";
+import { FaCheckCircle } from "react-icons/fa";
 
 function FindId({ onClose, onSwitchToLogin }) {
-  const [formState, setFormState] = useState({ errors: {} });
+  const [email, setEmail] = useState("");
+  const [birthDate, setBirthDate] = useState("");
+  const [foundId, setFoundId] = useState(null);
 
-  async function handleSubmit(event) {
+  const [errors, setErrors] = useState({
+    email: "",
+    birthDate: "",
+  });
+
+  const handleSubmit = async (event) => {
     event.preventDefault();
 
-    const formData = new FormData(event.target);
-    const email = formData.get("email");
-    const birthDate = formData.get("birthDate");
+    let newErrors = {};
 
-    const errors = {};
+    if (!isNotEmpty(email)) {
+      newErrors.email = "ÀÌ¸ŞÀÏÀ» ÀÔ·ÂÇØÁÖ¼¼¿ä.";
+    } else if (!isEmail(email)) {
+      newErrors.email = "¿Ã¹Ù¸¥ ÀÌ¸ŞÀÏ Çü½ÄÀÌ ¾Æ´Õ´Ï´Ù.";
+    }
 
     if (!isNotEmpty(birthDate)) {
-      errors.birthDate = "ìƒë…„ì›”ì¼ì„ ì„ íƒí•´ì£¼ì„¸ìš”.";
+      newErrors.birthDate = "»ı³â¿ùÀÏÀ» ¼±ÅÃÇØÁÖ¼¼¿ä.";
     }
 
-    if (Object.keys(errors).length > 0) {
-      setFormState({ errors });
+    setErrors(newErrors);
+    if (Object.keys(newErrors).length > 0) {
       return;
     }
+    const formattedBirthDate = `${birthDate}T00:00:00`;
 
-    //ì—¬ê¸°ëŠ” ë‚˜ì¤‘ì— ë°±ì•¤ë“œ ë¡œì§
-    const storedUsersString = localStorage.getItem("registeredUsers");
-    if (storedUsersString) {
-      try {
-        const users = JSON.parse(storedUsersString);
-
-        const foundUser = Array.isArray(users) 
-          ? users.find(user => user.email === email && user.birthDate === birthDate)
-          : null;
-
-        if (foundUser) {
-          alert(`ì°¾ì€ ì•„ì´ë””: ${foundUser.username}`);
-          
-          setFormState({ errors: {}, success: true, userId: foundUser.username });
-        } else {
-          alert("ì…ë ¥í•˜ì‹  ì •ë³´ì™€ ì¼ì¹˜í•˜ëŠ” ì•„ì´ë””ë¥¼ ì°¾ì„ ìˆ˜ ì—†ìŠµë‹ˆë‹¤.");
-        }
-
-      } catch (error) {
-        console.error("ë°ì´í„° íŒŒì‹± ì—ëŸ¬:", error);
-        alert("íšŒì› ì •ë³´ë¥¼ ë¶ˆëŸ¬ì˜¤ëŠ” ì¤‘ ì˜¤ë¥˜ê°€ ë°œìƒí–ˆìŠµë‹ˆë‹¤.");
+    try {
+      const result = await findUserIdApi(email, formattedBirthDate);
+      if (result && result.userId) {
+        setFoundId(result.userId);
+      } else {
+        alert("ÀÏÄ¡ÇÏ´Â Á¤º¸°¡ ¾ø½À´Ï´Ù.");
       }
-    } else {
-      alert("ê°€ì…ëœ íšŒì› ì •ë³´ê°€ ì—†ìŠµë‹ˆë‹¤.");
+    } catch (error) {
+      alert("Ã£±â ½ÇÆĞ: ¼­¹ö ¿À·ù°¡ ¹ß»ıÇß½À´Ï´Ù.");
     }
+  };
+
+  const handleInputChange = (setter, field, value) => {
+    setter(value);
+    if (errors[field]) {
+      setErrors({ ...errors, [field]: "" });
+    }
+  };
+
+  if (foundId) {
+    return (
+      <div className="login-popup-overlay" onClick={onClose}>
+        <div
+          className="login-popup-container"
+          onClick={(e) => e.stopPropagation()}
+        >
+          <button className="login-popup-close" onClick={onClose}>
+            X
+          </button>
+
+          <div className="login-popup-header">
+            <h2 className="login-popup-title">¾ÆÀÌµğ Ã£±â ¼º°ø</h2>
+          </div>
+
+          <div style={{ padding: "30px 20px", textAlign: "center" }}>
+            <div
+              style={{
+                display: "flex",
+                justifyContent: "center",
+                marginBottom: "20px",
+              }}
+            >
+              <FaCheckCircle size={60} color="#FF8A00" />
+            </div>
+
+            <p
+              style={{ marginBottom: "10px", color: "#666", fontSize: "16px" }}
+            >
+              È¸¿ø´ÔÀÇ ¾ÆÀÌµğ¸¦ Ã£¾Ò½À´Ï´Ù!
+            </p>
+
+            <div
+              style={{
+                background: "#FFF4E6",
+                padding: "15px",
+                borderRadius: "8px",
+                marginBottom: "30px",
+              }}
+            >
+              <h3 style={{ fontSize: "24px", color: "#FF8A00", margin: 0 }}>
+                {foundId}
+              </h3>
+            </div>
+
+            <button
+              className="login-popup-submit-btn"
+              onClick={onSwitchToLogin}
+            >
+              ·Î±×ÀÎÇÏ·¯ °¡±â
+            </button>
+          </div>
+        </div>
+      </div>
+    );
   }
 
   return (
     <div className="login-popup-overlay" onClick={onClose}>
-      <div className="login-popup-container" onClick={(e) => e.stopPropagation()}>
-        <button className="login-popup-close" onClick={onClose}>Ã—</button>
+      <div
+        className="login-popup-container"
+        onClick={(e) => e.stopPropagation()}
+      >
+        <button className="login-popup-close" onClick={onClose}>
+          X
+        </button>
         <div className="login-popup-header">
-          <h2 className="login-popup-title">ì•„ì´ë”” ì°¾ê¸°</h2>
+          <h2 className="login-popup-title">¾ÆÀÌµğ Ã£±â</h2>
         </div>
-        
-        <form className="login-popup-form" onSubmit={handleSubmit}>
-            <label htmlFor="email" className="login-popup-label">ì´ë©”ì¼</label>
-            <input type="email" placeholder="ì´ë©”ì¼ ì…ë ¥" className="login-popup-input" name="email" required/>
-            
-            <label htmlFor="birthDate" className="login-popup-label">ìƒë…„ì›”ì¼</label>
-            <input name="birthDate" type="date" placeholder="ìƒë…„ ì…ë ¥" className="login-popup-input" required/>
-            
-            {formState.errors.birthDate && (
-                <p style={{color: 'red', fontSize: '12px', marginTop: '4px'}}>{formState.errors.birthDate}</p>
-            )}
 
-            <button className="login-popup-submit-btn">
-                ì•„ì´ë”” ì°¾ê¸°
-            </button>
+        <form className="login-popup-form" onSubmit={handleSubmit}>
+          <div className="login-popup-input-group">
+            <label htmlFor="email" className="login-popup-label">
+              ÀÌ¸ŞÀÏ
+            </label>
+            <input
+              type="email"
+              placeholder="ÀÌ¸ŞÀÏÀ» ÀÔ·ÂÇÏ¼¼¿ä"
+              className={`login-popup-input ${
+                errors.email ? "input-error" : ""
+              }`}
+              value={email}
+              onChange={(e) =>
+                handleInputChange(setEmail, "email", e.target.value)
+              }
+              name="email"
+            />
+            {errors.email && (
+              <span className="error-message">{errors.email}</span>
+            )}
+          </div>
+
+          <div className="login-popup-input-group">
+            <label htmlFor="birthDate" className="login-popup-label">
+              »ı³â¿ùÀÏ
+            </label>
+            <input
+              name="birthDate"
+              type="date"
+              placeholder="»ı³â¿ùÀÏ ÀÔ·Â"
+              className={`login-popup-input ${
+                errors.birthDate ? "input-error" : ""
+              }`}
+              value={birthDate}
+              onChange={(e) =>
+                handleInputChange(setBirthDate, "birthDate", e.target.value)
+              }
+            />
+            {errors.birthDate && (
+              <span className="error-message">{errors.birthDate}</span>
+            )}
+          </div>
+
+          <button className="login-popup-submit-btn">¾ÆÀÌµğ Ã£±â</button>
         </form>
 
         <div className="login-popup-footer">
-            <span onClick={onSwitchToLogin} className="login-popup-footer-text" style={{marginTop : 5, cursor: 'pointer'}}>
-                ë¡œê·¸ì¸ìœ¼ë¡œ ëŒì•„ê°€ê¸°
-            </span>
+          <span
+            onClick={onSwitchToLogin}
+            className="login-popup-footer-text"
+            style={{ marginTop: 5, cursor: "pointer" }}
+          >
+            ·Î±×ÀÎÀ¸·Î µ¹¾Æ°¡±â
+          </span>
         </div>
       </div>
     </div>

@@ -23,8 +23,7 @@
       "label": "MyPage",
       "routes": [
         "/mypage"
-      ],
-      "dataModelId": "168:346"
+      ]
     },
     {
       "id": "src/screens/RecipePage/RecipePage.jsx",
@@ -216,7 +215,7 @@
       "data": {
         "viaRoute": "/menurecommendation",
         "trigger": {
-          "element": "<Link to=\"/menurecommendation\" className=\"menu-more-btn\">\r\n          더보기 →\r\n        </Link>",
+          "element": "<Link to=\"/menurecommendation\" className=\"menu-more-btn\">\r\n          추천받기 →\r\n        </Link>",
           "line": 60,
           "endLine": 62,
           "column": 8,
@@ -706,15 +705,15 @@
       }
     },
     {
-      "id": "src\\screens\\AddIngredientPage\\AddIngredientPage.jsx:69:4-to-src\\screens\\Desktop\\Desktop.jsx",
+      "id": "src\\screens\\AddIngredientPage\\AddIngredientPage.jsx:63:4-to-src\\screens\\Desktop\\Desktop.jsx",
       "source": "src\\screens\\AddIngredientPage\\AddIngredientPage.jsx",
       "target": "src\\screens\\Desktop\\Desktop.jsx",
       "data": {
         "viaRoute": "/desktop",
         "trigger": {
           "element": "navigate(\"/desktop\")",
-          "line": 69,
-          "endLine": 69,
+          "line": 63,
+          "endLine": 63,
           "column": 4,
           "endColumn": 24,
           "sourceFile": "src\\screens\\AddIngredientPage\\AddIngredientPage.jsx"
@@ -722,15 +721,15 @@
       }
     },
     {
-      "id": "src\\screens\\AddIngredientPage\\AddIngredientPage.jsx:133:12-to-src\\screens\\Desktop\\Desktop.jsx",
+      "id": "src\\screens\\AddIngredientPage\\AddIngredientPage.jsx:149:12-to-src\\screens\\Desktop\\Desktop.jsx",
       "source": "src\\screens\\AddIngredientPage\\AddIngredientPage.jsx",
       "target": "src\\screens\\Desktop\\Desktop.jsx",
       "data": {
         "viaRoute": "/desktop",
         "trigger": {
           "element": "<Link to=\"/desktop\" className=\"add-ingredient-cancel-btn\">\r\n              취소\r\n            </Link>",
-          "line": 133,
-          "endLine": 135,
+          "line": 149,
+          "endLine": 151,
           "column": 12,
           "endColumn": 19,
           "sourceFile": "src\\screens\\AddIngredientPage\\AddIngredientPage.jsx"

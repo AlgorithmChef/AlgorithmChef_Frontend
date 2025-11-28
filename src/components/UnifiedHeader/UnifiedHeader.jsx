@@ -4,13 +4,19 @@ import { useAuth } from "../../contexts/AuthContext";
 import { LoginPopup } from "../LoginPopup";
 import { SignupPopup } from "../SignupPopup";
 import { PreferencesPopup } from "../PreferencesPopup";
+import FindId from "../LoginPopup/FindId/FindId";
+import FindPassword from "../LoginPopup/FindPassword/FindPassword";
 import "./style.css";
 
 export const UnifiedHeader = () => {
   const { user, isAuthenticated, logout } = useAuth();
+
   const [showLoginPopup, setShowLoginPopup] = useState(false);
   const [showSignupPopup, setShowSignupPopup] = useState(false);
   const [showPreferencesPopup, setShowPreferencesPopup] = useState(false);
+  const [showFindIdPopup, setShowFindIdPopup] = useState(false);
+  const [showFindPasswordPopup, setShowFindPasswordPopup] = useState(false);
+
   const [showMenu, setShowMenu] = useState(false);
   const [userData, setUserData] = useState(null);
 
@@ -22,7 +28,19 @@ export const UnifiedHeader = () => {
   const handleSwitchToLogin = () => {
     setShowSignupPopup(false);
     setShowPreferencesPopup(false);
+    setShowFindIdPopup(false);
+    setShowFindPasswordPopup(false);
     setShowLoginPopup(true);
+  };
+
+  const handleSwitchToFindId = () => {
+    setShowLoginPopup(false);
+    setShowFindIdPopup(true);
+  };
+
+  const handleSwitchToFindPassword = () => {
+    setShowLoginPopup(false);
+    setShowFindPasswordPopup(true);
   };
 
   const handleSwitchToPreferences = (data) => {
@@ -35,6 +53,8 @@ export const UnifiedHeader = () => {
     setShowLoginPopup(false);
     setShowSignupPopup(false);
     setShowPreferencesPopup(false);
+    setShowFindIdPopup(false);
+    setShowFindPasswordPopup(false);
     setUserData(null);
   };
 
@@ -42,7 +62,7 @@ export const UnifiedHeader = () => {
     <>
       <header className="unified-header">
         <div className="unified-header-left">
-          <button 
+          <button
             className="menu-toggle-btn"
             onClick={() => setShowMenu(!showMenu)}
           >
@@ -50,16 +70,32 @@ export const UnifiedHeader = () => {
           </button>
           {showMenu && (
             <div className="menu-dropdown">
-              <Link to="/desktop" className="menu-item" onClick={() => setShowMenu(false)}>
+              <Link
+                to="/desktop"
+                className="menu-item"
+                onClick={() => setShowMenu(false)}
+              >
                 홈
               </Link>
-              <Link to="/menurecommendation" className="menu-item" onClick={() => setShowMenu(false)}>
+              <Link
+                to="/menurecommendation"
+                className="menu-item"
+                onClick={() => setShowMenu(false)}
+              >
                 메뉴 추천
               </Link>
-              <Link to="/communitypage" className="menu-item" onClick={() => setShowMenu(false)}>
+              <Link
+                to="/communitypage"
+                className="menu-item"
+                onClick={() => setShowMenu(false)}
+              >
                 재료 나눔 게시판
               </Link>
-              <Link to="/mypage" className="menu-item" onClick={() => setShowMenu(false)}>
+              <Link
+                to="/mypage"
+                className="menu-item"
+                onClick={() => setShowMenu(false)}
+              >
                 마이페이지
               </Link>
             </div>
@@ -86,13 +122,16 @@ export const UnifiedHeader = () => {
           </Link>
           {isAuthenticated ? (
             <div className="unified-user-info">
-              <span className="unified-username">{user?.username}님</span> {/* Added "님" */}
+              <span className="unified-username">{user?.username}님</span>
               <button className="unified-logout-btn" onClick={logout}>
                 로그아웃
               </button>
             </div>
           ) : (
-            <button className="unified-login-btn" onClick={() => setShowLoginPopup(true)}>
+            <button
+              className="unified-login-btn"
+              onClick={() => setShowLoginPopup(true)}
+            >
               <div className="unified-login-text">로그인</div>
             </button>
           )}
@@ -103,6 +142,8 @@ export const UnifiedHeader = () => {
         <LoginPopup
           onClose={handleCloseAll}
           onSwitchToSignup={handleSwitchToSignup}
+          onSwitchToFindId={handleSwitchToFindId}
+          onSwitchToFindPassword={handleSwitchToFindPassword}
         />
       )}
 
@@ -115,9 +156,20 @@ export const UnifiedHeader = () => {
       )}
 
       {showPreferencesPopup && (
-        <PreferencesPopup
+        <PreferencesPopup onClose={handleCloseAll} userData={userData} />
+      )}
+
+      {showFindIdPopup && (
+        <FindId
           onClose={handleCloseAll}
-          userData={userData}
+          onSwitchToLogin={handleSwitchToLogin}
+        />
+      )}
+
+      {showFindPasswordPopup && (
+        <FindPassword
+          onClose={handleCloseAll}
+          onSwitchToLogin={handleSwitchToLogin}
         />
       )}
     </>
