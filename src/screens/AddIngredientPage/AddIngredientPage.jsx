@@ -4,10 +4,8 @@ import { UnifiedHeader } from "../../components/UnifiedHeader";
 import { BiSolidRightArrow, BiSolidLeftArrow } from "react-icons/bi";
 import "./style.css";
 import { useAuth } from "../../contexts/AuthContext";
-import {
-  registerIngredientManual,
-  updateIngredients,
-} from "../../api/fridgeApi";
+import { registerIngredientManual } from "../../api/fridgeApi";
+import { updateIngredients } from "../../api/fridgeApi";
 import {
   filterIngredientsByName,
   getIngredientsInfo,
@@ -68,6 +66,7 @@ export const AddIngredientPage = () => {
       setIngredients([]);
       return;
     }
+
     const fetchData = async () => {
       let ingredientData = [];
       try {
@@ -134,7 +133,6 @@ export const AddIngredientPage = () => {
     }
 
     try {
-      // 1차 등록을 통해 서버 계산값(유통기한 등) 가져오기
       const requestData = selectedIngredients.map((item) => ({
         name: item.name,
         purchaseDate: `${item.purchaseDate}T00:00:00`,
@@ -144,7 +142,7 @@ export const AddIngredientPage = () => {
 
       if (response && response.ingredients) {
         setPreviewIngredients(response.ingredients);
-        setCurrentView("확인"); // 팝업 오픈
+        setCurrentView("확인");
       }
     } catch (error) {
       console.error("1차 등록 실패:", error);
@@ -152,7 +150,7 @@ export const AddIngredientPage = () => {
     }
   };
 
-  const handleFinalUpdate = async (updatedItems) => {
+  const handleFinalRegister = async (updatedItems) => {
     try {
       const requestData = {
         ingredients: updatedItems.map((item) => ({
@@ -181,7 +179,7 @@ export const AddIngredientPage = () => {
     return (
       <AddIngredientPopup
         items={previewIngredients}
-        onAdd={handleFinalUpdate}
+        onAdd={handleFinalRegister}
         onClose={() => setCurrentView(false)}
       />
     );

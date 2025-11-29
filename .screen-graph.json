@@ -193,15 +193,15 @@
       }
     },
     {
-      "id": "src\\screens\\Desktop\\sections\\IngredientInventory\\IngredientInventory.jsx:58:8-to-src\\screens\\AddIngredientPage\\AddIngredientPage.jsx",
+      "id": "src\\screens\\Desktop\\sections\\IngredientInventory\\IngredientInventory.jsx:134:8-to-src\\screens\\AddIngredientPage\\AddIngredientPage.jsx",
       "source": "src\\screens\\Desktop\\Desktop.jsx",
       "target": "src\\screens\\AddIngredientPage\\AddIngredientPage.jsx",
       "data": {
         "viaRoute": "/addingredient",
         "trigger": {
-          "element": "<Link \r\n          to=\"/addingredient\" \r\n          className=\"add-new-ingredient\"\r\n        >\r\n          <div className=\"add-new-container\">\r\n            <div className=\"add-new-header\">\r\n              <div className=\"add-new-header-text\">추가하기</div>\r\n            </div>\r\n\r\n            <div className=\"add-new-section\">\r\n              <img\r\n                className=\"add-new-icon\"\r\n                alt=\"Add new icon\"\r\n                src=\"https://c.animaapp.com/sjWITF5i/img/addnewicon.svg\"\r\n              />\r\n            </div>\r\n          </div>\r\n        </Link>",
-          "line": 58,
-          "endLine": 75,
+          "element": "<Link to=\"/addingredient\" className=\"add-new-ingredient\">\r\n          <div className=\"add-new-container\">\r\n            <div className=\"add-new-header\">\r\n              <div className=\"add-new-header-text\">추가하기</div>\r\n            </div>\r\n\r\n            <div className=\"add-new-section\">\r\n              <img\r\n                className=\"add-new-icon\"\r\n                alt=\"Add new icon\"\r\n                src=\"https://c.animaapp.com/sjWITF5i/img/addnewicon.svg\"\r\n              />\r\n            </div>\r\n          </div>\r\n        </Link>",
+          "line": 134,
+          "endLine": 148,
           "column": 8,
           "endColumn": 15,
           "sourceFile": "src\\screens\\Desktop\\sections\\IngredientInventory\\IngredientInventory.jsx"
@@ -801,15 +801,15 @@
       }
     },
     {
-      "id": "src\\screens\\AddIngredientPage\\AddIngredientPage.jsx:111:8-to-src\\screens\\Desktop\\Desktop.jsx",
+      "id": "src\\screens\\AddIngredientPage\\AddIngredientPage.jsx:172:8-to-src\\screens\\Desktop\\Desktop.jsx",
       "source": "src\\screens\\AddIngredientPage\\AddIngredientPage.jsx",
       "target": "src\\screens\\Desktop\\Desktop.jsx",
       "data": {
         "viaRoute": "/desktop",
         "trigger": {
           "element": "navigate(\"/desktop\")",
-          "line": 111,
-          "endLine": 111,
+          "line": 172,
+          "endLine": 172,
           "column": 8,
           "endColumn": 28,
           "sourceFile": "src\\screens\\AddIngredientPage\\AddIngredientPage.jsx"
@@ -817,15 +817,15 @@
       }
     },
     {
-      "id": "src\\screens\\AddIngredientPage\\AddIngredientPage.jsx:212:12-to-src\\screens\\Desktop\\Desktop.jsx",
+      "id": "src\\screens\\AddIngredientPage\\AddIngredientPage.jsx:273:12-to-src\\screens\\Desktop\\Desktop.jsx",
       "source": "src\\screens\\AddIngredientPage\\AddIngredientPage.jsx",
       "target": "src\\screens\\Desktop\\Desktop.jsx",
       "data": {
         "viaRoute": "/desktop",
         "trigger": {
           "element": "<Link to=\"/desktop\" className=\"add-ingredient-cancel-btn\">\r\n              취소\r\n            </Link>",
-          "line": 212,
-          "endLine": 214,
+          "line": 273,
+          "endLine": 275,
           "column": 12,
           "endColumn": 19,
           "sourceFile": "src\\screens\\AddIngredientPage\\AddIngredientPage.jsx"
