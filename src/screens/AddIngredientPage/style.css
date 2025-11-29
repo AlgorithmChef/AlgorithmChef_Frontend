@@ -54,8 +54,8 @@
   font-family: "Inter", Helvetica;
   font-size: 20px;
   font-weight: 500;
-  letter-spacing: -0.10px;
-  line-height: 29.0px;
+  letter-spacing: -0.1px;
+  line-height: 29px;
   margin: 0;
 }
 
@@ -110,38 +110,39 @@
   color: #ffffff;
 }
 
-/* --- [수정 시작] 스크롤 및 화살표 관련 스타일 --- */
+/* --- [가로 스크롤 핵심 스타일] --- */
 
-/* 화살표와 리스트를 감싸는 래퍼 */
 .add-ingredient-grid-wrapper {
   position: relative;
   width: 100%;
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 10px 0; /* 화살표 그림자 공간 확보 */
+  padding: 20px 0;
 }
 
-/* 기존 Grid -> 가로 스크롤 Flex로 변경 */
+/* Flexbox를 사용하여 가로 배치를 강제합니다 */
 .add-ingredient-grid {
   align-self: stretch;
-  display: flex; /* grid -> flex */
-  overflow-x: auto; /* 가로 스크롤 */
+  display: flex;
+  flex-direction: row; /* 가로 방향 명시 */
+  flex-wrap: nowrap; /* 줄바꿈 금지 (핵심) */
+  overflow-x: auto; /* 가로 스크롤 허용 */
   gap: 20px;
   padding: 10px 5px;
   width: 100%;
   scroll-behavior: smooth;
-  
-  /* 스크롤바 숨기기 */
-  -ms-overflow-style: none; /* IE and Edge */
+
+  /* 스크롤바 숨기기 (옵션) */
+  -ms-overflow-style: none; /* IE, Edge */
   scrollbar-width: none; /* Firefox */
 }
 
 .add-ingredient-grid::-webkit-scrollbar {
-  display: none; /* Chrome, Safari, Opera */
+  display: none; /* Chrome, Safari */
 }
 
-/* 화살표 버튼 스타일 */
+/* 화살표 버튼 */
 .scroll-arrow-btn {
   position: absolute;
   top: 50%;
@@ -151,13 +152,13 @@
   border-radius: 50%;
   background-color: #ffffff;
   border: 1px solid #e0e0e0;
-  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   display: flex;
   align-items: center;
   justify-content: center;
   cursor: pointer;
   z-index: 10;
-  color: #f6910b; /* 테마 색상 */
+  color: #f6910b;
   font-size: 20px;
   transition: all 0.2s ease;
 }
@@ -166,19 +167,18 @@
   background-color: #f6910b;
   color: white;
   border-color: #f6910b;
-  transform: translateY(-50%) scale(1.1);
+  transform: scale(1.1) translateY(-45%);
 }
 
 .scroll-arrow-btn.left {
-  left: -25px;
+  left: -20px;
 }
 
 .scroll-arrow-btn.right {
-  right: -25px;
+  right: -20px;
 }
 
-/* --- [수정 끝] --- */
-
+/* 재료 카드 */
 .add-ingredient-card {
   align-items: center;
   background-color: #ffffff;
@@ -191,28 +191,30 @@
   padding: 15px;
   position: relative;
   transition: all 0.2s;
-  
-  /* 가로 스크롤 시 찌그러짐 방지 */
-  min-width: 150px; 
-  flex-shrink: 0;
+
+  /* ★ 카드가 찌그러지지 않도록 크기 고정 */
+  min-width: 160px; /* 최소 너비 확보 */
+  width: 160px;
+  height: 200px;
+  flex-shrink: 0; /* 공간이 좁아도 줄어들지 않음 (핵심) */
 }
 
 .add-ingredient-card:hover {
   border-color: #f6910b;
-  transform: translateY(-2px);
+  transform: translateY(-4px);
   box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
 }
 
 .add-ingredient-card.selected {
   border-color: #f6910b;
-  background-color: #f6910b1a;
+  background-color: #fff8f0;
 }
 
 .add-ingredient-card-image {
-  width: 80px;
-  height: 80px;
-  object-fit: cover;
-  border-radius: 8px;
+  width: 90px;
+  height: 90px;
+  object-fit: contain;
+  margin-bottom: 5px;
 }
 
 .add-ingredient-card-name {
@@ -221,12 +223,16 @@
   font-size: 16px;
   font-weight: 600;
   text-align: center;
+  width: 100%;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .add-ingredient-card-category {
   color: #666666;
   font-family: "Inter", Helvetica;
-  font-size: 12px;
+  font-size: 13px;
   font-weight: 500;
   text-align: center;
 }
@@ -243,7 +249,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 16px;
+  font-size: 14px;
   font-weight: 700;
 }
 
@@ -255,6 +261,7 @@
   justify-content: space-between;
   padding: 20px 0;
   width: 100%;
+  margin-top: auto;
 }
 
 .add-ingredient-selected-count {
@@ -312,6 +319,7 @@
   cursor: not-allowed;
 }
 
+/* 반응형 스타일 */
 @media (max-width: 768px) {
   .add-ingredient-content {
     padding: 20px 20px;
@@ -327,13 +335,12 @@
     line-height: 23.2px;
   }
 
-  /* 반응형 수정: 모바일에서는 스크롤로만 처리하고 화살표 위치 조정 */
-  .add-ingredient-grid {
-    gap: 15px;
+  .scroll-arrow-btn.left {
+    left: 0;
   }
-  
-  .scroll-arrow-btn.left { left: 0; }
-  .scroll-arrow-btn.right { right: 0; }
+  .scroll-arrow-btn.right {
+    right: 0;
+  }
 
   .add-ingredient-footer {
     flex-direction: column;

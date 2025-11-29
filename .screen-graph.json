@@ -65,15 +65,15 @@
   ],
   "edges": [
     {
-      "id": "src\\components\\UnifiedHeader\\UnifiedHeader.jsx:53:14-to-src\\screens\\Desktop\\Desktop.jsx",
+      "id": "src\\components\\UnifiedHeader\\UnifiedHeader.jsx:74:14-to-src\\screens\\Desktop\\Desktop.jsx",
       "source": "src\\screens\\Desktop\\Desktop.jsx",
       "target": "src\\screens\\Desktop\\Desktop.jsx",
       "data": {
         "viaRoute": "/desktop",
         "trigger": {
-          "element": "<Link to=\"/desktop\" className=\"menu-item\" onClick={() => setShowMenu(false)}>\r\n                홈\r\n              </Link>",
-          "line": 53,
-          "endLine": 55,
+          "element": "<Link\r\n                to=\"/desktop\"\r\n                className=\"menu-item\"\r\n                onClick={() => setShowMenu(false)}\r\n              >\r\n                홈\r\n              </Link>",
+          "line": 74,
+          "endLine": 80,
           "column": 14,
           "endColumn": 21,
           "sourceFile": "src\\components\\UnifiedHeader\\UnifiedHeader.jsx"
@@ -81,15 +81,15 @@
       }
     },
     {
-      "id": "src\\components\\UnifiedHeader\\UnifiedHeader.jsx:56:14-to-src\\screens\\MenuRecommendationPage\\MenuRecommendationPage.jsx",
+      "id": "src\\components\\UnifiedHeader\\UnifiedHeader.jsx:81:14-to-src\\screens\\MenuRecommendationPage\\MenuRecommendationPage.jsx",
       "source": "src\\screens\\Desktop\\Desktop.jsx",
       "target": "src\\screens\\MenuRecommendationPage\\MenuRecommendationPage.jsx",
       "data": {
         "viaRoute": "/menurecommendation",
         "trigger": {
-          "element": "<Link to=\"/menurecommendation\" className=\"menu-item\" onClick={() => setShowMenu(false)}>\r\n                메뉴 추천\r\n              </Link>",
-          "line": 56,
-          "endLine": 58,
+          "element": "<Link\r\n                to=\"/menurecommendation\"\r\n                className=\"menu-item\"\r\n                onClick={() => setShowMenu(false)}\r\n              >\r\n                메뉴 추천\r\n              </Link>",
+          "line": 81,
+          "endLine": 87,
           "column": 14,
           "endColumn": 21,
           "sourceFile": "src\\components\\UnifiedHeader\\UnifiedHeader.jsx"
@@ -97,15 +97,15 @@
       }
     },
     {
-      "id": "src\\components\\UnifiedHeader\\UnifiedHeader.jsx:59:14-to-src\\screens\\CommunityPage\\CommunityPage.jsx",
+      "id": "src\\components\\UnifiedHeader\\UnifiedHeader.jsx:88:14-to-src\\screens\\CommunityPage\\CommunityPage.jsx",
       "source": "src\\screens\\Desktop\\Desktop.jsx",
       "target": "src\\screens\\CommunityPage\\CommunityPage.jsx",
       "data": {
         "viaRoute": "/communitypage",
         "trigger": {
-          "element": "<Link to=\"/communitypage\" className=\"menu-item\" onClick={() => setShowMenu(false)}>\r\n                재료 나눔 게시판\r\n              </Link>",
-          "line": 59,
-          "endLine": 61,
+          "element": "<Link\r\n                to=\"/communitypage\"\r\n                className=\"menu-item\"\r\n                onClick={() => setShowMenu(false)}\r\n              >\r\n                재료 나눔 게시판\r\n              </Link>",
+          "line": 88,
+          "endLine": 94,
           "column": 14,
           "endColumn": 21,
           "sourceFile": "src\\components\\UnifiedHeader\\UnifiedHeader.jsx"
@@ -113,15 +113,15 @@
       }
     },
     {
-      "id": "src\\components\\UnifiedHeader\\UnifiedHeader.jsx:62:14-to-src\\screens\\MyPage\\MyPage.jsx",
+      "id": "src\\components\\UnifiedHeader\\UnifiedHeader.jsx:95:14-to-src\\screens\\MyPage\\MyPage.jsx",
       "source": "src\\screens\\Desktop\\Desktop.jsx",
       "target": "src\\screens\\MyPage\\MyPage.jsx",
       "data": {
         "viaRoute": "/mypage",
         "trigger": {
-          "element": "<Link to=\"/mypage\" className=\"menu-item\" onClick={() => setShowMenu(false)}>\r\n                마이페이지\r\n              </Link>",
-          "line": 62,
-          "endLine": 64,
+          "element": "<Link\r\n                to=\"/mypage\"\r\n                className=\"menu-item\"\r\n                onClick={() => setShowMenu(false)}\r\n              >\r\n                마이페이지\r\n              </Link>",
+          "line": 95,
+          "endLine": 101,
           "column": 14,
           "endColumn": 21,
           "sourceFile": "src\\components\\UnifiedHeader\\UnifiedHeader.jsx"
@@ -129,15 +129,15 @@
       }
     },
     {
-      "id": "src\\components\\UnifiedHeader\\UnifiedHeader.jsx:67:10-to-src\\screens\\Desktop\\Desktop.jsx",
+      "id": "src\\components\\UnifiedHeader\\UnifiedHeader.jsx:104:10-to-src\\screens\\Desktop\\Desktop.jsx",
       "source": "src\\screens\\Desktop\\Desktop.jsx",
       "target": "src\\screens\\Desktop\\Desktop.jsx",
       "data": {
         "viaRoute": "/desktop",
         "trigger": {
           "element": "<Link to=\"/desktop\">\r\n            <img\r\n              className=\"unified-header-logo\"\r\n              alt=\"Logo\"\r\n              src=\"https://c.animaapp.com/sjWITF5i/img/iconimage-1.svg\"\r\n            />\r\n          </Link>",
-          "line": 67,
-          "endLine": 73,
+          "line": 104,
+          "endLine": 110,
           "column": 10,
           "endColumn": 17,
           "sourceFile": "src\\components\\UnifiedHeader\\UnifiedHeader.jsx"
@@ -145,15 +145,15 @@
       }
     },
     {
-      "id": "src\\components\\UnifiedHeader\\UnifiedHeader.jsx:76:8-to-src\\screens\\Desktop\\Desktop.jsx",
+      "id": "src\\components\\UnifiedHeader\\UnifiedHeader.jsx:113:8-to-src\\screens\\Desktop\\Desktop.jsx",
       "source": "src\\screens\\Desktop\\Desktop.jsx",
       "target": "src\\screens\\Desktop\\Desktop.jsx",
       "data": {
         "viaRoute": "/desktop",
         "trigger": {
           "element": "<Link to=\"/desktop\" className=\"unified-header-center\">\r\n          <p className=\"unified-header-title\">\r\n            <span className=\"title-text-black\">알고리즘 </span>\r\n            <span className=\"title-text-orange\">셰프</span>\r\n          </p>\r\n        </Link>",
-          "line": 76,
-          "endLine": 81,
+          "line": 113,
+          "endLine": 118,
           "column": 8,
           "endColumn": 15,
           "sourceFile": "src\\components\\UnifiedHeader\\UnifiedHeader.jsx"
@@ -161,18 +161,34 @@
       }
     },
     {
-      "id": "src\\components\\UnifiedHeader\\UnifiedHeader.jsx:84:10-to-src\\screens\\MyPage\\MyPage.jsx",
+      "id": "src\\components\\UnifiedHeader\\UnifiedHeader.jsx:121:10-to-src\\screens\\MyPage\\MyPage.jsx",
       "source": "src\\screens\\Desktop\\Desktop.jsx",
       "target": "src\\screens\\MyPage\\MyPage.jsx",
       "data": {
         "viaRoute": "/mypage",
         "trigger": {
           "element": "<Link to=\"/mypage\" className=\"unified-mypage-btn\">\r\n            <div className=\"unified-mypage-text\">마이페이지</div>\r\n          </Link>",
-          "line": 84,
-          "endLine": 86,
+          "line": 121,
+          "endLine": 123,
           "column": 10,
           "endColumn": 17,
           "sourceFile": "src\\components\\UnifiedHeader\\UnifiedHeader.jsx"
+        }
+      }
+    },
+    {
+      "id": "src\\components\\PreferencesPopup\\PreferencesPopup.jsx:87:8-to-src\\screens\\Desktop\\Desktop.jsx",
+      "source": "src\\screens\\Desktop\\Desktop.jsx",
+      "target": "src\\screens\\Desktop\\Desktop.jsx",
+      "data": {
+        "viaRoute": "/desktop",
+        "trigger": {
+          "element": "navigate(\"/desktop\")",
+          "line": 87,
+          "endLine": 87,
+          "column": 8,
+          "endColumn": 28,
+          "sourceFile": "src\\components\\PreferencesPopup\\PreferencesPopup.jsx"
         }
       }
     },
@@ -241,15 +257,15 @@
       }
     },
     {
-      "id": "src\\components\\UnifiedHeader\\UnifiedHeader.jsx:53:14-to-src\\screens\\Desktop\\Desktop.jsx",
+      "id": "src\\components\\UnifiedHeader\\UnifiedHeader.jsx:74:14-to-src\\screens\\Desktop\\Desktop.jsx",
       "source": "src\\screens\\Desktop\\Desktop.jsx",
       "target": "src\\screens\\Desktop\\Desktop.jsx",
       "data": {
         "viaRoute": "/desktop",
         "trigger": {
-          "element": "<Link to=\"/desktop\" className=\"menu-item\" onClick={() => setShowMenu(false)}>\r\n                홈\r\n              </Link>",
-          "line": 53,
-          "endLine": 55,
+          "element": "<Link\r\n                to=\"/desktop\"\r\n                className=\"menu-item\"\r\n                onClick={() => setShowMenu(false)}\r\n              >\r\n                홈\r\n              </Link>",
+          "line": 74,
+          "endLine": 80,
           "column": 14,
           "endColumn": 21,
           "sourceFile": "src\\components\\UnifiedHeader\\UnifiedHeader.jsx"
@@ -257,15 +273,15 @@
       }
     },
     {
-      "id": "src\\components\\UnifiedHeader\\UnifiedHeader.jsx:56:14-to-src\\screens\\MenuRecommendationPage\\MenuRecommendationPage.jsx",
+      "id": "src\\components\\UnifiedHeader\\UnifiedHeader.jsx:81:14-to-src\\screens\\MenuRecommendationPage\\MenuRecommendationPage.jsx",
       "source": "src\\screens\\Desktop\\Desktop.jsx",
       "target": "src\\screens\\MenuRecommendationPage\\MenuRecommendationPage.jsx",
       "data": {
         "viaRoute": "/menurecommendation",
         "trigger": {
-          "element": "<Link to=\"/menurecommendation\" className=\"menu-item\" onClick={() => setShowMenu(false)}>\r\n                메뉴 추천\r\n              </Link>",
-          "line": 56,
-          "endLine": 58,
+          "element": "<Link\r\n                to=\"/menurecommendation\"\r\n                className=\"menu-item\"\r\n                onClick={() => setShowMenu(false)}\r\n              >\r\n                메뉴 추천\r\n              </Link>",
+          "line": 81,
+          "endLine": 87,
           "column": 14,
           "endColumn": 21,
           "sourceFile": "src\\components\\UnifiedHeader\\UnifiedHeader.jsx"
@@ -273,15 +289,15 @@
       }
     },
     {
-      "id": "src\\components\\UnifiedHeader\\UnifiedHeader.jsx:59:14-to-src\\screens\\CommunityPage\\CommunityPage.jsx",
+      "id": "src\\components\\UnifiedHeader\\UnifiedHeader.jsx:88:14-to-src\\screens\\CommunityPage\\CommunityPage.jsx",
       "source": "src\\screens\\Desktop\\Desktop.jsx",
       "target": "src\\screens\\CommunityPage\\CommunityPage.jsx",
       "data": {
         "viaRoute": "/communitypage",
         "trigger": {
-          "element": "<Link to=\"/communitypage\" className=\"menu-item\" onClick={() => setShowMenu(false)}>\r\n                재료 나눔 게시판\r\n              </Link>",
-          "line": 59,
-          "endLine": 61,
+          "element": "<Link\r\n                to=\"/communitypage\"\r\n                className=\"menu-item\"\r\n                onClick={() => setShowMenu(false)}\r\n              >\r\n                재료 나눔 게시판\r\n              </Link>",
+          "line": 88,
+          "endLine": 94,
           "column": 14,
           "endColumn": 21,
           "sourceFile": "src\\components\\UnifiedHeader\\UnifiedHeader.jsx"
@@ -289,15 +305,15 @@
       }
     },
     {
-      "id": "src\\components\\UnifiedHeader\\UnifiedHeader.jsx:62:14-to-src\\screens\\MyPage\\MyPage.jsx",
+      "id": "src\\components\\UnifiedHeader\\UnifiedHeader.jsx:95:14-to-src\\screens\\MyPage\\MyPage.jsx",
       "source": "src\\screens\\Desktop\\Desktop.jsx",
       "target": "src\\screens\\MyPage\\MyPage.jsx",
       "data": {
         "viaRoute": "/mypage",
         "trigger": {
-          "element": "<Link to=\"/mypage\" className=\"menu-item\" onClick={() => setShowMenu(false)}>\r\n                마이페이지\r\n              </Link>",
-          "line": 62,
-          "endLine": 64,
+          "element": "<Link\r\n                to=\"/mypage\"\r\n                className=\"menu-item\"\r\n                onClick={() => setShowMenu(false)}\r\n              >\r\n                마이페이지\r\n              </Link>",
+          "line": 95,
+          "endLine": 101,
           "column": 14,
           "endColumn": 21,
           "sourceFile": "src\\components\\UnifiedHeader\\UnifiedHeader.jsx"
@@ -305,15 +321,15 @@
       }
     },
     {
-      "id": "src\\components\\UnifiedHeader\\UnifiedHeader.jsx:67:10-to-src\\screens\\Desktop\\Desktop.jsx",
+      "id": "src\\components\\UnifiedHeader\\UnifiedHeader.jsx:104:10-to-src\\screens\\Desktop\\Desktop.jsx",
       "source": "src\\screens\\Desktop\\Desktop.jsx",
       "target": "src\\screens\\Desktop\\Desktop.jsx",
       "data": {
         "viaRoute": "/desktop",
         "trigger": {
           "element": "<Link to=\"/desktop\">\r\n            <img\r\n              className=\"unified-header-logo\"\r\n              alt=\"Logo\"\r\n              src=\"https://c.animaapp.com/sjWITF5i/img/iconimage-1.svg\"\r\n            />\r\n          </Link>",
-          "line": 67,
-          "endLine": 73,
+          "line": 104,
+          "endLine": 110,
           "column": 10,
           "endColumn": 17,
           "sourceFile": "src\\components\\UnifiedHeader\\UnifiedHeader.jsx"
@@ -321,15 +337,15 @@
       }
     },
     {
-      "id": "src\\components\\UnifiedHeader\\UnifiedHeader.jsx:76:8-to-src\\screens\\Desktop\\Desktop.jsx",
+      "id": "src\\components\\UnifiedHeader\\UnifiedHeader.jsx:113:8-to-src\\screens\\Desktop\\Desktop.jsx",
       "source": "src\\screens\\Desktop\\Desktop.jsx",
       "target": "src\\screens\\Desktop\\Desktop.jsx",
       "data": {
         "viaRoute": "/desktop",
         "trigger": {
           "element": "<Link to=\"/desktop\" className=\"unified-header-center\">\r\n          <p className=\"unified-header-title\">\r\n            <span className=\"title-text-black\">알고리즘 </span>\r\n            <span className=\"title-text-orange\">셰프</span>\r\n          </p>\r\n        </Link>",
-          "line": 76,
-          "endLine": 81,
+          "line": 113,
+          "endLine": 118,
           "column": 8,
           "endColumn": 15,
           "sourceFile": "src\\components\\UnifiedHeader\\UnifiedHeader.jsx"
@@ -337,18 +353,34 @@
       }
     },
     {
-      "id": "src\\components\\UnifiedHeader\\UnifiedHeader.jsx:84:10-to-src\\screens\\MyPage\\MyPage.jsx",
+      "id": "src\\components\\UnifiedHeader\\UnifiedHeader.jsx:121:10-to-src\\screens\\MyPage\\MyPage.jsx",
       "source": "src\\screens\\Desktop\\Desktop.jsx",
       "target": "src\\screens\\MyPage\\MyPage.jsx",
       "data": {
         "viaRoute": "/mypage",
         "trigger": {
           "element": "<Link to=\"/mypage\" className=\"unified-mypage-btn\">\r\n            <div className=\"unified-mypage-text\">마이페이지</div>\r\n          </Link>",
-          "line": 84,
-          "endLine": 86,
+          "line": 121,
+          "endLine": 123,
           "column": 10,
           "endColumn": 17,
           "sourceFile": "src\\components\\UnifiedHeader\\UnifiedHeader.jsx"
+        }
+      }
+    },
+    {
+      "id": "src\\components\\PreferencesPopup\\PreferencesPopup.jsx:87:8-to-src\\screens\\Desktop\\Desktop.jsx",
+      "source": "src\\screens\\Desktop\\Desktop.jsx",
+      "target": "src\\screens\\Desktop\\Desktop.jsx",
+      "data": {
+        "viaRoute": "/desktop",
+        "trigger": {
+          "element": "navigate(\"/desktop\")",
+          "line": 87,
+          "endLine": 87,
+          "column": 8,
+          "endColumn": 28,
+          "sourceFile": "src\\components\\PreferencesPopup\\PreferencesPopup.jsx"
         }
       }
     },
@@ -369,15 +401,15 @@
       }
     },
     {
-      "id": "src\\components\\UnifiedHeader\\UnifiedHeader.jsx:53:14-to-src\\screens\\Desktop\\Desktop.jsx",
+      "id": "src\\components\\UnifiedHeader\\UnifiedHeader.jsx:74:14-to-src\\screens\\Desktop\\Desktop.jsx",
       "source": "src\\screens\\Desktop\\Desktop.jsx",
       "target": "src\\screens\\Desktop\\Desktop.jsx",
       "data": {
         "viaRoute": "/desktop",
         "trigger": {
-          "element": "<Link to=\"/desktop\" className=\"menu-item\" onClick={() => setShowMenu(false)}>\r\n                홈\r\n              </Link>",
-          "line": 53,
-          "endLine": 55,
+          "element": "<Link\r\n                to=\"/desktop\"\r\n                className=\"menu-item\"\r\n                onClick={() => setShowMenu(false)}\r\n              >\r\n                홈\r\n              </Link>",
+          "line": 74,
+          "endLine": 80,
           "column": 14,
           "endColumn": 21,
           "sourceFile": "src\\components\\UnifiedHeader\\UnifiedHeader.jsx"
@@ -385,15 +417,15 @@
       }
     },
     {
-      "id": "src\\components\\UnifiedHeader\\UnifiedHeader.jsx:56:14-to-src\\screens\\MenuRecommendationPage\\MenuRecommendationPage.jsx",
+      "id": "src\\components\\UnifiedHeader\\UnifiedHeader.jsx:81:14-to-src\\screens\\MenuRecommendationPage\\MenuRecommendationPage.jsx",
       "source": "src\\screens\\Desktop\\Desktop.jsx",
       "target": "src\\screens\\MenuRecommendationPage\\MenuRecommendationPage.jsx",
       "data": {
         "viaRoute": "/menurecommendation",
         "trigger": {
-          "element": "<Link to=\"/menurecommendation\" className=\"menu-item\" onClick={() => setShowMenu(false)}>\r\n                메뉴 추천\r\n              </Link>",
-          "line": 56,
-          "endLine": 58,
+          "element": "<Link\r\n                to=\"/menurecommendation\"\r\n                className=\"menu-item\"\r\n                onClick={() => setShowMenu(false)}\r\n              >\r\n                메뉴 추천\r\n              </Link>",
+          "line": 81,
+          "endLine": 87,
           "column": 14,
           "endColumn": 21,
           "sourceFile": "src\\components\\UnifiedHeader\\UnifiedHeader.jsx"
@@ -401,15 +433,15 @@
       }
     },
     {
-      "id": "src\\components\\UnifiedHeader\\UnifiedHeader.jsx:59:14-to-src\\screens\\CommunityPage\\CommunityPage.jsx",
+      "id": "src\\components\\UnifiedHeader\\UnifiedHeader.jsx:88:14-to-src\\screens\\CommunityPage\\CommunityPage.jsx",
       "source": "src\\screens\\Desktop\\Desktop.jsx",
       "target": "src\\screens\\CommunityPage\\CommunityPage.jsx",
       "data": {
         "viaRoute": "/communitypage",
         "trigger": {
-          "element": "<Link to=\"/communitypage\" className=\"menu-item\" onClick={() => setShowMenu(false)}>\r\n                재료 나눔 게시판\r\n              </Link>",
-          "line": 59,
-          "endLine": 61,
+          "element": "<Link\r\n                to=\"/communitypage\"\r\n                className=\"menu-item\"\r\n                onClick={() => setShowMenu(false)}\r\n              >\r\n                재료 나눔 게시판\r\n              </Link>",
+          "line": 88,
+          "endLine": 94,
           "column": 14,
           "endColumn": 21,
           "sourceFile": "src\\components\\UnifiedHeader\\UnifiedHeader.jsx"
@@ -417,15 +449,15 @@
       }
     },
     {
-      "id": "src\\components\\UnifiedHeader\\UnifiedHeader.jsx:62:14-to-src\\screens\\MyPage\\MyPage.jsx",
+      "id": "src\\components\\UnifiedHeader\\UnifiedHeader.jsx:95:14-to-src\\screens\\MyPage\\MyPage.jsx",
       "source": "src\\screens\\Desktop\\Desktop.jsx",
       "target": "src\\screens\\MyPage\\MyPage.jsx",
       "data": {
         "viaRoute": "/mypage",
         "trigger": {
-          "element": "<Link to=\"/mypage\" className=\"menu-item\" onClick={() => setShowMenu(false)}>\r\n                마이페이지\r\n              </Link>",
-          "line": 62,
-          "endLine": 64,
+          "element": "<Link\r\n                to=\"/mypage\"\r\n                className=\"menu-item\"\r\n                onClick={() => setShowMenu(false)}\r\n              >\r\n                마이페이지\r\n              </Link>",
+          "line": 95,
+          "endLine": 101,
           "column": 14,
           "endColumn": 21,
           "sourceFile": "src\\components\\UnifiedHeader\\UnifiedHeader.jsx"
@@ -433,15 +465,15 @@
       }
     },
     {
-      "id": "src\\components\\UnifiedHeader\\UnifiedHeader.jsx:67:10-to-src\\screens\\Desktop\\Desktop.jsx",
+      "id": "src\\components\\UnifiedHeader\\UnifiedHeader.jsx:104:10-to-src\\screens\\Desktop\\Desktop.jsx",
       "source": "src\\screens\\Desktop\\Desktop.jsx",
       "target": "src\\screens\\Desktop\\Desktop.jsx",
       "data": {
         "viaRoute": "/desktop",
         "trigger": {
           "element": "<Link to=\"/desktop\">\r\n            <img\r\n              className=\"unified-header-logo\"\r\n              alt=\"Logo\"\r\n              src=\"https://c.animaapp.com/sjWITF5i/img/iconimage-1.svg\"\r\n            />\r\n          </Link>",
-          "line": 67,
-          "endLine": 73,
+          "line": 104,
+          "endLine": 110,
           "column": 10,
           "endColumn": 17,
           "sourceFile": "src\\components\\UnifiedHeader\\UnifiedHeader.jsx"
@@ -449,15 +481,15 @@
       }
     },
     {
-      "id": "src\\components\\UnifiedHeader\\UnifiedHeader.jsx:76:8-to-src\\screens\\Desktop\\Desktop.jsx",
+      "id": "src\\components\\UnifiedHeader\\UnifiedHeader.jsx:113:8-to-src\\screens\\Desktop\\Desktop.jsx",
       "source": "src\\screens\\Desktop\\Desktop.jsx",
       "target": "src\\screens\\Desktop\\Desktop.jsx",
       "data": {
         "viaRoute": "/desktop",
         "trigger": {
           "element": "<Link to=\"/desktop\" className=\"unified-header-center\">\r\n          <p className=\"unified-header-title\">\r\n            <span className=\"title-text-black\">알고리즘 </span>\r\n            <span className=\"title-text-orange\">셰프</span>\r\n          </p>\r\n        </Link>",
-          "line": 76,
-          "endLine": 81,
+          "line": 113,
+          "endLine": 118,
           "column": 8,
           "endColumn": 15,
           "sourceFile": "src\\components\\UnifiedHeader\\UnifiedHeader.jsx"
@@ -465,15 +497,15 @@
       }
     },
     {
-      "id": "src\\components\\UnifiedHeader\\UnifiedHeader.jsx:84:10-to-src\\screens\\MyPage\\MyPage.jsx",
+      "id": "src\\components\\UnifiedHeader\\UnifiedHeader.jsx:121:10-to-src\\screens\\MyPage\\MyPage.jsx",
       "source": "src\\screens\\Desktop\\Desktop.jsx",
       "target": "src\\screens\\MyPage\\MyPage.jsx",
       "data": {
         "viaRoute": "/mypage",
         "trigger": {
           "element": "<Link to=\"/mypage\" className=\"unified-mypage-btn\">\r\n            <div className=\"unified-mypage-text\">마이페이지</div>\r\n          </Link>",
-          "line": 84,
-          "endLine": 86,
+          "line": 121,
+          "endLine": 123,
           "column": 10,
           "endColumn": 17,
           "sourceFile": "src\\components\\UnifiedHeader\\UnifiedHeader.jsx"
@@ -481,15 +513,47 @@
       }
     },
     {
-      "id": "src\\components\\UnifiedHeader\\UnifiedHeader.jsx:53:14-to-src\\screens\\Desktop\\Desktop.jsx",
+      "id": "src\\components\\PreferencesPopup\\PreferencesPopup.jsx:87:8-to-src\\screens\\Desktop\\Desktop.jsx",
       "source": "src\\screens\\Desktop\\Desktop.jsx",
       "target": "src\\screens\\Desktop\\Desktop.jsx",
       "data": {
         "viaRoute": "/desktop",
         "trigger": {
-          "element": "<Link to=\"/desktop\" className=\"menu-item\" onClick={() => setShowMenu(false)}>\r\n                홈\r\n              </Link>",
-          "line": 53,
-          "endLine": 55,
+          "element": "navigate(\"/desktop\")",
+          "line": 87,
+          "endLine": 87,
+          "column": 8,
+          "endColumn": 28,
+          "sourceFile": "src\\components\\PreferencesPopup\\PreferencesPopup.jsx"
+        }
+      }
+    },
+    {
+      "id": "src\\components\\PreferencesPopup\\PreferencesPopup.jsx:87:8-to-src\\screens\\Desktop\\Desktop.jsx",
+      "source": "src\\screens\\Desktop\\Desktop.jsx",
+      "target": "src\\screens\\Desktop\\Desktop.jsx",
+      "data": {
+        "viaRoute": "/desktop",
+        "trigger": {
+          "element": "navigate(\"/desktop\")",
+          "line": 87,
+          "endLine": 87,
+          "column": 8,
+          "endColumn": 28,
+          "sourceFile": "src\\components\\PreferencesPopup\\PreferencesPopup.jsx"
+        }
+      }
+    },
+    {
+      "id": "src\\components\\UnifiedHeader\\UnifiedHeader.jsx:74:14-to-src\\screens\\Desktop\\Desktop.jsx",
+      "source": "src\\screens\\Desktop\\Desktop.jsx",
+      "target": "src\\screens\\Desktop\\Desktop.jsx",
+      "data": {
+        "viaRoute": "/desktop",
+        "trigger": {
+          "element": "<Link\r\n                to=\"/desktop\"\r\n                className=\"menu-item\"\r\n                onClick={() => setShowMenu(false)}\r\n              >\r\n                홈\r\n              </Link>",
+          "line": 74,
+          "endLine": 80,
           "column": 14,
           "endColumn": 21,
           "sourceFile": "src\\components\\UnifiedHeader\\UnifiedHeader.jsx"
@@ -497,15 +561,15 @@
       }
     },
     {
-      "id": "src\\components\\UnifiedHeader\\UnifiedHeader.jsx:56:14-to-src\\screens\\MenuRecommendationPage\\MenuRecommendationPage.jsx",
+      "id": "src\\components\\UnifiedHeader\\UnifiedHeader.jsx:81:14-to-src\\screens\\MenuRecommendationPage\\MenuRecommendationPage.jsx",
       "source": "src\\screens\\Desktop\\Desktop.jsx",
       "target": "src\\screens\\MenuRecommendationPage\\MenuRecommendationPage.jsx",
       "data": {
         "viaRoute": "/menurecommendation",
         "trigger": {
-          "element": "<Link to=\"/menurecommendation\" className=\"menu-item\" onClick={() => setShowMenu(false)}>\r\n                메뉴 추천\r\n              </Link>",
-          "line": 56,
-          "endLine": 58,
+          "element": "<Link\r\n                to=\"/menurecommendation\"\r\n                className=\"menu-item\"\r\n                onClick={() => setShowMenu(false)}\r\n              >\r\n                메뉴 추천\r\n              </Link>",
+          "line": 81,
+          "endLine": 87,
           "column": 14,
           "endColumn": 21,
           "sourceFile": "src\\components\\UnifiedHeader\\UnifiedHeader.jsx"
@@ -513,15 +577,15 @@
       }
     },
     {
-      "id": "src\\components\\UnifiedHeader\\UnifiedHeader.jsx:59:14-to-src\\screens\\CommunityPage\\CommunityPage.jsx",
+      "id": "src\\components\\UnifiedHeader\\UnifiedHeader.jsx:88:14-to-src\\screens\\CommunityPage\\CommunityPage.jsx",
       "source": "src\\screens\\Desktop\\Desktop.jsx",
       "target": "src\\screens\\CommunityPage\\CommunityPage.jsx",
       "data": {
         "viaRoute": "/communitypage",
         "trigger": {
-          "element": "<Link to=\"/communitypage\" className=\"menu-item\" onClick={() => setShowMenu(false)}>\r\n                재료 나눔 게시판\r\n              </Link>",
-          "line": 59,
-          "endLine": 61,
+          "element": "<Link\r\n                to=\"/communitypage\"\r\n                className=\"menu-item\"\r\n                onClick={() => setShowMenu(false)}\r\n              >\r\n                재료 나눔 게시판\r\n              </Link>",
+          "line": 88,
+          "endLine": 94,
           "column": 14,
           "endColumn": 21,
           "sourceFile": "src\\components\\UnifiedHeader\\UnifiedHeader.jsx"
@@ -529,15 +593,15 @@
       }
     },
     {
-      "id": "src\\components\\UnifiedHeader\\UnifiedHeader.jsx:62:14-to-src\\screens\\MyPage\\MyPage.jsx",
+      "id": "src\\components\\UnifiedHeader\\UnifiedHeader.jsx:95:14-to-src\\screens\\MyPage\\MyPage.jsx",
       "source": "src\\screens\\Desktop\\Desktop.jsx",
       "target": "src\\screens\\MyPage\\MyPage.jsx",
       "data": {
         "viaRoute": "/mypage",
         "trigger": {
-          "element": "<Link to=\"/mypage\" className=\"menu-item\" onClick={() => setShowMenu(false)}>\r\n                마이페이지\r\n              </Link>",
-          "line": 62,
-          "endLine": 64,
+          "element": "<Link\r\n                to=\"/mypage\"\r\n                className=\"menu-item\"\r\n                onClick={() => setShowMenu(false)}\r\n              >\r\n                마이페이지\r\n              </Link>",
+          "line": 95,
+          "endLine": 101,
           "column": 14,
           "endColumn": 21,
           "sourceFile": "src\\components\\UnifiedHeader\\UnifiedHeader.jsx"
@@ -545,15 +609,15 @@
       }
     },
     {
-      "id": "src\\components\\UnifiedHeader\\UnifiedHeader.jsx:67:10-to-src\\screens\\Desktop\\Desktop.jsx",
+      "id": "src\\components\\UnifiedHeader\\UnifiedHeader.jsx:104:10-to-src\\screens\\Desktop\\Desktop.jsx",
       "source": "src\\screens\\Desktop\\Desktop.jsx",
       "target": "src\\screens\\Desktop\\Desktop.jsx",
       "data": {
         "viaRoute": "/desktop",
         "trigger": {
           "element": "<Link to=\"/desktop\">\r\n            <img\r\n              className=\"unified-header-logo\"\r\n              alt=\"Logo\"\r\n              src=\"https://c.animaapp.com/sjWITF5i/img/iconimage-1.svg\"\r\n            />\r\n          </Link>",
-          "line": 67,
-          "endLine": 73,
+          "line": 104,
+          "endLine": 110,
           "column": 10,
           "endColumn": 17,
           "sourceFile": "src\\components\\UnifiedHeader\\UnifiedHeader.jsx"
@@ -561,15 +625,15 @@
       }
     },
     {
-      "id": "src\\components\\UnifiedHeader\\UnifiedHeader.jsx:76:8-to-src\\screens\\Desktop\\Desktop.jsx",
+      "id": "src\\components\\UnifiedHeader\\UnifiedHeader.jsx:113:8-to-src\\screens\\Desktop\\Desktop.jsx",
       "source": "src\\screens\\Desktop\\Desktop.jsx",
       "target": "src\\screens\\Desktop\\Desktop.jsx",
       "data": {
         "viaRoute": "/desktop",
         "trigger": {
           "element": "<Link to=\"/desktop\" className=\"unified-header-center\">\r\n          <p className=\"unified-header-title\">\r\n            <span className=\"title-text-black\">알고리즘 </span>\r\n            <span className=\"title-text-orange\">셰프</span>\r\n          </p>\r\n        </Link>",
-          "line": 76,
-          "endLine": 81,
+          "line": 113,
+          "endLine": 118,
           "column": 8,
           "endColumn": 15,
           "sourceFile": "src\\components\\UnifiedHeader\\UnifiedHeader.jsx"
@@ -577,15 +641,15 @@
       }
     },
     {
-      "id": "src\\components\\UnifiedHeader\\UnifiedHeader.jsx:84:10-to-src\\screens\\MyPage\\MyPage.jsx",
+      "id": "src\\components\\UnifiedHeader\\UnifiedHeader.jsx:121:10-to-src\\screens\\MyPage\\MyPage.jsx",
       "source": "src\\screens\\Desktop\\Desktop.jsx",
       "target": "src\\screens\\MyPage\\MyPage.jsx",
       "data": {
         "viaRoute": "/mypage",
         "trigger": {
           "element": "<Link to=\"/mypage\" className=\"unified-mypage-btn\">\r\n            <div className=\"unified-mypage-text\">마이페이지</div>\r\n          </Link>",
-          "line": 84,
-          "endLine": 86,
+          "line": 121,
+          "endLine": 123,
           "column": 10,
           "endColumn": 17,
           "sourceFile": "src\\components\\UnifiedHeader\\UnifiedHeader.jsx"
@@ -593,15 +657,31 @@
       }
     },
     {
-      "id": "src\\components\\UnifiedHeader\\UnifiedHeader.jsx:53:14-to-src\\screens\\Desktop\\Desktop.jsx",
+      "id": "src\\components\\PreferencesPopup\\PreferencesPopup.jsx:87:8-to-src\\screens\\Desktop\\Desktop.jsx",
       "source": "src\\screens\\Desktop\\Desktop.jsx",
       "target": "src\\screens\\Desktop\\Desktop.jsx",
       "data": {
         "viaRoute": "/desktop",
         "trigger": {
-          "element": "<Link to=\"/desktop\" className=\"menu-item\" onClick={() => setShowMenu(false)}>\r\n                홈\r\n              </Link>",
-          "line": 53,
-          "endLine": 55,
+          "element": "navigate(\"/desktop\")",
+          "line": 87,
+          "endLine": 87,
+          "column": 8,
+          "endColumn": 28,
+          "sourceFile": "src\\components\\PreferencesPopup\\PreferencesPopup.jsx"
+        }
+      }
+    },
+    {
+      "id": "src\\components\\UnifiedHeader\\UnifiedHeader.jsx:74:14-to-src\\screens\\Desktop\\Desktop.jsx",
+      "source": "src\\screens\\Desktop\\Desktop.jsx",
+      "target": "src\\screens\\Desktop\\Desktop.jsx",
+      "data": {
+        "viaRoute": "/desktop",
+        "trigger": {
+          "element": "<Link\r\n                to=\"/desktop\"\r\n                className=\"menu-item\"\r\n                onClick={() => setShowMenu(false)}\r\n              >\r\n                홈\r\n              </Link>",
+          "line": 74,
+          "endLine": 80,
           "column": 14,
           "endColumn": 21,
           "sourceFile": "src\\components\\UnifiedHeader\\UnifiedHeader.jsx"
@@ -609,15 +689,15 @@
       }
     },
     {
-      "id": "src\\components\\UnifiedHeader\\UnifiedHeader.jsx:56:14-to-src\\screens\\MenuRecommendationPage\\MenuRecommendationPage.jsx",
+      "id": "src\\components\\UnifiedHeader\\UnifiedHeader.jsx:81:14-to-src\\screens\\MenuRecommendationPage\\MenuRecommendationPage.jsx",
       "source": "src\\screens\\Desktop\\Desktop.jsx",
       "target": "src\\screens\\MenuRecommendationPage\\MenuRecommendationPage.jsx",
       "data": {
         "viaRoute": "/menurecommendation",
         "trigger": {
-          "element": "<Link to=\"/menurecommendation\" className=\"menu-item\" onClick={() => setShowMenu(false)}>\r\n                메뉴 추천\r\n              </Link>",
-          "line": 56,
-          "endLine": 58,
+          "element": "<Link\r\n                to=\"/menurecommendation\"\r\n                className=\"menu-item\"\r\n                onClick={() => setShowMenu(false)}\r\n              >\r\n                메뉴 추천\r\n              </Link>",
+          "line": 81,
+          "endLine": 87,
           "column": 14,
           "endColumn": 21,
           "sourceFile": "src\\components\\UnifiedHeader\\UnifiedHeader.jsx"
@@ -625,15 +705,15 @@
       }
     },
     {
-      "id": "src\\components\\UnifiedHeader\\UnifiedHeader.jsx:59:14-to-src\\screens\\CommunityPage\\CommunityPage.jsx",
+      "id": "src\\components\\UnifiedHeader\\UnifiedHeader.jsx:88:14-to-src\\screens\\CommunityPage\\CommunityPage.jsx",
       "source": "src\\screens\\Desktop\\Desktop.jsx",
       "target": "src\\screens\\CommunityPage\\CommunityPage.jsx",
       "data": {
         "viaRoute": "/communitypage",
         "trigger": {
-          "element": "<Link to=\"/communitypage\" className=\"menu-item\" onClick={() => setShowMenu(false)}>\r\n                재료 나눔 게시판\r\n              </Link>",
-          "line": 59,
-          "endLine": 61,
+          "element": "<Link\r\n                to=\"/communitypage\"\r\n                className=\"menu-item\"\r\n                onClick={() => setShowMenu(false)}\r\n              >\r\n                재료 나눔 게시판\r\n              </Link>",
+          "line": 88,
+          "endLine": 94,
           "column": 14,
           "endColumn": 21,
           "sourceFile": "src\\components\\UnifiedHeader\\UnifiedHeader.jsx"
@@ -641,15 +721,15 @@
       }
     },
     {
-      "id": "src\\components\\UnifiedHeader\\UnifiedHeader.jsx:62:14-to-src\\screens\\MyPage\\MyPage.jsx",
+      "id": "src\\components\\UnifiedHeader\\UnifiedHeader.jsx:95:14-to-src\\screens\\MyPage\\MyPage.jsx",
       "source": "src\\screens\\Desktop\\Desktop.jsx",
       "target": "src\\screens\\MyPage\\MyPage.jsx",
       "data": {
         "viaRoute": "/mypage",
         "trigger": {
-          "element": "<Link to=\"/mypage\" className=\"menu-item\" onClick={() => setShowMenu(false)}>\r\n                마이페이지\r\n              </Link>",
-          "line": 62,
-          "endLine": 64,
+          "element": "<Link\r\n                to=\"/mypage\"\r\n                className=\"menu-item\"\r\n                onClick={() => setShowMenu(false)}\r\n              >\r\n                마이페이지\r\n              </Link>",
+          "line": 95,
+          "endLine": 101,
           "column": 14,
           "endColumn": 21,
           "sourceFile": "src\\components\\UnifiedHeader\\UnifiedHeader.jsx"
@@ -657,15 +737,15 @@
       }
     },
     {
-      "id": "src\\components\\UnifiedHeader\\UnifiedHeader.jsx:67:10-to-src\\screens\\Desktop\\Desktop.jsx",
+      "id": "src\\components\\UnifiedHeader\\UnifiedHeader.jsx:104:10-to-src\\screens\\Desktop\\Desktop.jsx",
       "source": "src\\screens\\Desktop\\Desktop.jsx",
       "target": "src\\screens\\Desktop\\Desktop.jsx",
       "data": {
         "viaRoute": "/desktop",
         "trigger": {
           "element": "<Link to=\"/desktop\">\r\n            <img\r\n              className=\"unified-header-logo\"\r\n              alt=\"Logo\"\r\n              src=\"https://c.animaapp.com/sjWITF5i/img/iconimage-1.svg\"\r\n            />\r\n          </Link>",
-          "line": 67,
-          "endLine": 73,
+          "line": 104,
+          "endLine": 110,
           "column": 10,
           "endColumn": 17,
           "sourceFile": "src\\components\\UnifiedHeader\\UnifiedHeader.jsx"
@@ -673,15 +753,15 @@
       }
     },
     {
-      "id": "src\\components\\UnifiedHeader\\UnifiedHeader.jsx:76:8-to-src\\screens\\Desktop\\Desktop.jsx",
+      "id": "src\\components\\UnifiedHeader\\UnifiedHeader.jsx:113:8-to-src\\screens\\Desktop\\Desktop.jsx",
       "source": "src\\screens\\Desktop\\Desktop.jsx",
       "target": "src\\screens\\Desktop\\Desktop.jsx",
       "data": {
         "viaRoute": "/desktop",
         "trigger": {
           "element": "<Link to=\"/desktop\" className=\"unified-header-center\">\r\n          <p className=\"unified-header-title\">\r\n            <span className=\"title-text-black\">알고리즘 </span>\r\n            <span className=\"title-text-orange\">셰프</span>\r\n          </p>\r\n        </Link>",
-          "line": 76,
-          "endLine": 81,
+          "line": 113,
+          "endLine": 118,
           "column": 8,
           "endColumn": 15,
           "sourceFile": "src\\components\\UnifiedHeader\\UnifiedHeader.jsx"
@@ -689,15 +769,15 @@
       }
     },
     {
-      "id": "src\\components\\UnifiedHeader\\UnifiedHeader.jsx:84:10-to-src\\screens\\MyPage\\MyPage.jsx",
+      "id": "src\\components\\UnifiedHeader\\UnifiedHeader.jsx:121:10-to-src\\screens\\MyPage\\MyPage.jsx",
       "source": "src\\screens\\Desktop\\Desktop.jsx",
       "target": "src\\screens\\MyPage\\MyPage.jsx",
       "data": {
         "viaRoute": "/mypage",
         "trigger": {
           "element": "<Link to=\"/mypage\" className=\"unified-mypage-btn\">\r\n            <div className=\"unified-mypage-text\">마이페이지</div>\r\n          </Link>",
-          "line": 84,
-          "endLine": 86,
+          "line": 121,
+          "endLine": 123,
           "column": 10,
           "endColumn": 17,
           "sourceFile": "src\\components\\UnifiedHeader\\UnifiedHeader.jsx"
@@ -705,31 +785,47 @@
       }
     },
     {
-      "id": "src\\screens\\AddIngredientPage\\AddIngredientPage.jsx:63:4-to-src\\screens\\Desktop\\Desktop.jsx",
+      "id": "src\\components\\PreferencesPopup\\PreferencesPopup.jsx:87:8-to-src\\screens\\Desktop\\Desktop.jsx",
+      "source": "src\\screens\\Desktop\\Desktop.jsx",
+      "target": "src\\screens\\Desktop\\Desktop.jsx",
+      "data": {
+        "viaRoute": "/desktop",
+        "trigger": {
+          "element": "navigate(\"/desktop\")",
+          "line": 87,
+          "endLine": 87,
+          "column": 8,
+          "endColumn": 28,
+          "sourceFile": "src\\components\\PreferencesPopup\\PreferencesPopup.jsx"
+        }
+      }
+    },
+    {
+      "id": "src\\screens\\AddIngredientPage\\AddIngredientPage.jsx:111:8-to-src\\screens\\Desktop\\Desktop.jsx",
       "source": "src\\screens\\AddIngredientPage\\AddIngredientPage.jsx",
       "target": "src\\screens\\Desktop\\Desktop.jsx",
       "data": {
         "viaRoute": "/desktop",
         "trigger": {
           "element": "navigate(\"/desktop\")",
-          "line": 63,
-          "endLine": 63,
-          "column": 4,
-          "endColumn": 24,
+          "line": 111,
+          "endLine": 111,
+          "column": 8,
+          "endColumn": 28,
           "sourceFile": "src\\screens\\AddIngredientPage\\AddIngredientPage.jsx"
         }
       }
     },
     {
-      "id": "src\\screens\\AddIngredientPage\\AddIngredientPage.jsx:149:12-to-src\\screens\\Desktop\\Desktop.jsx",
+      "id": "src\\screens\\AddIngredientPage\\AddIngredientPage.jsx:212:12-to-src\\screens\\Desktop\\Desktop.jsx",
       "source": "src\\screens\\AddIngredientPage\\AddIngredientPage.jsx",
       "target": "src\\screens\\Desktop\\Desktop.jsx",
       "data": {
         "viaRoute": "/desktop",
         "trigger": {
           "element": "<Link to=\"/desktop\" className=\"add-ingredient-cancel-btn\">\r\n              취소\r\n            </Link>",
-          "line": 149,
-          "endLine": 151,
+          "line": 212,
+          "endLine": 214,
           "column": 12,
           "endColumn": 19,
           "sourceFile": "src\\screens\\AddIngredientPage\\AddIngredientPage.jsx"
@@ -737,15 +833,15 @@
       }
     },
     {
-      "id": "src\\components\\UnifiedHeader\\UnifiedHeader.jsx:53:14-to-src\\screens\\Desktop\\Desktop.jsx",
+      "id": "src\\components\\UnifiedHeader\\UnifiedHeader.jsx:74:14-to-src\\screens\\Desktop\\Desktop.jsx",
       "source": "src\\screens\\Desktop\\Desktop.jsx",
       "target": "src\\screens\\Desktop\\Desktop.jsx",
       "data": {
         "viaRoute": "/desktop",
         "trigger": {
-          "element": "<Link to=\"/desktop\" className=\"menu-item\" onClick={() => setShowMenu(false)}>\r\n                홈\r\n              </Link>",
-          "line": 53,
-          "endLine": 55,
+          "element": "<Link\r\n                to=\"/desktop\"\r\n                className=\"menu-item\"\r\n                onClick={() => setShowMenu(false)}\r\n              >\r\n                홈\r\n              </Link>",
+          "line": 74,
+          "endLine": 80,
           "column": 14,
           "endColumn": 21,
           "sourceFile": "src\\components\\UnifiedHeader\\UnifiedHeader.jsx"
@@ -753,15 +849,15 @@
       }
     },
     {
-      "id": "src\\components\\UnifiedHeader\\UnifiedHeader.jsx:56:14-to-src\\screens\\MenuRecommendationPage\\MenuRecommendationPage.jsx",
+      "id": "src\\components\\UnifiedHeader\\UnifiedHeader.jsx:81:14-to-src\\screens\\MenuRecommendationPage\\MenuRecommendationPage.jsx",
       "source": "src\\screens\\Desktop\\Desktop.jsx",
       "target": "src\\screens\\MenuRecommendationPage\\MenuRecommendationPage.jsx",
       "data": {
         "viaRoute": "/menurecommendation",
         "trigger": {
-          "element": "<Link to=\"/menurecommendation\" className=\"menu-item\" onClick={() => setShowMenu(false)}>\r\n                메뉴 추천\r\n              </Link>",
-          "line": 56,
-          "endLine": 58,
+          "element": "<Link\r\n                to=\"/menurecommendation\"\r\n                className=\"menu-item\"\r\n                onClick={() => setShowMenu(false)}\r\n              >\r\n                메뉴 추천\r\n              </Link>",
+          "line": 81,
+          "endLine": 87,
           "column": 14,
           "endColumn": 21,
           "sourceFile": "src\\components\\UnifiedHeader\\UnifiedHeader.jsx"
@@ -769,15 +865,15 @@
       }
     },
     {
-      "id": "src\\components\\UnifiedHeader\\UnifiedHeader.jsx:59:14-to-src\\screens\\CommunityPage\\CommunityPage.jsx",
+      "id": "src\\components\\UnifiedHeader\\UnifiedHeader.jsx:88:14-to-src\\screens\\CommunityPage\\CommunityPage.jsx",
       "source": "src\\screens\\Desktop\\Desktop.jsx",
       "target": "src\\screens\\CommunityPage\\CommunityPage.jsx",
       "data": {
         "viaRoute": "/communitypage",
         "trigger": {
-          "element": "<Link to=\"/communitypage\" className=\"menu-item\" onClick={() => setShowMenu(false)}>\r\n                재료 나눔 게시판\r\n              </Link>",
-          "line": 59,
-          "endLine": 61,
+          "element": "<Link\r\n                to=\"/communitypage\"\r\n                className=\"menu-item\"\r\n                onClick={() => setShowMenu(false)}\r\n              >\r\n                재료 나눔 게시판\r\n              </Link>",
+          "line": 88,
+          "endLine": 94,
           "column": 14,
           "endColumn": 21,
           "sourceFile": "src\\components\\UnifiedHeader\\UnifiedHeader.jsx"
@@ -785,15 +881,15 @@
       }
     },
     {
-      "id": "src\\components\\UnifiedHeader\\UnifiedHeader.jsx:62:14-to-src\\screens\\MyPage\\MyPage.jsx",
+      "id": "src\\components\\UnifiedHeader\\UnifiedHeader.jsx:95:14-to-src\\screens\\MyPage\\MyPage.jsx",
       "source": "src\\screens\\Desktop\\Desktop.jsx",
       "target": "src\\screens\\MyPage\\MyPage.jsx",
       "data": {
         "viaRoute": "/mypage",
         "trigger": {
-          "element": "<Link to=\"/mypage\" className=\"menu-item\" onClick={() => setShowMenu(false)}>\r\n                마이페이지\r\n              </Link>",
-          "line": 62,
-          "endLine": 64,
+          "element": "<Link\r\n                to=\"/mypage\"\r\n                className=\"menu-item\"\r\n                onClick={() => setShowMenu(false)}\r\n              >\r\n                마이페이지\r\n              </Link>",
+          "line": 95,
+          "endLine": 101,
           "column": 14,
           "endColumn": 21,
           "sourceFile": "src\\components\\UnifiedHeader\\UnifiedHeader.jsx"
@@ -801,15 +897,15 @@
       }
     },
     {
-      "id": "src\\components\\UnifiedHeader\\UnifiedHeader.jsx:67:10-to-src\\screens\\Desktop\\Desktop.jsx",
+      "id": "src\\components\\UnifiedHeader\\UnifiedHeader.jsx:104:10-to-src\\screens\\Desktop\\Desktop.jsx",
       "source": "src\\screens\\Desktop\\Desktop.jsx",
       "target": "src\\screens\\Desktop\\Desktop.jsx",
       "data": {
         "viaRoute": "/desktop",
         "trigger": {
           "element": "<Link to=\"/desktop\">\r\n            <img\r\n              className=\"unified-header-logo\"\r\n              alt=\"Logo\"\r\n              src=\"https://c.animaapp.com/sjWITF5i/img/iconimage-1.svg\"\r\n            />\r\n          </Link>",
-          "line": 67,
-          "endLine": 73,
+          "line": 104,
+          "endLine": 110,
           "column": 10,
           "endColumn": 17,
           "sourceFile": "src\\components\\UnifiedHeader\\UnifiedHeader.jsx"
@@ -817,15 +913,15 @@
       }
     },
     {
-      "id": "src\\components\\UnifiedHeader\\UnifiedHeader.jsx:76:8-to-src\\screens\\Desktop\\Desktop.jsx",
+      "id": "src\\components\\UnifiedHeader\\UnifiedHeader.jsx:113:8-to-src\\screens\\Desktop\\Desktop.jsx",
       "source": "src\\screens\\Desktop\\Desktop.jsx",
       "target": "src\\screens\\Desktop\\Desktop.jsx",
       "data": {
         "viaRoute": "/desktop",
         "trigger": {
           "element": "<Link to=\"/desktop\" className=\"unified-header-center\">\r\n          <p className=\"unified-header-title\">\r\n            <span className=\"title-text-black\">알고리즘 </span>\r\n            <span className=\"title-text-orange\">셰프</span>\r\n          </p>\r\n        </Link>",
-          "line": 76,
-          "endLine": 81,
+          "line": 113,
+          "endLine": 118,
           "column": 8,
           "endColumn": 15,
           "sourceFile": "src\\components\\UnifiedHeader\\UnifiedHeader.jsx"
@@ -833,18 +929,34 @@
       }
     },
     {
-      "id": "src\\components\\UnifiedHeader\\UnifiedHeader.jsx:84:10-to-src\\screens\\MyPage\\MyPage.jsx",
+      "id": "src\\components\\UnifiedHeader\\UnifiedHeader.jsx:121:10-to-src\\screens\\MyPage\\MyPage.jsx",
       "source": "src\\screens\\Desktop\\Desktop.jsx",
       "target": "src\\screens\\MyPage\\MyPage.jsx",
       "data": {
         "viaRoute": "/mypage",
         "trigger": {
           "element": "<Link to=\"/mypage\" className=\"unified-mypage-btn\">\r\n            <div className=\"unified-mypage-text\">마이페이지</div>\r\n          </Link>",
-          "line": 84,
-          "endLine": 86,
+          "line": 121,
+          "endLine": 123,
           "column": 10,
           "endColumn": 17,
           "sourceFile": "src\\components\\UnifiedHeader\\UnifiedHeader.jsx"
+        }
+      }
+    },
+    {
+      "id": "src\\components\\PreferencesPopup\\PreferencesPopup.jsx:87:8-to-src\\screens\\Desktop\\Desktop.jsx",
+      "source": "src\\screens\\Desktop\\Desktop.jsx",
+      "target": "src\\screens\\Desktop\\Desktop.jsx",
+      "data": {
+        "viaRoute": "/desktop",
+        "trigger": {
+          "element": "navigate(\"/desktop\")",
+          "line": 87,
+          "endLine": 87,
+          "column": 8,
+          "endColumn": 28,
+          "sourceFile": "src\\components\\PreferencesPopup\\PreferencesPopup.jsx"
         }
       }
     },
@@ -897,15 +1009,15 @@
       }
     },
     {
-      "id": "src\\components\\UnifiedHeader\\UnifiedHeader.jsx:53:14-to-src\\screens\\Desktop\\Desktop.jsx",
+      "id": "src\\components\\UnifiedHeader\\UnifiedHeader.jsx:74:14-to-src\\screens\\Desktop\\Desktop.jsx",
       "source": "src\\screens\\Desktop\\Desktop.jsx",
       "target": "src\\screens\\Desktop\\Desktop.jsx",
       "data": {
         "viaRoute": "/desktop",
         "trigger": {
-          "element": "<Link to=\"/desktop\" className=\"menu-item\" onClick={() => setShowMenu(false)}>\r\n                홈\r\n              </Link>",
-          "line": 53,
-          "endLine": 55,
+          "element": "<Link\r\n                to=\"/desktop\"\r\n                className=\"menu-item\"\r\n                onClick={() => setShowMenu(false)}\r\n              >\r\n                홈\r\n              </Link>",
+          "line": 74,
+          "endLine": 80,
           "column": 14,
           "endColumn": 21,
           "sourceFile": "src\\components\\UnifiedHeader\\UnifiedHeader.jsx"
@@ -913,15 +1025,15 @@
       }
     },
     {
-      "id": "src\\components\\UnifiedHeader\\UnifiedHeader.jsx:56:14-to-src\\screens\\MenuRecommendationPage\\MenuRecommendationPage.jsx",
+      "id": "src\\components\\UnifiedHeader\\UnifiedHeader.jsx:81:14-to-src\\screens\\MenuRecommendationPage\\MenuRecommendationPage.jsx",
       "source": "src\\screens\\Desktop\\Desktop.jsx",
       "target": "src\\screens\\MenuRecommendationPage\\MenuRecommendationPage.jsx",
       "data": {
         "viaRoute": "/menurecommendation",
         "trigger": {
-          "element": "<Link to=\"/menurecommendation\" className=\"menu-item\" onClick={() => setShowMenu(false)}>\r\n                메뉴 추천\r\n              </Link>",
-          "line": 56,
-          "endLine": 58,
+          "element": "<Link\r\n                to=\"/menurecommendation\"\r\n                className=\"menu-item\"\r\n                onClick={() => setShowMenu(false)}\r\n              >\r\n                메뉴 추천\r\n              </Link>",
+          "line": 81,
+          "endLine": 87,
           "column": 14,
           "endColumn": 21,
           "sourceFile": "src\\components\\UnifiedHeader\\UnifiedHeader.jsx"
@@ -929,15 +1041,15 @@
       }
     },
     {
-      "id": "src\\components\\UnifiedHeader\\UnifiedHeader.jsx:59:14-to-src\\screens\\CommunityPage\\CommunityPage.jsx",
+      "id": "src\\components\\UnifiedHeader\\UnifiedHeader.jsx:88:14-to-src\\screens\\CommunityPage\\CommunityPage.jsx",
       "source": "src\\screens\\Desktop\\Desktop.jsx",
       "target": "src\\screens\\CommunityPage\\CommunityPage.jsx",
       "data": {
         "viaRoute": "/communitypage",
         "trigger": {
-          "element": "<Link to=\"/communitypage\" className=\"menu-item\" onClick={() => setShowMenu(false)}>\r\n                재료 나눔 게시판\r\n              </Link>",
-          "line": 59,
-          "endLine": 61,
+          "element": "<Link\r\n                to=\"/communitypage\"\r\n                className=\"menu-item\"\r\n                onClick={() => setShowMenu(false)}\r\n              >\r\n                재료 나눔 게시판\r\n              </Link>",
+          "line": 88,
+          "endLine": 94,
           "column": 14,
           "endColumn": 21,
           "sourceFile": "src\\components\\UnifiedHeader\\UnifiedHeader.jsx"
@@ -945,15 +1057,15 @@
       }
     },
     {
-      "id": "src\\components\\UnifiedHeader\\UnifiedHeader.jsx:62:14-to-src\\screens\\MyPage\\MyPage.jsx",
+      "id": "src\\components\\UnifiedHeader\\UnifiedHeader.jsx:95:14-to-src\\screens\\MyPage\\MyPage.jsx",
       "source": "src\\screens\\Desktop\\Desktop.jsx",
       "target": "src\\screens\\MyPage\\MyPage.jsx",
       "data": {
         "viaRoute": "/mypage",
         "trigger": {
-          "element": "<Link to=\"/mypage\" className=\"menu-item\" onClick={() => setShowMenu(false)}>\r\n                마이페이지\r\n              </Link>",
-          "line": 62,
-          "endLine": 64,
+          "element": "<Link\r\n                to=\"/mypage\"\r\n                className=\"menu-item\"\r\n                onClick={() => setShowMenu(false)}\r\n              >\r\n                마이페이지\r\n              </Link>",
+          "line": 95,
+          "endLine": 101,
           "column": 14,
           "endColumn": 21,
           "sourceFile": "src\\components\\UnifiedHeader\\UnifiedHeader.jsx"
@@ -961,15 +1073,15 @@
       }
     },
     {
-      "id": "src\\components\\UnifiedHeader\\UnifiedHeader.jsx:67:10-to-src\\screens\\Desktop\\Desktop.jsx",
+      "id": "src\\components\\UnifiedHeader\\UnifiedHeader.jsx:104:10-to-src\\screens\\Desktop\\Desktop.jsx",
       "source": "src\\screens\\Desktop\\Desktop.jsx",
       "target": "src\\screens\\Desktop\\Desktop.jsx",
       "data": {
         "viaRoute": "/desktop",
         "trigger": {
           "element": "<Link to=\"/desktop\">\r\n            <img\r\n              className=\"unified-header-logo\"\r\n              alt=\"Logo\"\r\n              src=\"https://c.animaapp.com/sjWITF5i/img/iconimage-1.svg\"\r\n            />\r\n          </Link>",
-          "line": 67,
-          "endLine": 73,
+          "line": 104,
+          "endLine": 110,
           "column": 10,
           "endColumn": 17,
           "sourceFile": "src\\components\\UnifiedHeader\\UnifiedHeader.jsx"
@@ -977,15 +1089,15 @@
       }
     },
     {
-      "id": "src\\components\\UnifiedHeader\\UnifiedHeader.jsx:76:8-to-src\\screens\\Desktop\\Desktop.jsx",
+      "id": "src\\components\\UnifiedHeader\\UnifiedHeader.jsx:113:8-to-src\\screens\\Desktop\\Desktop.jsx",
       "source": "src\\screens\\Desktop\\Desktop.jsx",
       "target": "src\\screens\\Desktop\\Desktop.jsx",
       "data": {
         "viaRoute": "/desktop",
         "trigger": {
           "element": "<Link to=\"/desktop\" className=\"unified-header-center\">\r\n          <p className=\"unified-header-title\">\r\n            <span className=\"title-text-black\">알고리즘 </span>\r\n            <span className=\"title-text-orange\">셰프</span>\r\n          </p>\r\n        </Link>",
-          "line": 76,
-          "endLine": 81,
+          "line": 113,
+          "endLine": 118,
           "column": 8,
           "endColumn": 15,
           "sourceFile": "src\\components\\UnifiedHeader\\UnifiedHeader.jsx"
@@ -993,15 +1105,15 @@
       }
     },
     {
-      "id": "src\\components\\UnifiedHeader\\UnifiedHeader.jsx:84:10-to-src\\screens\\MyPage\\MyPage.jsx",
+      "id": "src\\components\\UnifiedHeader\\UnifiedHeader.jsx:121:10-to-src\\screens\\MyPage\\MyPage.jsx",
       "source": "src\\screens\\Desktop\\Desktop.jsx",
       "target": "src\\screens\\MyPage\\MyPage.jsx",
       "data": {
         "viaRoute": "/mypage",
         "trigger": {
           "element": "<Link to=\"/mypage\" className=\"unified-mypage-btn\">\r\n            <div className=\"unified-mypage-text\">마이페이지</div>\r\n          </Link>",
-          "line": 84,
-          "endLine": 86,
+          "line": 121,
+          "endLine": 123,
           "column": 10,
           "endColumn": 17,
           "sourceFile": "src\\components\\UnifiedHeader\\UnifiedHeader.jsx"
@@ -1009,15 +1121,31 @@
       }
     },
     {
-      "id": "src\\components\\UnifiedHeader\\UnifiedHeader.jsx:53:14-to-src\\screens\\Desktop\\Desktop.jsx",
+      "id": "src\\components\\PreferencesPopup\\PreferencesPopup.jsx:87:8-to-src\\screens\\Desktop\\Desktop.jsx",
       "source": "src\\screens\\Desktop\\Desktop.jsx",
       "target": "src\\screens\\Desktop\\Desktop.jsx",
       "data": {
         "viaRoute": "/desktop",
         "trigger": {
-          "element": "<Link to=\"/desktop\" className=\"menu-item\" onClick={() => setShowMenu(false)}>\r\n                홈\r\n              </Link>",
-          "line": 53,
-          "endLine": 55,
+          "element": "navigate(\"/desktop\")",
+          "line": 87,
+          "endLine": 87,
+          "column": 8,
+          "endColumn": 28,
+          "sourceFile": "src\\components\\PreferencesPopup\\PreferencesPopup.jsx"
+        }
+      }
+    },
+    {
+      "id": "src\\components\\UnifiedHeader\\UnifiedHeader.jsx:74:14-to-src\\screens\\Desktop\\Desktop.jsx",
+      "source": "src\\screens\\Desktop\\Desktop.jsx",
+      "target": "src\\screens\\Desktop\\Desktop.jsx",
+      "data": {
+        "viaRoute": "/desktop",
+        "trigger": {
+          "element": "<Link\r\n                to=\"/desktop\"\r\n                className=\"menu-item\"\r\n                onClick={() => setShowMenu(false)}\r\n              >\r\n                홈\r\n              </Link>",
+          "line": 74,
+          "endLine": 80,
           "column": 14,
           "endColumn": 21,
           "sourceFile": "src\\components\\UnifiedHeader\\UnifiedHeader.jsx"
@@ -1025,15 +1153,15 @@
       }
     },
     {
-      "id": "src\\components\\UnifiedHeader\\UnifiedHeader.jsx:56:14-to-src\\screens\\MenuRecommendationPage\\MenuRecommendationPage.jsx",
+      "id": "src\\components\\UnifiedHeader\\UnifiedHeader.jsx:81:14-to-src\\screens\\MenuRecommendationPage\\MenuRecommendationPage.jsx",
       "source": "src\\screens\\Desktop\\Desktop.jsx",
       "target": "src\\screens\\MenuRecommendationPage\\MenuRecommendationPage.jsx",
       "data": {
         "viaRoute": "/menurecommendation",
         "trigger": {
-          "element": "<Link to=\"/menurecommendation\" className=\"menu-item\" onClick={() => setShowMenu(false)}>\r\n                메뉴 추천\r\n              </Link>",
-          "line": 56,
-          "endLine": 58,
+          "element": "<Link\r\n                to=\"/menurecommendation\"\r\n                className=\"menu-item\"\r\n                onClick={() => setShowMenu(false)}\r\n              >\r\n                메뉴 추천\r\n              </Link>",
+          "line": 81,
+          "endLine": 87,
           "column": 14,
           "endColumn": 21,
           "sourceFile": "src\\components\\UnifiedHeader\\UnifiedHeader.jsx"
@@ -1041,15 +1169,15 @@
       }
     },
     {
-      "id": "src\\components\\UnifiedHeader\\UnifiedHeader.jsx:59:14-to-src\\screens\\CommunityPage\\CommunityPage.jsx",
+      "id": "src\\components\\UnifiedHeader\\UnifiedHeader.jsx:88:14-to-src\\screens\\CommunityPage\\CommunityPage.jsx",
       "source": "src\\screens\\Desktop\\Desktop.jsx",
       "target": "src\\screens\\CommunityPage\\CommunityPage.jsx",
       "data": {
         "viaRoute": "/communitypage",
         "trigger": {
-          "element": "<Link to=\"/communitypage\" className=\"menu-item\" onClick={() => setShowMenu(false)}>\r\n                재료 나눔 게시판\r\n              </Link>",
-          "line": 59,
-          "endLine": 61,
+          "element": "<Link\r\n                to=\"/communitypage\"\r\n                className=\"menu-item\"\r\n                onClick={() => setShowMenu(false)}\r\n              >\r\n                재료 나눔 게시판\r\n              </Link>",
+          "line": 88,
+          "endLine": 94,
           "column": 14,
           "endColumn": 21,
           "sourceFile": "src\\components\\UnifiedHeader\\UnifiedHeader.jsx"
@@ -1057,15 +1185,15 @@
       }
     },
     {
-      "id": "src\\components\\UnifiedHeader\\UnifiedHeader.jsx:62:14-to-src\\screens\\MyPage\\MyPage.jsx",
+      "id": "src\\components\\UnifiedHeader\\UnifiedHeader.jsx:95:14-to-src\\screens\\MyPage\\MyPage.jsx",
       "source": "src\\screens\\Desktop\\Desktop.jsx",
       "target": "src\\screens\\MyPage\\MyPage.jsx",
       "data": {
         "viaRoute": "/mypage",
         "trigger": {
-          "element": "<Link to=\"/mypage\" className=\"menu-item\" onClick={() => setShowMenu(false)}>\r\n                마이페이지\r\n              </Link>",
-          "line": 62,
-          "endLine": 64,
+          "element": "<Link\r\n                to=\"/mypage\"\r\n                className=\"menu-item\"\r\n                onClick={() => setShowMenu(false)}\r\n              >\r\n                마이페이지\r\n              </Link>",
+          "line": 95,
+          "endLine": 101,
           "column": 14,
           "endColumn": 21,
           "sourceFile": "src\\components\\UnifiedHeader\\UnifiedHeader.jsx"
@@ -1073,15 +1201,15 @@
       }
     },
     {
-      "id": "src\\components\\UnifiedHeader\\UnifiedHeader.jsx:67:10-to-src\\screens\\Desktop\\Desktop.jsx",
+      "id": "src\\components\\UnifiedHeader\\UnifiedHeader.jsx:104:10-to-src\\screens\\Desktop\\Desktop.jsx",
       "source": "src\\screens\\Desktop\\Desktop.jsx",
       "target": "src\\screens\\Desktop\\Desktop.jsx",
       "data": {
         "viaRoute": "/desktop",
         "trigger": {
           "element": "<Link to=\"/desktop\">\r\n            <img\r\n              className=\"unified-header-logo\"\r\n              alt=\"Logo\"\r\n              src=\"https://c.animaapp.com/sjWITF5i/img/iconimage-1.svg\"\r\n            />\r\n          </Link>",
-          "line": 67,
-          "endLine": 73,
+          "line": 104,
+          "endLine": 110,
           "column": 10,
           "endColumn": 17,
           "sourceFile": "src\\components\\UnifiedHeader\\UnifiedHeader.jsx"
@@ -1089,15 +1217,15 @@
       }
     },
     {
-      "id": "src\\components\\UnifiedHeader\\UnifiedHeader.jsx:76:8-to-src\\screens\\Desktop\\Desktop.jsx",
+      "id": "src\\components\\UnifiedHeader\\UnifiedHeader.jsx:113:8-to-src\\screens\\Desktop\\Desktop.jsx",
       "source": "src\\screens\\Desktop\\Desktop.jsx",
       "target": "src\\screens\\Desktop\\Desktop.jsx",
       "data": {
         "viaRoute": "/desktop",
         "trigger": {
           "element": "<Link to=\"/desktop\" className=\"unified-header-center\">\r\n          <p className=\"unified-header-title\">\r\n            <span className=\"title-text-black\">알고리즘 </span>\r\n            <span className=\"title-text-orange\">셰프</span>\r\n          </p>\r\n        </Link>",
-          "line": 76,
-          "endLine": 81,
+          "line": 113,
+          "endLine": 118,
           "column": 8,
           "endColumn": 15,
           "sourceFile": "src\\components\\UnifiedHeader\\UnifiedHeader.jsx"
@@ -1105,18 +1233,34 @@
       }
     },
     {
-      "id": "src\\components\\UnifiedHeader\\UnifiedHeader.jsx:84:10-to-src\\screens\\MyPage\\MyPage.jsx",
+      "id": "src\\components\\UnifiedHeader\\UnifiedHeader.jsx:121:10-to-src\\screens\\MyPage\\MyPage.jsx",
       "source": "src\\screens\\Desktop\\Desktop.jsx",
       "target": "src\\screens\\MyPage\\MyPage.jsx",
       "data": {
         "viaRoute": "/mypage",
         "trigger": {
           "element": "<Link to=\"/mypage\" className=\"unified-mypage-btn\">\r\n            <div className=\"unified-mypage-text\">마이페이지</div>\r\n          </Link>",
-          "line": 84,
-          "endLine": 86,
+          "line": 121,
+          "endLine": 123,
           "column": 10,
           "endColumn": 17,
           "sourceFile": "src\\components\\UnifiedHeader\\UnifiedHeader.jsx"
+        }
+      }
+    },
+    {
+      "id": "src\\components\\PreferencesPopup\\PreferencesPopup.jsx:87:8-to-src\\screens\\Desktop\\Desktop.jsx",
+      "source": "src\\screens\\Desktop\\Desktop.jsx",
+      "target": "src\\screens\\Desktop\\Desktop.jsx",
+      "data": {
+        "viaRoute": "/desktop",
+        "trigger": {
+          "element": "navigate(\"/desktop\")",
+          "line": 87,
+          "endLine": 87,
+          "column": 8,
+          "endColumn": 28,
+          "sourceFile": "src\\components\\PreferencesPopup\\PreferencesPopup.jsx"
         }
       }
     }
