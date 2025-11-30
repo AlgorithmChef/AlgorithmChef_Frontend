@@ -7,14 +7,14 @@ import React from "react";
 import { Link } from "react-router-dom";
 import "./style.css";
 
-export const CommunitypageWrapper = ({ 
-  className, 
+export const CommunitypageWrapper = ({
+  className,
   postId,
-  title = "돼지고기 100g 나눔합니다.", 
-  author = "test3User", 
-  date = "2025-11-03",
-  category = "나눔",
-  content = ""
+  title,
+  author,
+  date,
+  category,
+  content,
 }) => {
   return (
     <Link
@@ -31,7 +31,6 @@ export const CommunitypageWrapper = ({
 
         <div className="communitypage-10">{title}</div>
       </div>
-
       <div className="communitypage-11">
         <div className="communitypage-12">작성자 :</div>
 

@@ -38,7 +38,7 @@
   justify-content: center;
   letter-spacing: -0.96px;
   line-height: 57.6px;
-  margin-top: -1.00px;
+  margin-top: -1px;
   position: relative;
   white-space: nowrap;
   width: fit-content;
@@ -62,9 +62,9 @@
   align-self: stretch !important;
   flex: 0 0 auto !important;
   left: unset !important;
-  margin-left: -1.00px !important;
-  margin-right: -1.00px !important;
-  margin-top: -1.00px !important;
+  margin-left: -1px !important;
+  margin-right: -1px !important;
+  margin-top: -1px !important;
   top: unset !important;
   width: 100% !important;
 }
@@ -72,16 +72,16 @@
 .communitypage .communitypage-instance {
   flex: 0 0 auto !important;
   left: unset !important;
-  margin-left: -1.00px !important;
-  margin-right: -1.00px !important;
+  margin-left: -1px !important;
+  margin-right: -1px !important;
   top: unset !important;
 }
 
 .communitypage .communitypage-postheader-instance {
   flex: 0 0 auto !important;
   left: unset !important;
-  margin-left: -1.00px !important;
-  margin-right: -1.00px !important;
+  margin-left: -1px !important;
+  margin-right: -1px !important;
   overflow: hidden !important;
   top: unset !important;
 }
@@ -130,7 +130,7 @@
   justify-content: center;
   letter-spacing: -0.32px;
   line-height: 19.2px;
-  margin-top: -1.00px;
+  margin-top: -1px;
   position: relative;
   white-space: nowrap;
   width: fit-content;
@@ -191,4 +191,55 @@
   .communitypage .text-wrapper-2 {
     font-size: 14px;
   }
+}
+
+.communitypage-category-select {
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+
+  font-family: "Inter", Helvetica, sans-serif;
+  font-size: 15px;
+  font-weight: 500;
+  color: #333;
+
+  background-color: #ffffff;
+  background-image: url("data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22292.4%22%20height%3D%22292.4%22%3E%3Cpath%20fill%3D%22%23333333%22%20d%3D%22M287%2069.4a17.6%2017.6%200%200%200-13-5.4H18.4c-5%200-9.3%201.8-12.9%205.4A17.6%2017.6%200%200%200%200%2082.2c0%205%201.8%209.3%205.4%2012.9l128%20127.9c3.6%203.6%207.8%205.4%2012.8%205.4s9.2-1.8%2012.8-5.4L287%2095c3.5-3.5%205.4-7.8%205.4-12.8%200-5-1.9-9.2-5.5-12.8z%22%2F%3E%3C%2Fsvg%3E");
+  background-repeat: no-repeat;
+  background-position: right 12px center;
+  background-size: 10px;
+
+  padding: 10px 32px 10px 16px;
+  border: 1px solid #ddd;
+  border-radius: 12px;
+
+  cursor: pointer;
+  outline: none;
+  transition: all 0.2s ease;
+  min-width: 120px;
+}
+
+.communitypage-category-select:hover {
+  border-color: #f5900b;
+}
+
+.communitypage-category-select:focus {
+  border-color: #f5900b;
+  box-shadow: 0 0 0 3px rgba(245, 144, 11, 0.1);
+}
+
+.communitypage-filter-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 15px;
+  width: 100%;
+  margin-bottom: 10px;
+}
+
+.filter-label {
+  font-size: 16px;
+  font-weight: 700;
+  color: #333;
+  min-width: fit-content;
 }

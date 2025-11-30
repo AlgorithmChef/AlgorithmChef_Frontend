@@ -138,7 +138,12 @@ export const RecipePage = () => {
         </div>
       </div>
 
-      {isReviewOpen && <RecipeReview onClose={() => setIsReviewOpen(false)} />}
+      {isReviewOpen && (
+        <RecipeReview
+          onClose={() => setIsReviewOpen(false)}
+          name={stateRecipe.name}
+        />
+      )}
     </div>
   );
 };

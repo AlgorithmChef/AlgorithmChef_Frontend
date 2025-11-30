@@ -30,8 +30,7 @@
       "label": "RecipePage",
       "routes": [
         "/recipepage/:id"
-      ],
-      "dataModelId": "199:457"
+      ]
     },
     {
       "id": "src/screens/CommunityContent/CommunityContent.jsx",
@@ -801,15 +800,15 @@
       }
     },
     {
-      "id": "src\\screens\\AddIngredientPage\\AddIngredientPage.jsx:172:8-to-src\\screens\\Desktop\\Desktop.jsx",
+      "id": "src\\screens\\AddIngredientPage\\AddIngredientPage.jsx:170:8-to-src\\screens\\Desktop\\Desktop.jsx",
       "source": "src\\screens\\AddIngredientPage\\AddIngredientPage.jsx",
       "target": "src\\screens\\Desktop\\Desktop.jsx",
       "data": {
         "viaRoute": "/desktop",
         "trigger": {
           "element": "navigate(\"/desktop\")",
-          "line": 172,
-          "endLine": 172,
+          "line": 170,
+          "endLine": 170,
           "column": 8,
           "endColumn": 28,
           "sourceFile": "src\\screens\\AddIngredientPage\\AddIngredientPage.jsx"
@@ -817,15 +816,15 @@
       }
     },
     {
-      "id": "src\\screens\\AddIngredientPage\\AddIngredientPage.jsx:273:12-to-src\\screens\\Desktop\\Desktop.jsx",
+      "id": "src\\screens\\AddIngredientPage\\AddIngredientPage.jsx:271:12-to-src\\screens\\Desktop\\Desktop.jsx",
       "source": "src\\screens\\AddIngredientPage\\AddIngredientPage.jsx",
       "target": "src\\screens\\Desktop\\Desktop.jsx",
       "data": {
         "viaRoute": "/desktop",
         "trigger": {
           "element": "<Link to=\"/desktop\" className=\"add-ingredient-cancel-btn\">\r\n              취소\r\n            </Link>",
-          "line": 273,
-          "endLine": 275,
+          "line": 271,
+          "endLine": 273,
           "column": 12,
           "endColumn": 19,
           "sourceFile": "src\\screens\\AddIngredientPage\\AddIngredientPage.jsx"
