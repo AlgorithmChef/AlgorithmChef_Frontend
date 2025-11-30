@@ -1,0 +1,217 @@
+.header {
+  align-items: center;
+  background-color: transparent;
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+  height: 120px;
+  padding: 10px;
+  position: relative;
+  width: 100%;
+  max-width: 1280px;
+  margin: 0 auto;
+}
+
+.header .header-left-section {
+  display: flex;
+  align-items: center;
+  flex: 1;
+  justify-content: flex-start;
+}
+
+.header .icon-image {
+  height: 80px;
+  width: auto;
+  display: block;
+  position: relative;
+}
+
+.header .algorithm-label-link {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  align-items: center;
+  height: 100%;
+}
+
+.header .algorithm-label {
+  align-items: center;
+  color: transparent;
+  display: flex;
+  font-family: "Inter", Helvetica;
+  font-size: 48px;
+  font-weight: 700;
+  justify-content: center;
+  letter-spacing: -0.96px;
+  line-height: 1;
+  position: relative;
+  text-align: center;
+  margin: 0;
+}
+
+.header .text-wrapper {
+  color: #000000;
+  letter-spacing: -0.46px;
+}
+
+.header .span {
+  color: #f6910b;
+  letter-spacing: -0.46px;
+}
+
+.header .header-right-section {
+  display: flex;
+  align-items: center;
+  flex: 1;
+  gap: 10px;
+  justify-content: flex-end;
+  padding: 10px;
+}
+
+.header .mypage-button {
+  background-image: url(https://c.animaapp.com/sjWITF5i/img/loginvector-3.svg);
+  background-size: 100% 100%;
+  border: none;
+  border-radius: 30px;
+  cursor: pointer;
+  height: 36px;
+  overflow: hidden;
+  position: relative;
+  width: 120px;
+  transition: transform 0.2s;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.header .mypage-button:hover {
+  transform: scale(1.05);
+}
+
+.header .mypage-text {
+  color: #ffffff;
+  font-family: "Inter", Helvetica;
+  font-size: 16px;
+  font-weight: 600;
+  letter-spacing: -0.32px;
+  line-height: 19.2px;
+  text-align: center;
+}
+
+.header .login-button {
+  background-image: url(https://c.animaapp.com/sjWITF5i/img/loginvector-3.svg);
+  background-size: 100% 100%;
+  border: none;
+  border-radius: 30px;
+  cursor: pointer;
+  height: 36px;
+  overflow: hidden;
+  position: relative;
+  width: 120px;
+  transition: transform 0.2s;
+}
+
+.header .login-button:hover {
+  transform: scale(1.05);
+}
+
+.header .login-text {
+  align-items: center;
+  color: #ffffff;
+  display: flex;
+  font-family: "Inter", Helvetica;
+  font-size: 20px;
+  font-weight: 600;
+  height: 24px;
+  justify-content: center;
+  left: calc(50.00% - 33px);
+  letter-spacing: -0.40px;
+  line-height: 24.0px;
+  position: absolute;
+  text-align: center;
+  top: calc(50.00% - 12px);
+  width: 66px;
+}
+
+.header .user-info-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.header .user-name-display {
+  color: #000000;
+  font-family: "Inter", Helvetica;
+  font-size: 16px;
+  font-weight: 600;
+  padding: 8px 16px;
+  background-color: #f6910b1a;
+  border-radius: 20px;
+}
+
+.header .logout-button {
+  background-image: url(https://c.animaapp.com/sjWITF5i/img/loginvector-3.svg);
+  background-size: 100% 100%;
+  border: none;
+  border-radius: 30px;
+  cursor: pointer;
+  height: 36px;
+  overflow: hidden;
+  position: relative;
+  width: 100px;
+  transition: transform 0.2s;
+  color: #ffffff;
+  font-family: "Inter", Helvetica;
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.header .logout-button:hover {
+  transform: scale(1.05);
+}
+
+@media (max-width: 768px) {
+  .header {
+    padding: 10px 5px;
+    height: auto;
+    min-height: 80px;
+  }
+
+  .header .icon-image {
+    height: 50px;
+  }
+
+  .header .algorithm-label {
+    font-size: 24px;
+  }
+
+  .header .mypage-button,
+  .header .login-button,
+  .header .logout-button {
+    width: 90px;
+    height: 32px;
+  }
+
+  .header .mypage-text,
+  .header .login-text {
+    font-size: 12px;
+  }
+
+  .header .user-name-display {
+    font-size: 12px;
+    padding: 4px 10px;
+  }
+}
+
+@media (max-width: 480px) {
+  .header .algorithm-label {
+    font-size: 20px;
+  }
+
+  .header .header-right-section {
+    gap: 5px;
+    padding: 5px;
+  }
+}
