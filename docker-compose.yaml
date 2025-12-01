@@ -1,0 +1,11 @@
+version: "3.8"
+services:
+  web:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: algorithm_chef_front_app
+
+    ports:
+      - "5173:80"
+    restart: always

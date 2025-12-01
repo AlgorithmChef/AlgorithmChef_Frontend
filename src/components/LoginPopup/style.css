@@ -160,3 +160,16 @@
 .login-popup-signup-btn:hover {
   color: #e58209;
 }
+
+.error-message {
+  color: #ff4d4f;
+  font-size: 12px;
+  margin-top: 5px;
+  display: block;
+  text-align: left;
+}
+
+.input-error {
+  border: 1px solid #ff4d4f !important;
+  background-color: #fff1f0;
+}

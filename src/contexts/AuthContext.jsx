@@ -1,4 +1,5 @@
 import React, { createContext, useContext, useState, useEffect } from "react";
+import { loginAPi } from "../api/authApi";
 
 const AuthContext = createContext();
 
@@ -15,19 +16,27 @@ export const AuthProvider = ({ children }) => {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
 
   useEffect(() => {
-    // Check if user is logged in from localStorage
-    const storedUser = localStorage.getItem("currentUser");
-    if (storedUser) {
-      const userData = JSON.parse(storedUser);
-      setUser(userData);
+    const token = localStorage.getItem("accessToken");
+    if (token) {
       setIsAuthenticated(true);
     }
   }, []);
 
-  const login = (userData) => {
-    setUser(userData);
-    setIsAuthenticated(true);
-    localStorage.setItem("currentUser", JSON.stringify(userData));
+  const login = async (userId, password) => {
+    try {
+      const data = await loginAPi(userId, password);
+      if (data.accessToken) {
+        localStorage.setItem("accessToken", data.accessToken);
+      }
+
+      if (data.status === "SUCCESS") {
+        setIsAuthenticated(true);
+      }
+      return data;
+    } catch (error) {
+      console.error("로그인 에러:", error);
+      return { status: "FAIL", message: "로그인 중 오류 발생" };
+    }
   };
 
   const logout = () => {

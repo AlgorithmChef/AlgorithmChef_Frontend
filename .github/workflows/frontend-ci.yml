@@ -1,38 +1,45 @@
-name: Frontend CI (Vite Build)
+name: Frontend Docker CI/CD (Production Ready)
 
 on:
   push:
-    branches: [ "main" ] # 브랜치 이름이 master라면 수정 필요
-  pull_request:
-    branches: [ "main" ]
+    branches:
+      - develop
+      - main
+
+env:
+  REGISTRY: ghcr.io
+  IMAGE_NAME: ${{ github.repository }}
 
 jobs:
-  build-check:
+  build-and-push:
     runs-on: ubuntu-latest
 
-    strategy:
-      matrix:
-        node-version: [20.x] # Vite 6.x는 최신 Node 버전(18, 20+) 권장
+    permissions:
+      contents: read
+      packages: write
 
     steps:
-    # 1. 코드 가져오기
-    - name: Checkout code
-      uses: actions/checkout@v4
+      - name: Checkout repository
+        uses: actions/checkout@v4
 
-    # 2. Node.js 설정
-    - name: Setup Node.js ${{ matrix.node-version }}
-      uses: actions/setup-node@v4
-      with:
-        node-version: ${{ matrix.node-version }}
-        cache: 'npm'
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v3
 
-    # 3. 의존성 설치
-    # package-lock.json이 있다면 npm ci가 더 빠르고 안전합니다.
-    # 만약 lock 파일이 없다면 npm install로 변경해서 사용하세요.
-    - name: Install dependencies
-      run: npm ci
+      - name: Login to GHCR
+        uses: docker/login-action@v3
+        with:
+          registry: ${{ env.REGISTRY }}
+          username: ${{ github.actor }}
+          password: ${{ secrets.GITHUB_TOKEN }}
 
-    # 4. 빌드 확인 (핵심 단계)
-    # Vite 빌드가 실패하면 여기서 에러가 나고, PR에 빨간불이 들어옵니다.
-    - name: Build Project
-      run: npm run build
+      - name: Build and Push Docker Image
+        uses: docker/build-push-action@v5
+        with:
+          context: .
+          file: ./Dockerfile
+          push: true
+
+          tags: ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}/frontend:latest
+
+          cache-from: type=gha
+          cache-to: type=gha,mode=max

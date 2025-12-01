@@ -31,19 +31,31 @@
 }
 
 .menu-inventory .menu-more-btn {
-  padding: 8px 20px;
+  padding: 22px 14px;
   background-color: #f6910b;
-  border-radius: 12px;
+  border-radius: 50px; 
+  
   color: #ffffff;
-  cursor: pointer;
   font-family: "Inter", Helvetica;
   font-size: 16px;
-  font-weight: 600;
+  font-weight: 700; 
   text-decoration: none;
-  transition: all 0.2s;
+  line-height: 1;
+  
   display: flex;
+  flex-direction: row; 
   align-items: center;
-  gap: 5px;
+  justify-content: center;
+  gap: 8px; 
+  
+  writing-mode: vertical-rl;
+  text-orientation: upright;
+  white-space: nowrap;       
+  text-align: center;   
+  
+  cursor: pointer;
+  transition: all 0.2s ease;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
 .menu-inventory .menu-more-btn:hover {

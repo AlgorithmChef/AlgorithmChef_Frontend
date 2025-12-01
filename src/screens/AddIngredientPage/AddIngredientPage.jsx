@@ -1,45 +1,111 @@
-import React, { useState, useEffect } from "react";
-import { Link, useNavigate } from "react-router-dom"; // Removed useLocation
+import React, { useState, useRef, useEffect } from "react";
+import { Link, useNavigate } from "react-router-dom";
 import { UnifiedHeader } from "../../components/UnifiedHeader";
+import { BiSolidRightArrow, BiSolidLeftArrow } from "react-icons/bi";
 import "./style.css";
+import { useAuth } from "../../contexts/AuthContext";
+import { registerIngredientManual } from "../../api/fridgeApi";
+import { updateIngredients } from "../../api/fridgeApi";
+import {
+  filterIngredientsByName,
+  getIngredientsInfo,
+  filterIngredientsByCategory,
+} from "../../api/ingredientsApi";
 
-const CATEGORIES = ["전체", "육류", "채소류", "가공류", "유제품", "기타"];
+import { AddIngredientPopup } from "../../components/AddIngredientPopup/AddIngredientPopup";
 
-const MOCK_INGREDIENT_DATABASE = [
-  // TODO: Backend Integration: Replace with API call to fetch all available ingredients from DB
-  { id: 1, name: "양파", category: "채소류", image: "https://c.animaapp.com/sjWITF5i/img/ingredientimage-1.png" },
-  { id: 2, name: "닭고기", category: "육류", image: "https://c.animaapp.com/sjWITF5i/img/ingredientimage-7@2x.png" },
-  { id: 3, name: "돼지고기", category: "육류", image: "https://c.animaapp.com/sjWITF5i/img/ingredientimage-7@2x.png" },
-  { id: 4, name: "소고기", category: "육류", image: "https://c.animaapp.com/sjWITF5i/img/ingredientimage-7@2x.png" },
-  { id: 5, name: "고추장", category: "가공류", image: "https://c.animaapp.com/sjWITF5i/img/ingredientimage-7@2x.png" },
-  { id: 6, name: "고춧가루", category: "가공류", image: "https://c.animaapp.com/sjWITF5i/img/ingredientimage-7@2x.png" },
-  { id: 7, name: "된장", category: "가공류", image: "https://c.animaapp.com/sjWITF5i/img/ingredientimage-7@2x.png" },
-  { id: 8, name: "간장", category: "가공류", image: "https://c.animaapp.com/sjWITF5i/img/ingredientimage-7@2x.png" },
-  { id: 9, name: "양배추", category: "채소류", image: "https://c.animaapp.com/sjWITF5i/img/ingredientimage-7@2x.png" },
-  { id: 10, name: "당근", category: "채소류", image: "https://c.animaapp.com/sjWITF5i/img/ingredientimage-7@2x.png" },
-  { id: 11, name: "감자", category: "채소류", image: "https://c.animaapp.com/sjWITF5i/img/ingredientimage-7@2x.png" },
-  { id: 12, name: "마늘", category: "채소류", image: "https://c.animaapp.com/sjWITF5i/img/ingredientimage-7@2x.png" },
-  { id: 13, name: "우유", category: "유제품", image: "https://c.animaapp.com/sjWITF5i/img/ingredientimage-7@2x.png" },
-  { id: 14, name: "치즈", category: "유제품", image: "https://c.animaapp.com/sjWITF5i/img/ingredientimage-7@2x.png" },
-  { id: 15, name: "요거트", category: "유제품", image: "https://c.animaapp.com/sjWITF5i/img/ingredientimage-7@2x.png" },
-  { id: 16, name: "계란", category: "기타", image: "https://c.animaapp.com/sjWITF5i/img/ingredientimage-7@2x.png" },
+const CATEGORIES = [
+  "전체",
+  "육류",
+  "가공육",
+  "난류",
+  "수산물",
+  "가공수산물",
+  "건어물",
+  "젓갈",
+  "채소",
+  "버섯",
+  "유제품",
+  "두부류",
+  "콩가공품",
+  "콩",
+  "김치류",
+  "절임류",
+  "빵류",
+  "기타",
+  "가공식품",
+  "과일",
+  "조미료",
+  "향신료",
+  "곡류",
+  "견과",
 ];
+const DEFAULT_IMAGE_URL =
+  "https://c.animaapp.com/sjWITF5i/img/ingredientimage-7@2x.png";
 
 export const AddIngredientPage = () => {
   const navigate = useNavigate();
-  // Removed useLocation and onAddMultipleIngredients here
-  // const location = useLocation();
-  // const onAddMultipleIngredients = location.state?.onAddMultipleIngredients; 
+  const scrollRef = useRef(null);
 
   const [selectedCategory, setSelectedCategory] = useState("전체");
   const [searchQuery, setSearchQuery] = useState("");
   const [selectedIngredients, setSelectedIngredients] = useState([]);
+  const [previewIngredients, setPreviewIngredients] = useState([]);
+  const [page, setPage] = useState(0);
+  const itemsPerPage = 7;
+  const [ingredients, setIngredients] = useState([]);
+  const { isAuthenticated } = useAuth();
+  const [currentView, setCurrentView] = useState(false);
 
-  const filteredIngredients = MOCK_INGREDIENT_DATABASE.filter((ingredient) => {
-    const matchesCategory = selectedCategory === "전체" || ingredient.category === selectedCategory;
-    const matchesSearch = ingredient.name.toLowerCase().includes(searchQuery.toLowerCase());
-    return matchesCategory && matchesSearch;
-  });
+  useEffect(() => {
+    setPage(0);
+  }, [searchQuery, selectedCategory]);
+
+  useEffect(() => {
+    if (!isAuthenticated) {
+      setIngredients([]);
+      return;
+    }
+
+    const fetchData = async () => {
+      let ingredientData = [];
+      try {
+        if (searchQuery) {
+          ingredientData = await filterIngredientsByName(
+            page,
+            itemsPerPage,
+            searchQuery
+          );
+        } else if (selectedCategory && selectedCategory !== "전체") {
+          ingredientData = await filterIngredientsByCategory(
+            page,
+            itemsPerPage,
+            selectedCategory
+          );
+        } else {
+          ingredientData = await getIngredientsInfo(page, itemsPerPage);
+        }
+
+        if (ingredientData.content) {
+          setIngredients(ingredientData.content);
+        } else if (Array.isArray(ingredientData)) {
+          setIngredients(ingredientData);
+        } else {
+          setIngredients([]);
+        }
+      } catch (error) {
+        console.error("재료 데이터 로딩 실패");
+      }
+    };
+    fetchData();
+  }, [isAuthenticated, searchQuery, selectedCategory, page]);
+
+  function handlePrev() {
+    setPage((prev) => Math.max(prev - 1, 0));
+  }
+  function handleNext() {
+    if (ingredients.length === itemsPerPage) setPage((prev) => prev + 1);
+  }
 
   const toggleIngredient = (ingredient) => {
     setSelectedIngredients((prev) => {
@@ -47,36 +113,87 @@ export const AddIngredientPage = () => {
       if (exists) {
         return prev.filter((item) => item.id !== ingredient.id);
       } else {
-        return [...prev, { ...ingredient, expiryDays: 7 }]; // Default expiry days
+        const today = new Date().toISOString().split("T")[0];
+        return [
+          ...prev,
+          {
+            ...ingredient,
+            purchaseDate: today,
+            image: DEFAULT_IMAGE_URL,
+          },
+        ];
       }
     });
   };
 
-  const handleAddIngredients = () => {
+  const handleAddIngredients = async () => {
     if (selectedIngredients.length === 0) {
       alert("추가할 식재료를 선택해주세요.");
       return;
     }
-    
-    // Directly update localStorage for userIngredients
-    const currentIngredients = JSON.parse(localStorage.getItem("userIngredients") || "[]");
-    const updatedIngredients = [...currentIngredients, ...selectedIngredients];
-    localStorage.setItem("userIngredients", JSON.stringify(updatedIngredients));
 
-    // TODO: Backend Integration: Send selectedIngredients to backend
-    console.log("Adding ingredients to mock DB:", selectedIngredients);
-    
-    navigate("/desktop"); // Navigate back to desktop
+    try {
+      const requestData = selectedIngredients.map((item) => ({
+        name: item.name,
+        purchaseDate: `${item.purchaseDate}T00:00:00`,
+      }));
+
+      const response = await registerIngredientManual(requestData);
+
+      if (response && response.ingredients) {
+        setPreviewIngredients(response.ingredients);
+        setCurrentView("확인");
+      }
+    } catch (error) {
+      console.error("1차 등록 실패:", error);
+      alert("재료 정보를 불러오는 데 실패했습니다.");
+    }
   };
+
+  const handleFinalRegister = async (updatedItems) => {
+    try {
+      const requestData = {
+        ingredients: updatedItems.map((item) => ({
+          ingredientId: item.id,
+          purchaseDate: `${item.purchaseDate}T00:00:00`,
+          expiredDate: item.expiredDate ? `${item.expiredDate}T00:00:00` : null,
+        })),
+      };
+
+      const result = await updateIngredients(requestData);
+
+      if (result) {
+        alert("재료가 성공적으로 저장되었습니다!");
+        setSelectedIngredients([]);
+        setPreviewIngredients([]);
+        setCurrentView(false);
+        navigate("/desktop");
+      }
+    } catch (error) {
+      console.error("최종 저장 실패:", error);
+      alert("재료 수정에 실패했습니다.");
+    }
+  };
+
+  if (currentView === "확인") {
+    return (
+      <AddIngredientPopup
+        items={previewIngredients}
+        onAdd={handleFinalRegister}
+        onClose={() => setCurrentView(false)}
+      />
+    );
+  }
 
   return (
     <div className="add-ingredient-page">
       <UnifiedHeader />
-
       <div className="add-ingredient-content">
         <div className="add-ingredient-title-section">
           <h1 className="add-ingredient-title">식재료 추가</h1>
-          <p className="add-ingredient-subtitle">냉장고에 추가할 식재료를 선택하세요</p>
+          <p className="add-ingredient-subtitle">
+            냉장고에 추가할 식재료를 선택하세요
+          </p>
         </div>
 
         <div className="add-ingredient-search-section">
@@ -93,7 +210,9 @@ export const AddIngredientPage = () => {
           {CATEGORIES.map((category) => (
             <button
               key={category}
-              className={`add-ingredient-category-btn ${selectedCategory === category ? "active" : ""}`}
+              className={`add-ingredient-category-btn ${
+                selectedCategory === category ? "active" : ""
+              }`}
               onClick={() => setSelectedCategory(category)}
             >
               {category}
@@ -101,28 +220,47 @@ export const AddIngredientPage = () => {
           ))}
         </div>
 
-        <div className="add-ingredient-grid">
-          {filteredIngredients.map((ingredient) => {
-            const isSelected = selectedIngredients.find((item) => item.id === ingredient.id);
-            return (
-              <button
-                key={ingredient.id}
-                className={`add-ingredient-card ${isSelected ? "selected" : ""}`}
-                onClick={() => toggleIngredient(ingredient)}
-              >
-                <img
-                  src={ingredient.image}
-                  alt={ingredient.name}
-                  className="add-ingredient-card-image"
-                />
-                <div className="add-ingredient-card-name">{ingredient.name}</div>
-                <div className="add-ingredient-card-category">{ingredient.category}</div>
-                {isSelected && (
-                  <div className="add-ingredient-card-check">✓</div>
-                )}
-              </button>
-            );
-          })}
+        {/* 가로 스크롤 그리드 */}
+        <div className="add-ingredient-grid-wrapper">
+          <button className="scroll-arrow-btn left" onClick={handlePrev}>
+            <BiSolidLeftArrow />
+          </button>
+
+          <div className="add-ingredient-grid" ref={scrollRef}>
+            {ingredients.map((ingredient) => {
+              const isSelected = selectedIngredients.find(
+                (item) => item.id === ingredient.id
+              );
+              return (
+                <button
+                  key={ingredient.id}
+                  className={`add-ingredient-card ${
+                    isSelected ? "selected" : ""
+                  }`}
+                  onClick={() => toggleIngredient(ingredient)}
+                >
+                  <img
+                    src={DEFAULT_IMAGE_URL}
+                    alt={ingredient.name}
+                    className="add-ingredient-card-image"
+                  />
+                  <div className="add-ingredient-card-name">
+                    {ingredient.name}
+                  </div>
+                  <div className="add-ingredient-card-category">
+                    {ingredient.category}
+                  </div>
+                  {isSelected && (
+                    <div className="add-ingredient-card-check">✓</div>
+                  )}
+                </button>
+              );
+            })}
+          </div>
+
+          <button className="scroll-arrow-btn right" onClick={handleNext}>
+            <BiSolidRightArrow />
+          </button>
         </div>
 
         <div className="add-ingredient-footer">

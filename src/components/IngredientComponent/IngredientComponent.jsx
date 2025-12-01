@@ -1,36 +1,50 @@
-/*
-We're constantly improving the code you see. 
-Please share your feedback here: https://form.asana.com/?k=uvp-HPgd3_hyoXRBw1IcNg&d=1152665201300829
-*/
-
-import React from "react";
+import React, { useState } from "react";
 import "./style.css";
+import ChangeIngredientPopup from "../AddIngredientPopup/ChangeIngrdientPopup";
 
 export const IngredientComponent = ({
   className,
-  ingredientImage = "https://c.animaapp.com/sjWITF5i/img/ingredientimage-1.png",
-  text = "양파",
-  expiryDays = 0,
+  ingredientImage,
+  ingredient,
+  onUpdate,
 }) => {
-  return (
-    <div className={`ingredient-component ${className}`}>
-      <div className="ingredient-container">
-        <div className="ingredient-header">
-          <img
-            className="ingredient-image"
-            alt="Ingredient image"
-            src={ingredientImage}
-          />
+  const { name, dday } = ingredient;
 
-          <div className="ingredient-name">
-            <div className="ingredient-name-text">{text}</div>
+  const [showPopup, setShowPopup] = useState(false);
+
+  return (
+    <>
+      <div
+        className={`ingredient-component ${className}`}
+        onClick={() => setShowPopup(true)}
+        style={{ cursor: "pointer" }}
+      >
+        <div className="ingredient-container">
+          <div className="ingredient-header">
+            <img
+              className="ingredient-image"
+              alt="Ingredient image"
+              src={ingredientImage}
+            />
+
+            <div className="ingredient-name">
+              <div className="ingredient-name-text">{name}</div>
+            </div>
+          </div>
+
+          <div className="ingredient">
+            <div className="ingredient-2">소비기한 : {dday}일</div>
           </div>
         </div>
-
-        <div className="ingredient">
-          <div className="ingredient-2">유통기한 : {expiryDays}일</div>
-        </div>
       </div>
-    </div>
+
+      {showPopup && (
+        <ChangeIngredientPopup
+          ingredient={ingredient}
+          onClose={() => setShowPopup(false)}
+          onUpdate={onUpdate}
+        />
+      )}
+    </>
   );
 };
