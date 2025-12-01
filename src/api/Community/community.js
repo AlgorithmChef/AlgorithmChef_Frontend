@@ -9,9 +9,27 @@ export const getPostList = async (page, size, filter) => {
         Authorization: `Bearer ${token}`,
       },
       params: {
-        page: page,
+        page,
         size,
         filter: filter || null,
+      },
+    });
+    return response.data;
+  } catch (error) {
+    if (error.response) {
+      console.log(error.response.status);
+      console.log(error.response.data);
+    }
+    throw error;
+  }
+};
+
+export const getPosts = async () => {
+  const token = localStorage.getItem("accessToken");
+  try {
+    const response = await axios.get(`${BACKEND_DOMAIN}/posts`, {
+      headers: {
+        Authorization: `Bearer ${token}`,
       },
     });
     return response.data;

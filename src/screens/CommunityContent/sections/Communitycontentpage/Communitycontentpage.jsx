@@ -18,29 +18,35 @@ export const Communitycontentpage = () => {
   const { id } = useParams();
   const { isAuthenticated } = useAuth();
 
+  // 1. 초기값 설정
   const [currentPost, setCurrentPost] = useState(location.state?.post || null);
   const [loading, setLoading] = useState(!location.state?.post);
   const [showUpdatePage, setShowUpdatePage] = useState(false);
 
+  // 댓글 관련 상태
   const [comments, setComments] = useState([]);
   const [newComment, setNewComment] = useState("");
   const [replyingTo, setReplyingTo] = useState(null);
   const [repliesState, setRepliesState] = useState({});
 
+  // 날짜 포맷팅 함수 (YYYY-MM-DD 형식)
   const formatDate = (dateString) => {
     if (!dateString) return "";
     return String(dateString).substring(0, 10);
   };
 
+  // 2. [핵심] 데이터 로드 (무조건 API 실행)
   useEffect(() => {
-    //게시글의 댓글 가져오는 함수
     const fetchPostData = async () => {
       try {
         if (!currentPost) setLoading(true);
 
+        // API 호출: 댓글을 포함한 최신 상세 정보를 가져옵니다.
         const response = await getPostDetail(parseInt(id));
+
         setCurrentPost(response);
 
+        // 댓글 목록 상태 업데이트 (화면에 반영)
         if (response.comments) {
           setComments(response.comments);
         }
@@ -60,6 +66,7 @@ export const Communitycontentpage = () => {
     }
   }, [id, navigate]);
 
+  // 대댓글 로드 핸들러
   const handleToggleReplies = async (commentId) => {
     const currentState = repliesState[commentId] || {
       list: [],
@@ -87,17 +94,7 @@ export const Communitycontentpage = () => {
   const loadReplies = async (commentId, page) => {
     try {
       const response = await getReplies(commentId, page);
-
-      let newReplies = [];
-      if (Array.isArray(response)) {
-        newReplies = response;
-      } else if (response && Array.isArray(response.replies)) {
-        newReplies = response.replies;
-      } else if (response && Array.isArray(response.content)) {
-        newReplies = response.content;
-      } else {
-        newReplies = [];
-      }
+      const newReplies = response || [];
 
       setRepliesState((prev) => {
         const prevState = prev[commentId] || { list: [] };
@@ -113,9 +110,11 @@ export const Communitycontentpage = () => {
       });
     } catch (error) {
       console.error("대댓글 로드 실패:", error);
+      alert("대댓글을 불러오지 못했습니다.");
     }
   };
 
+  // 삭제 핸들러
   const handleDelete = async () => {
     if (!isAuthenticated) return alert("로그인이 필요합니다.");
     if (window.confirm("정말 삭제하시겠습니까?")) {
@@ -129,6 +128,7 @@ export const Communitycontentpage = () => {
     }
   };
 
+  // 수정 핸들러
   const handlePostUpdate = async (updatedData) => {
     try {
       const response = await updatePost(parseInt(id), updatedData);
@@ -144,6 +144,7 @@ export const Communitycontentpage = () => {
     }
   };
 
+  // 댓글 작성
   const handleCommentSubmit = async (e) => {
     e.preventDefault();
     if (!isAuthenticated) return alert("로그인이 필요합니다.");
@@ -157,11 +158,13 @@ export const Communitycontentpage = () => {
     try {
       await createComment(parseInt(id), commentRequest);
 
+      // 작성 후 댓글 목록 새로고침 (API 재호출)
       const updatedPost = await getPostDetail(parseInt(id));
       if (updatedPost.comments) {
         setComments(updatedPost.comments);
       }
 
+      // 대댓글 작성인 경우 해당 목록 갱신
       if (replyingTo) {
         loadReplies(replyingTo.commentId, 0);
       }
@@ -174,10 +177,10 @@ export const Communitycontentpage = () => {
     }
   };
 
+  // [UI] 댓글 아이템 렌더링
   const renderCommentItem = (comment) => {
     const repliesInfo = repliesState[comment.commentId];
     const isExpanded = repliesInfo?.expanded;
-
     const rawList = repliesInfo?.list;
     const repliesList = Array.isArray(rawList) ? rawList : [];
 
@@ -195,7 +198,7 @@ export const Communitycontentpage = () => {
               className="comment-date"
               style={{ fontSize: "12px", color: "#999" }}
             >
-              {formatDate(comment.createdAt)}
+              {formatDate(comment.createdAt || comment.date)}
             </div>
           </div>
           <div className="comment-content" style={{ margin: "5px 0" }}>
@@ -252,7 +255,7 @@ export const Communitycontentpage = () => {
                 style={{ backgroundColor: "#f9f9f9", marginTop: "5px" }}
               >
                 <div className="comment-author" style={{ fontSize: "13px" }}>
-                  ↳ {reply.userId}
+                  ↳ {reply.userId || reply.author}
                 </div>
                 <div className="comment-content" style={{ fontSize: "13px" }}>
                   {reply.content}
@@ -266,7 +269,7 @@ export const Communitycontentpage = () => {
               </div>
             ))}
 
-            {repliesInfo?.hasMore && (
+            {repliesInfo.hasMore && (
               <button
                 onClick={() =>
                   loadReplies(comment.commentId, repliesInfo.page + 1)
@@ -291,7 +294,9 @@ export const Communitycontentpage = () => {
 
   if (loading) return <div className="communitycontentpage">로딩 중...</div>;
   if (!currentPost)
-    return <div className="communitycontentpage">게시글 없음</div>;
+    return (
+      <div className="communitycontentpage">게시글을 찾을 수 없습니다.</div>
+    );
 
   if (showUpdatePage) {
     return (
@@ -306,6 +311,7 @@ export const Communitycontentpage = () => {
   return (
     <div className="communitycontentpage">
       <div className="div-3">
+        {/* 상단 네비게이션 */}
         <div
           style={{
             display: "flex",
@@ -353,6 +359,7 @@ export const Communitycontentpage = () => {
           </div>
         </div>
 
+        {/* 게시글 헤더 */}
         <div className="content-header">
           <div className="content-headertext">{currentPost.title}</div>
           {isAuthenticated && (
@@ -370,6 +377,7 @@ export const Communitycontentpage = () => {
           )}
         </div>
 
+        {/* 작성자 정보 */}
         <div className="navbar">
           <div className="text-wrapper-6">작성자</div>
           <div className="text-wrapper-6">
@@ -377,10 +385,11 @@ export const Communitycontentpage = () => {
           </div>
           <div className="text-wrapper-6">작성일</div>
           <div className="text-wrapper-6">
-            {formatDate(currentPost.createdAt)}
+            {formatDate(currentPost.date || currentPost.createdAt)}
           </div>
         </div>
 
+        {/* 본문 내용 */}
         <div className="content">
           <p className="content-text">{currentPost.content}</p>
         </div>

@@ -33,12 +33,11 @@
       ]
     },
     {
-      "id": "src/screens/CommunityContent/CommunityContent.jsx",
-      "label": "CommunityContent",
+      "id": "src/screens/CommunityContent/sections/Communitycontentpage/Communitycontentpage.jsx",
+      "label": "Communitycontentpage",
       "routes": [
         "/communitycontentpage/:id"
-      ],
-      "dataModelId": "107:399"
+      ]
     },
     {
       "id": "src/screens/AddIngredientPage/AddIngredientPage.jsx",
@@ -240,15 +239,15 @@
       }
     },
     {
-      "id": "src\\screens\\Desktop\\sections\\Community\\Community.jsx:18:6-to-src\\screens\\CommunityPage\\CommunityPage.jsx",
+      "id": "src\\screens\\Desktop\\sections\\Community\\Community.jsx:53:6-to-src\\screens\\CommunityPage\\CommunityPage.jsx",
       "source": "src\\screens\\Desktop\\Desktop.jsx",
       "target": "src\\screens\\CommunityPage\\CommunityPage.jsx",
       "data": {
         "viaRoute": "/communitypage",
         "trigger": {
           "element": "<Link className=\"community-header\" to=\"/communitypage\">\r\n        <div className=\"community-header-2\">재료 나눔 게시판</div>\r\n      </Link>",
-          "line": 18,
-          "endLine": 20,
+          "line": 53,
+          "endLine": 55,
           "column": 6,
           "endColumn": 13,
           "sourceFile": "src\\screens\\Desktop\\sections\\Community\\Community.jsx"
@@ -672,130 +671,50 @@
       }
     },
     {
-      "id": "src\\components\\UnifiedHeader\\UnifiedHeader.jsx:74:14-to-src\\screens\\Desktop\\Desktop.jsx",
-      "source": "src\\screens\\Desktop\\Desktop.jsx",
-      "target": "src\\screens\\Desktop\\Desktop.jsx",
-      "data": {
-        "viaRoute": "/desktop",
-        "trigger": {
-          "element": "<Link\r\n                to=\"/desktop\"\r\n                className=\"menu-item\"\r\n                onClick={() => setShowMenu(false)}\r\n              >\r\n                홈\r\n              </Link>",
-          "line": 74,
-          "endLine": 80,
-          "column": 14,
-          "endColumn": 21,
-          "sourceFile": "src\\components\\UnifiedHeader\\UnifiedHeader.jsx"
-        }
-      }
-    },
-    {
-      "id": "src\\components\\UnifiedHeader\\UnifiedHeader.jsx:81:14-to-src\\screens\\MenuRecommendationPage\\MenuRecommendationPage.jsx",
-      "source": "src\\screens\\Desktop\\Desktop.jsx",
-      "target": "src\\screens\\MenuRecommendationPage\\MenuRecommendationPage.jsx",
-      "data": {
-        "viaRoute": "/menurecommendation",
-        "trigger": {
-          "element": "<Link\r\n                to=\"/menurecommendation\"\r\n                className=\"menu-item\"\r\n                onClick={() => setShowMenu(false)}\r\n              >\r\n                메뉴 추천\r\n              </Link>",
-          "line": 81,
-          "endLine": 87,
-          "column": 14,
-          "endColumn": 21,
-          "sourceFile": "src\\components\\UnifiedHeader\\UnifiedHeader.jsx"
-        }
-      }
-    },
-    {
-      "id": "src\\components\\UnifiedHeader\\UnifiedHeader.jsx:88:14-to-src\\screens\\CommunityPage\\CommunityPage.jsx",
-      "source": "src\\screens\\Desktop\\Desktop.jsx",
+      "id": "src\\screens\\CommunityContent\\sections\\Communitycontentpage\\Communitycontentpage.jsx:51:10-to-src\\screens\\CommunityPage\\CommunityPage.jsx",
+      "source": "src\\screens\\CommunityContent\\sections\\Communitycontentpage\\Communitycontentpage.jsx",
       "target": "src\\screens\\CommunityPage\\CommunityPage.jsx",
       "data": {
         "viaRoute": "/communitypage",
         "trigger": {
-          "element": "<Link\r\n                to=\"/communitypage\"\r\n                className=\"menu-item\"\r\n                onClick={() => setShowMenu(false)}\r\n              >\r\n                재료 나눔 게시판\r\n              </Link>",
-          "line": 88,
-          "endLine": 94,
-          "column": 14,
-          "endColumn": 21,
-          "sourceFile": "src\\components\\UnifiedHeader\\UnifiedHeader.jsx"
-        }
-      }
-    },
-    {
-      "id": "src\\components\\UnifiedHeader\\UnifiedHeader.jsx:95:14-to-src\\screens\\MyPage\\MyPage.jsx",
-      "source": "src\\screens\\Desktop\\Desktop.jsx",
-      "target": "src\\screens\\MyPage\\MyPage.jsx",
-      "data": {
-        "viaRoute": "/mypage",
-        "trigger": {
-          "element": "<Link\r\n                to=\"/mypage\"\r\n                className=\"menu-item\"\r\n                onClick={() => setShowMenu(false)}\r\n              >\r\n                마이페이지\r\n              </Link>",
-          "line": 95,
-          "endLine": 101,
-          "column": 14,
-          "endColumn": 21,
-          "sourceFile": "src\\components\\UnifiedHeader\\UnifiedHeader.jsx"
-        }
-      }
-    },
-    {
-      "id": "src\\components\\UnifiedHeader\\UnifiedHeader.jsx:104:10-to-src\\screens\\Desktop\\Desktop.jsx",
-      "source": "src\\screens\\Desktop\\Desktop.jsx",
-      "target": "src\\screens\\Desktop\\Desktop.jsx",
-      "data": {
-        "viaRoute": "/desktop",
-        "trigger": {
-          "element": "<Link to=\"/desktop\">\r\n            <img\r\n              className=\"unified-header-logo\"\r\n              alt=\"Logo\"\r\n              src=\"https://c.animaapp.com/sjWITF5i/img/iconimage-1.svg\"\r\n            />\r\n          </Link>",
-          "line": 104,
-          "endLine": 110,
+          "element": "navigate(\"/communitypage\")",
+          "line": 51,
+          "endLine": 51,
           "column": 10,
-          "endColumn": 17,
-          "sourceFile": "src\\components\\UnifiedHeader\\UnifiedHeader.jsx"
+          "endColumn": 36,
+          "sourceFile": "src\\screens\\CommunityContent\\sections\\Communitycontentpage\\Communitycontentpage.jsx"
         }
       }
     },
     {
-      "id": "src\\components\\UnifiedHeader\\UnifiedHeader.jsx:113:8-to-src\\screens\\Desktop\\Desktop.jsx",
-      "source": "src\\screens\\Desktop\\Desktop.jsx",
-      "target": "src\\screens\\Desktop\\Desktop.jsx",
+      "id": "src\\screens\\CommunityContent\\sections\\Communitycontentpage\\Communitycontentpage.jsx:125:8-to-src\\screens\\CommunityPage\\CommunityPage.jsx",
+      "source": "src\\screens\\CommunityContent\\sections\\Communitycontentpage\\Communitycontentpage.jsx",
+      "target": "src\\screens\\CommunityPage\\CommunityPage.jsx",
       "data": {
-        "viaRoute": "/desktop",
+        "viaRoute": "/communitypage",
         "trigger": {
-          "element": "<Link to=\"/desktop\" className=\"unified-header-center\">\r\n          <p className=\"unified-header-title\">\r\n            <span className=\"title-text-black\">알고리즘 </span>\r\n            <span className=\"title-text-orange\">셰프</span>\r\n          </p>\r\n        </Link>",
-          "line": 113,
-          "endLine": 118,
+          "element": "navigate(\"/communitypage\")",
+          "line": 125,
+          "endLine": 125,
           "column": 8,
-          "endColumn": 15,
-          "sourceFile": "src\\components\\UnifiedHeader\\UnifiedHeader.jsx"
+          "endColumn": 34,
+          "sourceFile": "src\\screens\\CommunityContent\\sections\\Communitycontentpage\\Communitycontentpage.jsx"
         }
       }
     },
     {
-      "id": "src\\components\\UnifiedHeader\\UnifiedHeader.jsx:121:10-to-src\\screens\\MyPage\\MyPage.jsx",
-      "source": "src\\screens\\Desktop\\Desktop.jsx",
-      "target": "src\\screens\\MyPage\\MyPage.jsx",
+      "id": "src\\screens\\CommunityContent\\sections\\Communitycontentpage\\Communitycontentpage.jsx:319:27-to-src\\screens\\CommunityPage\\CommunityPage.jsx",
+      "source": "src\\screens\\CommunityContent\\sections\\Communitycontentpage\\Communitycontentpage.jsx",
+      "target": "src\\screens\\CommunityPage\\CommunityPage.jsx",
       "data": {
-        "viaRoute": "/mypage",
+        "viaRoute": "/communitypage",
         "trigger": {
-          "element": "<Link to=\"/mypage\" className=\"unified-mypage-btn\">\r\n            <div className=\"unified-mypage-text\">마이페이지</div>\r\n          </Link>",
-          "line": 121,
-          "endLine": 123,
-          "column": 10,
-          "endColumn": 17,
-          "sourceFile": "src\\components\\UnifiedHeader\\UnifiedHeader.jsx"
-        }
-      }
-    },
-    {
-      "id": "src\\components\\PreferencesPopup\\PreferencesPopup.jsx:87:8-to-src\\screens\\Desktop\\Desktop.jsx",
-      "source": "src\\screens\\Desktop\\Desktop.jsx",
-      "target": "src\\screens\\Desktop\\Desktop.jsx",
-      "data": {
-        "viaRoute": "/desktop",
-        "trigger": {
-          "element": "navigate(\"/desktop\")",
-          "line": 87,
-          "endLine": 87,
-          "column": 8,
-          "endColumn": 28,
-          "sourceFile": "src\\components\\PreferencesPopup\\PreferencesPopup.jsx"
+          "element": "navigate(\"/communitypage\")",
+          "line": 319,
+          "endLine": 319,
+          "column": 27,
+          "endColumn": 53,
+          "sourceFile": "src\\screens\\CommunityContent\\sections\\Communitycontentpage\\Communitycontentpage.jsx"
         }
       }
     },
@@ -960,15 +879,15 @@
       }
     },
     {
-      "id": "src\\screens\\CreatePostPage\\CreatePostPage.jsx:16:6-to-src\\screens\\CommunityPage\\CommunityPage.jsx",
+      "id": "src\\screens\\CreatePostPage\\CreatePostPage.jsx:18:6-to-src\\screens\\CommunityPage\\CommunityPage.jsx",
       "source": "src\\screens\\CreatePostPage\\CreatePostPage.jsx",
       "target": "src\\screens\\CommunityPage\\CommunityPage.jsx",
       "data": {
         "viaRoute": "/communitypage",
         "trigger": {
           "element": "navigate(\"/communitypage\")",
-          "line": 16,
-          "endLine": 16,
+          "line": 18,
+          "endLine": 18,
           "column": 6,
           "endColumn": 32,
           "sourceFile": "src\\screens\\CreatePostPage\\CreatePostPage.jsx"
@@ -976,31 +895,31 @@
       }
     },
     {
-      "id": "src\\screens\\CreatePostPage\\CreatePostPage.jsx:49:4-to-src\\screens\\CommunityPage\\CommunityPage.jsx",
+      "id": "src\\screens\\CreatePostPage\\CreatePostPage.jsx:44:8-to-src\\screens\\CommunityPage\\CommunityPage.jsx",
       "source": "src\\screens\\CreatePostPage\\CreatePostPage.jsx",
       "target": "src\\screens\\CommunityPage\\CommunityPage.jsx",
       "data": {
         "viaRoute": "/communitypage",
         "trigger": {
           "element": "navigate(\"/communitypage\")",
-          "line": 49,
-          "endLine": 49,
-          "column": 4,
-          "endColumn": 30,
+          "line": 44,
+          "endLine": 44,
+          "column": 8,
+          "endColumn": 34,
           "sourceFile": "src\\screens\\CreatePostPage\\CreatePostPage.jsx"
         }
       }
     },
     {
-      "id": "src\\screens\\CreatePostPage\\CreatePostPage.jsx:88:12-to-src\\screens\\CommunityPage\\CommunityPage.jsx",
+      "id": "src\\screens\\CreatePostPage\\CreatePostPage.jsx:101:12-to-src\\screens\\CommunityPage\\CommunityPage.jsx",
       "source": "src\\screens\\CreatePostPage\\CreatePostPage.jsx",
       "target": "src\\screens\\CommunityPage\\CommunityPage.jsx",
       "data": {
         "viaRoute": "/communitypage",
         "trigger": {
           "element": "<Link to=\"/communitypage\" className=\"create-post-cancel-btn\">\r\n              취소\r\n            </Link>",
-          "line": 88,
-          "endLine": 90,
+          "line": 101,
+          "endLine": 103,
           "column": 12,
           "endColumn": 19,
           "sourceFile": "src\\screens\\CreatePostPage\\CreatePostPage.jsx"

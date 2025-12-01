@@ -1,53 +1,45 @@
-import React from "react";
-import { Link } from "react-router-dom";
+import React, { useState, useEffect } from "react";
+import { Link, useNavigate } from "react-router-dom";
 import { CommunitypageWrapper } from "../../../../components/CommunitypageWrapper";
 import "./style.css";
-
-const MOCK_POSTS = [
-  // TODO: Backend Integration: Replace with API call to fetch recent community posts
-  {
-    id: 1,
-    title: "돼지고기 100g 나눔합니다.",
-    author: "test3User",
-    date: "2025-11-03",
-    category: "나눔",
-    content: "돼지고기를 너무 많이 샀네요 남는 돼지고기 나눔해요",
-  },
-  {
-    id: 2,
-    title: "양파 2개 나눔해요",
-    author: "user123",
-    date: "2025-11-02",
-    category: "나눔",
-    content: "양파 2개 필요하신 분 가져가세요",
-  },
-  {
-    id: 3,
-    title: "닭고기 500g 나눔",
-    author: "foodlover",
-    date: "2025-11-01",
-    category: "나눔",
-    content: "신선한 닭고기 나눔합니다",
-  },
-  {
-    id: 4,
-    title: "고추장 새것 나눔합니다",
-    author: "chef99",
-    date: "2025-10-31",
-    category: "나눔",
-    content: "개봉 안한 고추장 드립니다",
-  },
-  {
-    id: 5,
-    title: "양배추 한통 가져가세요",
-    author: "veggie_fan",
-    date: "2025-10-30",
-    category: "나눔",
-    content: "양배추 한통 나눔해요",
-  },
-];
+import { getPosts } from "../../../../api/Community/community";
+import { useAuth } from "../../../../contexts/AuthContext";
 
 export const Community = () => {
+  const [posts, setPosts] = useState([]);
+  const { isAuthenticated } = useAuth();
+
+  const [totalPostsCount, setTotalPostsCount] = useState(0);
+
+  useEffect(() => {
+    if (!isAuthenticated) {
+      alert("로그인 필요");
+      setPosts([]);
+      return;
+    }
+    const fetchData = async () => {
+      try {
+        const response = await getPosts();
+
+        if (response && Array.isArray(response.posts)) {
+          setPosts(response.posts.slice(0, 5));
+
+          setTotalPostsCount(
+            response.pageInfo?.totalElements || response.posts.length
+          );
+        } else {
+          console.error("게시글 가져오기 실패: 응답 구조 오류");
+          setPosts([]);
+          alert("게시글 목록을 불러오는 중 오류가 발생했습니다.");
+        }
+      } catch (error) {
+        console.error("게시글 가져오는 도중 오류 발생", error);
+        setPosts([]);
+      }
+    };
+    fetchData();
+  }, [isAuthenticated]);
+
   return (
     <div className="community">
       <Link className="community-header" to="/communitypage">
@@ -55,24 +47,32 @@ export const Community = () => {
       </Link>
 
       <div className="community-contents">
-        {MOCK_POSTS.map((post, index) => (
-          <CommunitypageWrapper
-            key={post.id}
-            postId={post.id}
-            className={
-              index === 0
-                ? "communitypage-3"
-                : index === MOCK_POSTS.length - 1
-                ? "communitypage-5"
-                : "communitypage-4"
-            }
-            title={post.title}
-            author={post.author}
-            date={post.date}
-            category={post.category}
-            content={post.content}
-          />
-        ))}
+        {posts.length > 0 ? (
+          posts.map((post, index) => (
+            <CommunitypageWrapper
+              key={post.postId}
+              postId={post.postId}
+              className={
+                index === 0
+                  ? "communitypage-3"
+                  : index === posts.length - 1
+                  ? "communitypage-5"
+                  : "communitypage-4"
+              }
+              title={post.title}
+              author={post.userId}
+              date={post.createdAt}
+              category={post.category}
+              content={post.content}
+            />
+          ))
+        ) : (
+          <div style={{ padding: "20px", textAlign: "center", color: "#666" }}>
+            {isAuthenticated
+              ? "등록된 게시글이 없습니다."
+              : "로그인 후 게시글을 볼 수 있습니다."}
+          </div>
+        )}
       </div>
     </div>
   );
