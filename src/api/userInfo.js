@@ -4,7 +4,7 @@ const BACKEND_DOMAIN = "http://localhost:8080/user";
 export const makeSurveyApi = async (survey) => {
   const token = localStorage.getItem("accessToken");
   try {
-    const response = await axios.post(`${BACKEND_DOMAIN}/survey`, survey, {
+    const response = await axios.post(`${BACKEND_DOMAIN}/makeSurvey`, survey, {
       headers: {
         Authorization: `Bearer ${token}`,
       },

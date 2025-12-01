@@ -2,6 +2,7 @@ import { FaUser, FaBirthdayCake, FaIdCard } from "react-icons/fa";
 import "./style.css";
 
 function MyPageInfo({ age, id, birthDate }) {
+  console.log("아이디", id);
   return (
     <div className="mypage-info-card">
       <div className="mypage-info-header">
@@ -15,7 +16,7 @@ function MyPageInfo({ age, id, birthDate }) {
           </div>
           <div className="info-text">
             <span className="info-label">아이디</span>
-            <span className="info-value">{id || "skt2008"}</span>
+            <span className="info-value">{id}</span>
           </div>
         </div>
 
