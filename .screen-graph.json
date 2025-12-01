@@ -239,15 +239,15 @@
       }
     },
     {
-      "id": "src\\screens\\Desktop\\sections\\Community\\Community.jsx:53:6-to-src\\screens\\CommunityPage\\CommunityPage.jsx",
+      "id": "src\\screens\\Desktop\\sections\\Community\\Community.jsx:45:6-to-src\\screens\\CommunityPage\\CommunityPage.jsx",
       "source": "src\\screens\\Desktop\\Desktop.jsx",
       "target": "src\\screens\\CommunityPage\\CommunityPage.jsx",
       "data": {
         "viaRoute": "/communitypage",
         "trigger": {
           "element": "<Link className=\"community-header\" to=\"/communitypage\">\r\n        <div className=\"community-header-2\">재료 나눔 게시판</div>\r\n      </Link>",
-          "line": 53,
-          "endLine": 55,
+          "line": 45,
+          "endLine": 47,
           "column": 6,
           "endColumn": 13,
           "sourceFile": "src\\screens\\Desktop\\sections\\Community\\Community.jsx"
@@ -671,15 +671,15 @@
       }
     },
     {
-      "id": "src\\screens\\CommunityContent\\sections\\Communitycontentpage\\Communitycontentpage.jsx:51:10-to-src\\screens\\CommunityPage\\CommunityPage.jsx",
+      "id": "src\\screens\\CommunityContent\\sections\\Communitycontentpage\\Communitycontentpage.jsx:57:10-to-src\\screens\\CommunityPage\\CommunityPage.jsx",
       "source": "src\\screens\\CommunityContent\\sections\\Communitycontentpage\\Communitycontentpage.jsx",
       "target": "src\\screens\\CommunityPage\\CommunityPage.jsx",
       "data": {
         "viaRoute": "/communitypage",
         "trigger": {
           "element": "navigate(\"/communitypage\")",
-          "line": 51,
-          "endLine": 51,
+          "line": 57,
+          "endLine": 57,
           "column": 10,
           "endColumn": 36,
           "sourceFile": "src\\screens\\CommunityContent\\sections\\Communitycontentpage\\Communitycontentpage.jsx"
@@ -687,15 +687,15 @@
       }
     },
     {
-      "id": "src\\screens\\CommunityContent\\sections\\Communitycontentpage\\Communitycontentpage.jsx:125:8-to-src\\screens\\CommunityPage\\CommunityPage.jsx",
+      "id": "src\\screens\\CommunityContent\\sections\\Communitycontentpage\\Communitycontentpage.jsx:124:8-to-src\\screens\\CommunityPage\\CommunityPage.jsx",
       "source": "src\\screens\\CommunityContent\\sections\\Communitycontentpage\\Communitycontentpage.jsx",
       "target": "src\\screens\\CommunityPage\\CommunityPage.jsx",
       "data": {
         "viaRoute": "/communitypage",
         "trigger": {
           "element": "navigate(\"/communitypage\")",
-          "line": 125,
-          "endLine": 125,
+          "line": 124,
+          "endLine": 124,
           "column": 8,
           "endColumn": 34,
           "sourceFile": "src\\screens\\CommunityContent\\sections\\Communitycontentpage\\Communitycontentpage.jsx"
@@ -703,15 +703,15 @@
       }
     },
     {
-      "id": "src\\screens\\CommunityContent\\sections\\Communitycontentpage\\Communitycontentpage.jsx:319:27-to-src\\screens\\CommunityPage\\CommunityPage.jsx",
+      "id": "src\\screens\\CommunityContent\\sections\\Communitycontentpage\\Communitycontentpage.jsx:325:27-to-src\\screens\\CommunityPage\\CommunityPage.jsx",
       "source": "src\\screens\\CommunityContent\\sections\\Communitycontentpage\\Communitycontentpage.jsx",
       "target": "src\\screens\\CommunityPage\\CommunityPage.jsx",
       "data": {
         "viaRoute": "/communitypage",
         "trigger": {
           "element": "navigate(\"/communitypage\")",
-          "line": 319,
-          "endLine": 319,
+          "line": 325,
+          "endLine": 325,
           "column": 27,
           "endColumn": 53,
           "sourceFile": "src\\screens\\CommunityContent\\sections\\Communitycontentpage\\Communitycontentpage.jsx"

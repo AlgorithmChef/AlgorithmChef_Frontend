@@ -20,13 +20,13 @@ function FindId({ onClose, onSwitchToLogin }) {
     let newErrors = {};
 
     if (!isNotEmpty(email)) {
-      newErrors.email = "ÀÌ¸ŞÀÏÀ» ÀÔ·ÂÇØÁÖ¼¼¿ä.";
+      newErrors.email = "ì´ë©”ì¼ì„ ì…ë ¥í•´ì£¼ì„¸ìš”.";
     } else if (!isEmail(email)) {
-      newErrors.email = "¿Ã¹Ù¸¥ ÀÌ¸ŞÀÏ Çü½ÄÀÌ ¾Æ´Õ´Ï´Ù.";
+      newErrors.email = "ì˜¬ë°”ë¥¸ ì´ë©”ì¼ í˜•ì‹ì´ ì•„ë‹™ë‹ˆë‹¤.";
     }
 
     if (!isNotEmpty(birthDate)) {
-      newErrors.birthDate = "»ı³â¿ùÀÏÀ» ¼±ÅÃÇØÁÖ¼¼¿ä.";
+      newErrors.birthDate = "ìƒë…„ì›”ì¼ì„ ì„ íƒí•´ì£¼ì„¸ìš”.";
     }
 
     setErrors(newErrors);
@@ -40,10 +40,10 @@ function FindId({ onClose, onSwitchToLogin }) {
       if (result && result.userId) {
         setFoundId(result.userId);
       } else {
-        alert("ÀÏÄ¡ÇÏ´Â Á¤º¸°¡ ¾ø½À´Ï´Ù.");
+        alert("ì¼ì¹˜í•˜ëŠ” ì •ë³´ê°€ ì—†ìŠµë‹ˆë‹¤.");
       }
     } catch (error) {
-      alert("Ã£±â ½ÇÆĞ: ¼­¹ö ¿À·ù°¡ ¹ß»ıÇß½À´Ï´Ù.");
+      alert("ì°¾ê¸° ì‹¤íŒ¨: ì„œë²„ ì˜¤ë¥˜ê°€ ë°œìƒí–ˆìŠµë‹ˆë‹¤.");
     }
   };
 
@@ -66,7 +66,7 @@ function FindId({ onClose, onSwitchToLogin }) {
           </button>
 
           <div className="login-popup-header">
-            <h2 className="login-popup-title">¾ÆÀÌµğ Ã£±â ¼º°ø</h2>
+            <h2 className="login-popup-title">ì•„ì´ë”” ì°¾ê¸° ì„±ê³µ</h2>
           </div>
 
           <div style={{ padding: "30px 20px", textAlign: "center" }}>
@@ -83,7 +83,7 @@ function FindId({ onClose, onSwitchToLogin }) {
             <p
               style={{ marginBottom: "10px", color: "#666", fontSize: "16px" }}
             >
-              È¸¿ø´ÔÀÇ ¾ÆÀÌµğ¸¦ Ã£¾Ò½À´Ï´Ù!
+              íšŒì›ë‹˜ì˜ ì•„ì´ë””ë¥¼ ì°¾ì•˜ìŠµë‹ˆë‹¤!
             </p>
 
             <div
@@ -103,7 +103,7 @@ function FindId({ onClose, onSwitchToLogin }) {
               className="login-popup-submit-btn"
               onClick={onSwitchToLogin}
             >
-              ·Î±×ÀÎÇÏ·¯ °¡±â
+              ë¡œê·¸ì¸í•˜ëŸ¬ ê°€ê¸°
             </button>
           </div>
         </div>
@@ -121,17 +121,17 @@ function FindId({ onClose, onSwitchToLogin }) {
           X
         </button>
         <div className="login-popup-header">
-          <h2 className="login-popup-title">¾ÆÀÌµğ Ã£±â</h2>
+          <h2 className="login-popup-title">ì•„ì´ë”” ì°¾ê¸°</h2>
         </div>
 
         <form className="login-popup-form" onSubmit={handleSubmit}>
           <div className="login-popup-input-group">
             <label htmlFor="email" className="login-popup-label">
-              ÀÌ¸ŞÀÏ
+              ì´ë©”ì¼
             </label>
             <input
               type="email"
-              placeholder="ÀÌ¸ŞÀÏÀ» ÀÔ·ÂÇÏ¼¼¿ä"
+              placeholder="ì´ë©”ì¼ì„ ì…ë ¥í•˜ì„¸ìš”"
               className={`login-popup-input ${
                 errors.email ? "input-error" : ""
               }`}
@@ -148,12 +148,12 @@ function FindId({ onClose, onSwitchToLogin }) {
 
           <div className="login-popup-input-group">
             <label htmlFor="birthDate" className="login-popup-label">
-              »ı³â¿ùÀÏ
+              ìƒë…„ì›”ì¼
             </label>
             <input
               name="birthDate"
               type="date"
-              placeholder="»ı³â¿ùÀÏ ÀÔ·Â"
+              placeholder="ìƒë…„ì›”ì¼ ì…ë ¥"
               className={`login-popup-input ${
                 errors.birthDate ? "input-error" : ""
               }`}
@@ -167,7 +167,7 @@ function FindId({ onClose, onSwitchToLogin }) {
             )}
           </div>
 
-          <button className="login-popup-submit-btn">¾ÆÀÌµğ Ã£±â</button>
+          <button className="login-popup-submit-btn">ì•„ì´ë”” ì°¾ê¸°</button>
         </form>
 
         <div className="login-popup-footer">
@@ -176,7 +176,7 @@ function FindId({ onClose, onSwitchToLogin }) {
             className="login-popup-footer-text"
             style={{ marginTop: 5, cursor: "pointer" }}
           >
-            ·Î±×ÀÎÀ¸·Î µ¹¾Æ°¡±â
+            ë¡œê·¸ì¸ìœ¼ë¡œ ëŒì•„ê°€ê¸°
           </span>
         </div>
       </div>
